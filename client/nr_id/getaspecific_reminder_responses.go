@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/negbie/ngcp-api1/models"
+	"github.com/negbie/ngcp-api/models"
 )
 
 // GetaspecificReminderReader is a Reader for the GetaspecificReminder structure.

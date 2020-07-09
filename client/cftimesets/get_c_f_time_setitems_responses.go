@@ -12,7 +12,7 @@ import (
 	"github.com/go-openapi/runtime"
 	"github.com/go-openapi/strfmt"
 
-	"github.com/negbie/ngcp-api1/models"
+	"github.com/negbie/ngcp-api/models"
 )
 
 // GetCFTimeSetitemsReader is a Reader for the GetCFTimeSetitems structure.

@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // SIPCaptures SIPCaptures
+//
 // swagger:model SIPCaptures
 type SIPCaptures struct {
 
@@ -31,7 +31,7 @@ type SIPCaptures struct {
 
 	// dst port
 	// Required: true
-	DstPort *string `json:"dst_port"`
+	DstPort *float64 `json:"dst_port"`
 
 	// from uri
 	// Required: true

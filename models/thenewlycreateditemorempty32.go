@@ -6,32 +6,36 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty32 Thenewlycreateditemorempty32
+//
 // swagger:model Thenewlycreateditemorempty32
 type Thenewlycreateditemorempty32 struct {
-
-	// contract default
-	// Required: true
-	ContractDefault *string `json:"contract_default"`
-
-	// contract id
-	// Required: true
-	ContractID *string `json:"contract_id"`
 
 	// description
 	// Required: true
 	Description *string `json:"description"`
 
-	// name
+	// intra pbx
 	// Required: true
-	Name *string `json:"name"`
+	IntraPbx *string `json:"intra_pbx"`
+
+	// level
+	// Required: true
+	Level *string `json:"level"`
+
+	// local ac
+	// Required: true
+	LocalAc *string `json:"local_ac"`
+
+	// mode
+	// Required: true
+	Mode *string `json:"mode"`
 
 	// reseller id
 	// Required: true
@@ -42,19 +46,23 @@ type Thenewlycreateditemorempty32 struct {
 func (m *Thenewlycreateditemorempty32) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateContractDefault(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateContractID(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateIntraPbx(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLevel(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLocalAc(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMode(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,24 +76,6 @@ func (m *Thenewlycreateditemorempty32) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty32) validateContractDefault(formats strfmt.Registry) error {
-
-	if err := validate.Required("contract_default", "body", m.ContractDefault); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty32) validateContractID(formats strfmt.Registry) error {
-
-	if err := validate.Required("contract_id", "body", m.ContractID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
 func (m *Thenewlycreateditemorempty32) validateDescription(formats strfmt.Registry) error {
 
 	if err := validate.Required("description", "body", m.Description); err != nil {
@@ -95,9 +85,36 @@ func (m *Thenewlycreateditemorempty32) validateDescription(formats strfmt.Regist
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty32) validateName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty32) validateIntraPbx(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("intra_pbx", "body", m.IntraPbx); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty32) validateLevel(formats strfmt.Registry) error {
+
+	if err := validate.Required("level", "body", m.Level); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty32) validateLocalAc(formats strfmt.Registry) error {
+
+	if err := validate.Required("local_ac", "body", m.LocalAc); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty32) validateMode(formats strfmt.Registry) error {
+
+	if err := validate.Required("mode", "body", m.Mode); err != nil {
 		return err
 	}
 

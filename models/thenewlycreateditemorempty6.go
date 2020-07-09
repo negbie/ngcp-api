@@ -6,28 +6,36 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty6 Thenewlycreateditemorempty6
+//
 // swagger:model Thenewlycreateditemorempty6
 type Thenewlycreateditemorempty6 struct {
 
-	// from pattern
+	// data
 	// Required: true
-	FromPattern *string `json:"from_pattern"`
+	Data *string `json:"data"`
 
-	// protocol
+	// destination
 	// Required: true
-	Protocol *string `json:"protocol"`
+	Destination *string `json:"destination"`
 
-	// src ip
+	// faxfile
 	// Required: true
-	SrcIP *string `json:"src_ip"`
+	Faxfile *string `json:"faxfile"`
+
+	// pageheader
+	// Required: true
+	Pageheader *string `json:"pageheader"`
+
+	// quality
+	// Required: true
+	Quality *string `json:"quality"`
 
 	// subscriber id
 	// Required: true
@@ -38,15 +46,23 @@ type Thenewlycreateditemorempty6 struct {
 func (m *Thenewlycreateditemorempty6) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateFromPattern(formats); err != nil {
+	if err := m.validateData(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateProtocol(formats); err != nil {
+	if err := m.validateDestination(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSrcIP(formats); err != nil {
+	if err := m.validateFaxfile(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePageheader(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQuality(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,27 +76,45 @@ func (m *Thenewlycreateditemorempty6) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty6) validateFromPattern(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty6) validateData(formats strfmt.Registry) error {
 
-	if err := validate.Required("from_pattern", "body", m.FromPattern); err != nil {
+	if err := validate.Required("data", "body", m.Data); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty6) validateProtocol(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty6) validateDestination(formats strfmt.Registry) error {
 
-	if err := validate.Required("protocol", "body", m.Protocol); err != nil {
+	if err := validate.Required("destination", "body", m.Destination); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty6) validateSrcIP(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty6) validateFaxfile(formats strfmt.Registry) error {
 
-	if err := validate.Required("src_ip", "body", m.SrcIP); err != nil {
+	if err := validate.Required("faxfile", "body", m.Faxfile); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty6) validatePageheader(formats strfmt.Registry) error {
+
+	if err := validate.Required("pageheader", "body", m.Pageheader); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty6) validateQuality(formats strfmt.Registry) error {
+
+	if err := validate.Required("quality", "body", m.Quality); err != nil {
 		return err
 	}
 

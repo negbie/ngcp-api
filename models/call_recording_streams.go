@@ -6,20 +6,20 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CallRecordingStreams CallRecordingStreams
+//
 // swagger:model CallRecordingStreams
 type CallRecordingStreams struct {
 
 	// channels
 	// Required: true
-	Channels *string `json:"channels"`
+	Channels *float64 `json:"channels"`
 
 	// end time
 	// Required: true
@@ -31,11 +31,11 @@ type CallRecordingStreams struct {
 
 	// recording id
 	// Required: true
-	RecordingID *string `json:"recording_id"`
+	RecordingID *float64 `json:"recording_id"`
 
 	// sample rate
 	// Required: true
-	SampleRate *string `json:"sample_rate"`
+	SampleRate *float64 `json:"sample_rate"`
 
 	// start time
 	// Required: true

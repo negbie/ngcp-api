@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Voicemails Voicemails
+//
 // swagger:model Voicemails
 type Voicemails struct {
 
@@ -23,7 +23,7 @@ type Voicemails struct {
 
 	// duration
 	// Required: true
-	Duration *string `json:"duration"`
+	Duration *float64 `json:"duration"`
 
 	// folder
 	// Required: true
@@ -31,7 +31,7 @@ type Voicemails struct {
 
 	// subscriber id
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	SubscriberID *float64 `json:"subscriber_id"`
 
 	// time
 	// Required: true

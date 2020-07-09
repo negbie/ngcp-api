@@ -6,51 +6,99 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty45 Thenewlycreateditemorempty45
+//
 // swagger:model Thenewlycreateditemorempty45
 type Thenewlycreateditemorempty45 struct {
 
-	// filename
+	// amount net
 	// Required: true
-	Filename *string `json:"filename"`
+	AmountNet *string `json:"amount_net"`
 
-	// handle
+	// amount total
 	// Required: true
-	Handle *string `json:"handle"`
+	AmountTotal *string `json:"amount_total"`
 
-	// loopplay
+	// amount vat
 	// Required: true
-	Loopplay *string `json:"loopplay"`
+	AmountVat *string `json:"amount_vat"`
 
-	// set id
+	// customer id
 	// Required: true
-	SetID *string `json:"set_id"`
+	CustomerID *string `json:"customer_id"`
+
+	// period
+	// Required: true
+	Period *string `json:"period"`
+
+	// period end
+	// Required: true
+	PeriodEnd *string `json:"period_end"`
+
+	// period start
+	// Required: true
+	PeriodStart *string `json:"period_start"`
+
+	// sent date
+	// Required: true
+	SentDate *string `json:"sent_date"`
+
+	// serial
+	// Required: true
+	Serial *string `json:"serial"`
+
+	// template id
+	// Required: true
+	TemplateID *string `json:"template_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty45
 func (m *Thenewlycreateditemorempty45) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateFilename(formats); err != nil {
+	if err := m.validateAmountNet(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateHandle(formats); err != nil {
+	if err := m.validateAmountTotal(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateLoopplay(formats); err != nil {
+	if err := m.validateAmountVat(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSetID(formats); err != nil {
+	if err := m.validateCustomerID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePeriod(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePeriodEnd(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePeriodStart(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSentDate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSerial(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTemplateID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,36 +108,90 @@ func (m *Thenewlycreateditemorempty45) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty45) validateFilename(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty45) validateAmountNet(formats strfmt.Registry) error {
 
-	if err := validate.Required("filename", "body", m.Filename); err != nil {
+	if err := validate.Required("amount_net", "body", m.AmountNet); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty45) validateHandle(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty45) validateAmountTotal(formats strfmt.Registry) error {
 
-	if err := validate.Required("handle", "body", m.Handle); err != nil {
+	if err := validate.Required("amount_total", "body", m.AmountTotal); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty45) validateLoopplay(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty45) validateAmountVat(formats strfmt.Registry) error {
 
-	if err := validate.Required("loopplay", "body", m.Loopplay); err != nil {
+	if err := validate.Required("amount_vat", "body", m.AmountVat); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty45) validateSetID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty45) validateCustomerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("set_id", "body", m.SetID); err != nil {
+	if err := validate.Required("customer_id", "body", m.CustomerID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty45) validatePeriod(formats strfmt.Registry) error {
+
+	if err := validate.Required("period", "body", m.Period); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty45) validatePeriodEnd(formats strfmt.Registry) error {
+
+	if err := validate.Required("period_end", "body", m.PeriodEnd); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty45) validatePeriodStart(formats strfmt.Registry) error {
+
+	if err := validate.Required("period_start", "body", m.PeriodStart); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty45) validateSentDate(formats strfmt.Registry) error {
+
+	if err := validate.Required("sent_date", "body", m.SentDate); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty45) validateSerial(formats strfmt.Registry) error {
+
+	if err := validate.Required("serial", "body", m.Serial); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty45) validateTemplateID(formats strfmt.Registry) error {
+
+	if err := validate.Required("template_id", "body", m.TemplateID); err != nil {
 		return err
 	}
 

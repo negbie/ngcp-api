@@ -8,14 +8,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // RtcNetworks RtcNetworks
+//
 // swagger:model RtcNetworks
 type RtcNetworks struct {
 
@@ -25,7 +25,7 @@ type RtcNetworks struct {
 
 	// reseller id
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	ResellerID *float64 `json:"reseller_id"`
 
 	// rtc user id
 	// Required: true

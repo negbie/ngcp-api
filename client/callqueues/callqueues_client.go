@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new callqueues API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-CallqueuesByIDGet gets a specific call queue
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetCallQueueitems(params *GetCallQueueitemsParams) (*GetCallQueueitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) CallqueuesByIDGet(params *CallqueuesByIDGetParams) (*CallqueuesByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCallqueuesByIDGetParams()
-	}
+	GetaspecificCallQueue(params *GetaspecificCallQueueParams) (*GetaspecificCallQueueOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CallqueuesByIdGet",
-		Method:             "GET",
-		PathPattern:        "/callqueues/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CallqueuesByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CallqueuesByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CallqueuesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CallqueuesGet gets call queue items
-
-TODO: Add Description
+  GetCallQueueitems gets call queue items
 */
-func (a *Client) CallqueuesGet(params *CallqueuesGetParams) (*CallqueuesGetOK, error) {
+func (a *Client) GetCallQueueitems(params *GetCallQueueitemsParams) (*GetCallQueueitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCallqueuesGetParams()
+		params = NewGetCallQueueitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CallqueuesGet",
+		ID:                 "GetCallQueueitems",
 		Method:             "GET",
 		PathPattern:        "/callqueues",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CallqueuesGetReader{formats: a.formats},
+		Reader:             &GetCallQueueitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CallqueuesGetOK)
+	success, ok := result.(*GetCallQueueitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CallqueuesGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCallQueueitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificCallQueue gets a specific call queue
+*/
+func (a *Client) GetaspecificCallQueue(params *GetaspecificCallQueueParams) (*GetaspecificCallQueueOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificCallQueueParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificCallQueue",
+		Method:             "GET",
+		PathPattern:        "/callqueues/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificCallQueueReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificCallQueueOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificCallQueue: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

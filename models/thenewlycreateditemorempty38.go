@@ -6,45 +6,83 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty38 Thenewlycreateditemorempty38
+//
 // swagger:model Thenewlycreateditemorempty38
 type Thenewlycreateditemorempty38 struct {
 
-	// destinations
+	// description
 	// Required: true
-	Destinations []*Destination `json:"destinations"`
+	Description *string `json:"description"`
 
-	// name
+	// direction
 	// Required: true
-	Name *string `json:"name"`
+	Direction *string `json:"direction"`
 
-	// subscriber id
+	// enabled
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	Enabled *string `json:"enabled"`
+
+	// field
+	// Required: true
+	Field *string `json:"field"`
+
+	// match pattern
+	// Required: true
+	MatchPattern *string `json:"match_pattern"`
+
+	// priority
+	// Required: true
+	Priority *string `json:"priority"`
+
+	// replace pattern
+	// Required: true
+	ReplacePattern *string `json:"replace_pattern"`
+
+	// set id
+	// Required: true
+	SetID *string `json:"set_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty38
 func (m *Thenewlycreateditemorempty38) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDestinations(formats); err != nil {
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateDirection(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSubscriberID(formats); err != nil {
+	if err := m.validateEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateField(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMatchPattern(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePriority(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReplacePattern(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSetID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -54,43 +92,72 @@ func (m *Thenewlycreateditemorempty38) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty38) validateDestinations(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty38) validateDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("destinations", "body", m.Destinations); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Destinations); i++ {
-		if swag.IsZero(m.Destinations[i]) { // not required
-			continue
-		}
-
-		if m.Destinations[i] != nil {
-			if err := m.Destinations[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("destinations" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty38) validateName(formats strfmt.Registry) error {
-
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty38) validateSubscriberID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty38) validateDirection(formats strfmt.Registry) error {
 
-	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
+	if err := validate.Required("direction", "body", m.Direction); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty38) validateEnabled(formats strfmt.Registry) error {
+
+	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty38) validateField(formats strfmt.Registry) error {
+
+	if err := validate.Required("field", "body", m.Field); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty38) validateMatchPattern(formats strfmt.Registry) error {
+
+	if err := validate.Required("match_pattern", "body", m.MatchPattern); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty38) validatePriority(formats strfmt.Registry) error {
+
+	if err := validate.Required("priority", "body", m.Priority); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty38) validateReplacePattern(formats strfmt.Registry) error {
+
+	if err := validate.Required("replace_pattern", "body", m.ReplacePattern); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty38) validateSetID(formats strfmt.Registry) error {
+
+	if err := validate.Required("set_id", "body", m.SetID); err != nil {
 		return err
 	}
 

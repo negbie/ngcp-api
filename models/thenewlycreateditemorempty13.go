@@ -6,40 +6,34 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty13 Thenewlycreateditemorempty13
+//
 // swagger:model Thenewlycreateditemorempty13
 type Thenewlycreateditemorempty13 struct {
 
-	// contact
+	// is regex
 	// Required: true
-	Contact *string `json:"contact"`
+	IsRegex *string `json:"is_regex"`
 
-	// expires
+	// mode
 	// Required: true
-	Expires *string `json:"expires"`
+	Mode *string `json:"mode"`
 
-	// nat
+	// name
 	// Required: true
-	Nat *string `json:"nat"`
+	Name *string `json:"name"`
 
-	// path
+	// sources
 	// Required: true
-	Path *string `json:"path"`
-
-	// q
-	// Required: true
-	Q *string `json:"q"`
-
-	// socket
-	// Required: true
-	Socket *string `json:"socket"`
+	Sources []*Source `json:"sources"`
 
 	// subscriber id
 	// Required: true
@@ -50,27 +44,19 @@ type Thenewlycreateditemorempty13 struct {
 func (m *Thenewlycreateditemorempty13) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateContact(formats); err != nil {
+	if err := m.validateIsRegex(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateExpires(formats); err != nil {
+	if err := m.validateMode(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateNat(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePath(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateQ(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSocket(formats); err != nil {
+	if err := m.validateSources(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,55 +70,53 @@ func (m *Thenewlycreateditemorempty13) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty13) validateContact(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty13) validateIsRegex(formats strfmt.Registry) error {
 
-	if err := validate.Required("contact", "body", m.Contact); err != nil {
+	if err := validate.Required("is_regex", "body", m.IsRegex); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty13) validateExpires(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty13) validateMode(formats strfmt.Registry) error {
 
-	if err := validate.Required("expires", "body", m.Expires); err != nil {
+	if err := validate.Required("mode", "body", m.Mode); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty13) validateNat(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty13) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("nat", "body", m.Nat); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty13) validatePath(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty13) validateSources(formats strfmt.Registry) error {
 
-	if err := validate.Required("path", "body", m.Path); err != nil {
+	if err := validate.Required("sources", "body", m.Sources); err != nil {
 		return err
 	}
 
-	return nil
-}
+	for i := 0; i < len(m.Sources); i++ {
+		if swag.IsZero(m.Sources[i]) { // not required
+			continue
+		}
 
-func (m *Thenewlycreateditemorempty13) validateQ(formats strfmt.Registry) error {
+		if m.Sources[i] != nil {
+			if err := m.Sources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
 
-	if err := validate.Required("q", "body", m.Q); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty13) validateSocket(formats strfmt.Registry) error {
-
-	if err := validate.Required("socket", "body", m.Socket); err != nil {
-		return err
 	}
 
 	return nil

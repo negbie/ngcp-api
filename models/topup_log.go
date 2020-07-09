@@ -6,40 +6,40 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // TopupLog TopupLog
+//
 // swagger:model TopupLog
 type TopupLog struct {
 
 	// amount
 	// Required: true
-	Amount *string `json:"amount"`
+	Amount *float64 `json:"amount"`
 
 	// cash balance after
 	// Required: true
-	CashBalanceAfter *string `json:"cash_balance_after"`
+	CashBalanceAfter *float64 `json:"cash_balance_after"`
 
 	// cash balance before
 	// Required: true
-	CashBalanceBefore *string `json:"cash_balance_before"`
+	CashBalanceBefore *float64 `json:"cash_balance_before"`
 
 	// contract balance after id
 	// Required: true
-	ContractBalanceAfterID *string `json:"contract_balance_after_id"`
+	ContractBalanceAfterID *float64 `json:"contract_balance_after_id"`
 
 	// contract balance before id
 	// Required: true
-	ContractBalanceBeforeID *string `json:"contract_balance_before_id"`
+	ContractBalanceBeforeID *float64 `json:"contract_balance_before_id"`
 
 	// contract id
 	// Required: true
-	ContractID *string `json:"contract_id"`
+	ContractID *float64 `json:"contract_id"`
 
 	// lock level after
 	// Required: true
@@ -59,19 +59,19 @@ type TopupLog struct {
 
 	// package after id
 	// Required: true
-	PackageAfterID *string `json:"package_after_id"`
+	PackageAfterID *float64 `json:"package_after_id"`
 
 	// package before id
 	// Required: true
-	PackageBeforeID *string `json:"package_before_id"`
+	PackageBeforeID *float64 `json:"package_before_id"`
 
 	// profile after id
 	// Required: true
-	ProfileAfterID *string `json:"profile_after_id"`
+	ProfileAfterID *float64 `json:"profile_after_id"`
 
 	// profile before id
 	// Required: true
-	ProfileBeforeID *string `json:"profile_before_id"`
+	ProfileBeforeID *float64 `json:"profile_before_id"`
 
 	// request token
 	// Required: true
@@ -79,7 +79,7 @@ type TopupLog struct {
 
 	// subscriber id
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	SubscriberID *float64 `json:"subscriber_id"`
 
 	// timestamp
 	// Required: true
@@ -95,7 +95,7 @@ type TopupLog struct {
 
 	// voucher id
 	// Required: true
-	VoucherID *string `json:"voucher_id"`
+	VoucherID *float64 `json:"voucher_id"`
 }
 
 // Validate validates this topup log

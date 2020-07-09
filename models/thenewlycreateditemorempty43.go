@@ -6,92 +6,153 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty43 Thenewlycreateditemorempty43
+//
 // swagger:model Thenewlycreateditemorempty43
 type Thenewlycreateditemorempty43 struct {
-
-	// billing profile definition
-	// Required: true
-	BillingProfileDefinition *string `json:"billing_profile_definition"`
 
 	// billing profile id
 	// Required: true
 	BillingProfileID *string `json:"billing_profile_id"`
 
-	// billing profiles
+	// billing zone id
 	// Required: true
-	BillingProfiles []*BillingProfiles3 `json:"billing_profiles"`
+	BillingZoneID *string `json:"billing_zone_id"`
 
-	// contact id
+	// destination
 	// Required: true
-	ContactID *string `json:"contact_id"`
+	Destination *string `json:"destination"`
 
-	// external id
+	// direction
 	// Required: true
-	ExternalID *string `json:"external_id"`
+	Direction *string `json:"direction"`
 
-	// status
+	// match mode
 	// Required: true
-	Status *string `json:"status"`
+	MatchMode *string `json:"match_mode"`
 
-	// type
+	// offpeak follow interval
 	// Required: true
-	Type *string `json:"type"`
+	OffpeakFollowInterval *string `json:"offpeak_follow_interval"`
+
+	// offpeak follow rate
+	// Required: true
+	OffpeakFollowRate *string `json:"offpeak_follow_rate"`
+
+	// offpeak init interval
+	// Required: true
+	OffpeakInitInterval *string `json:"offpeak_init_interval"`
+
+	// offpeak init rate
+	// Required: true
+	OffpeakInitRate *string `json:"offpeak_init_rate"`
+
+	// onpeak follow interval
+	// Required: true
+	OnpeakFollowInterval *string `json:"onpeak_follow_interval"`
+
+	// onpeak follow rate
+	// Required: true
+	OnpeakFollowRate *string `json:"onpeak_follow_rate"`
+
+	// onpeak init interval
+	// Required: true
+	OnpeakInitInterval *string `json:"onpeak_init_interval"`
+
+	// onpeak init rate
+	// Required: true
+	OnpeakInitRate *string `json:"onpeak_init_rate"`
+
+	// purge existing
+	// Required: true
+	PurgeExisting *string `json:"purge_existing"`
+
+	// source
+	// Required: true
+	Source *string `json:"source"`
+
+	// use free time
+	// Required: true
+	UseFreeTime *string `json:"use_free_time"`
 }
 
 // Validate validates this thenewlycreateditemorempty43
 func (m *Thenewlycreateditemorempty43) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBillingProfileDefinition(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateBillingProfileID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBillingProfiles(formats); err != nil {
+	if err := m.validateBillingZoneID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateContactID(formats); err != nil {
+	if err := m.validateDestination(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateExternalID(formats); err != nil {
+	if err := m.validateDirection(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateStatus(formats); err != nil {
+	if err := m.validateMatchMode(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateType(formats); err != nil {
+	if err := m.validateOffpeakFollowInterval(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOffpeakFollowRate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOffpeakInitInterval(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOffpeakInitRate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOnpeakFollowInterval(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOnpeakFollowRate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOnpeakInitInterval(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateOnpeakInitRate(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePurgeExisting(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSource(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateUseFreeTime(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty43) validateBillingProfileDefinition(formats strfmt.Registry) error {
-
-	if err := validate.Required("billing_profile_definition", "body", m.BillingProfileDefinition); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -104,61 +165,135 @@ func (m *Thenewlycreateditemorempty43) validateBillingProfileID(formats strfmt.R
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty43) validateBillingProfiles(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty43) validateBillingZoneID(formats strfmt.Registry) error {
 
-	if err := validate.Required("billing_profiles", "body", m.BillingProfiles); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.BillingProfiles); i++ {
-		if swag.IsZero(m.BillingProfiles[i]) { // not required
-			continue
-		}
-
-		if m.BillingProfiles[i] != nil {
-			if err := m.BillingProfiles[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("billing_profiles" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty43) validateContactID(formats strfmt.Registry) error {
-
-	if err := validate.Required("contact_id", "body", m.ContactID); err != nil {
+	if err := validate.Required("billing_zone_id", "body", m.BillingZoneID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty43) validateExternalID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty43) validateDestination(formats strfmt.Registry) error {
 
-	if err := validate.Required("external_id", "body", m.ExternalID); err != nil {
+	if err := validate.Required("destination", "body", m.Destination); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty43) validateStatus(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty43) validateDirection(formats strfmt.Registry) error {
 
-	if err := validate.Required("status", "body", m.Status); err != nil {
+	if err := validate.Required("direction", "body", m.Direction); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty43) validateType(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty43) validateMatchMode(formats strfmt.Registry) error {
 
-	if err := validate.Required("type", "body", m.Type); err != nil {
+	if err := validate.Required("match_mode", "body", m.MatchMode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOffpeakFollowInterval(formats strfmt.Registry) error {
+
+	if err := validate.Required("offpeak_follow_interval", "body", m.OffpeakFollowInterval); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOffpeakFollowRate(formats strfmt.Registry) error {
+
+	if err := validate.Required("offpeak_follow_rate", "body", m.OffpeakFollowRate); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOffpeakInitInterval(formats strfmt.Registry) error {
+
+	if err := validate.Required("offpeak_init_interval", "body", m.OffpeakInitInterval); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOffpeakInitRate(formats strfmt.Registry) error {
+
+	if err := validate.Required("offpeak_init_rate", "body", m.OffpeakInitRate); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOnpeakFollowInterval(formats strfmt.Registry) error {
+
+	if err := validate.Required("onpeak_follow_interval", "body", m.OnpeakFollowInterval); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOnpeakFollowRate(formats strfmt.Registry) error {
+
+	if err := validate.Required("onpeak_follow_rate", "body", m.OnpeakFollowRate); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOnpeakInitInterval(formats strfmt.Registry) error {
+
+	if err := validate.Required("onpeak_init_interval", "body", m.OnpeakInitInterval); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateOnpeakInitRate(formats strfmt.Registry) error {
+
+	if err := validate.Required("onpeak_init_rate", "body", m.OnpeakInitRate); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validatePurgeExisting(formats strfmt.Registry) error {
+
+	if err := validate.Required("purge_existing", "body", m.PurgeExisting); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateSource(formats strfmt.Registry) error {
+
+	if err := validate.Required("source", "body", m.Source); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty43) validateUseFreeTime(formats strfmt.Registry) error {
+
+	if err := validate.Required("use_free_time", "body", m.UseFreeTime); err != nil {
 		return err
 	}
 

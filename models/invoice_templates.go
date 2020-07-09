@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // InvoiceTemplates InvoiceTemplates
+//
 // swagger:model InvoiceTemplates
 type InvoiceTemplates struct {
 
@@ -23,7 +23,7 @@ type InvoiceTemplates struct {
 
 	// reseller id
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	ResellerID *float64 `json:"reseller_id"`
 
 	// type
 	// Required: true

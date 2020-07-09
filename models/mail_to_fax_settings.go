@@ -8,24 +8,24 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // MailToFaxSettings MailToFaxSettings
+//
 // swagger:model MailToFaxSettings
 type MailToFaxSettings struct {
 
 	// acl
 	// Required: true
-	ACL []*Acl1 `json:"acl"`
+	ACL []*ACL `json:"acl"`
 
 	// active
 	// Required: true
-	Active *string `json:"active"`
+	Active *bool `json:"active"`
 
 	// secret key
 	// Required: true

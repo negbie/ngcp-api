@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // MaliciousCalls MaliciousCalls
+//
 // swagger:model MaliciousCalls
 type MaliciousCalls struct {
 
@@ -31,7 +31,7 @@ type MaliciousCalls struct {
 
 	// duration
 	// Required: true
-	Duration *string `json:"duration"`
+	Duration *float64 `json:"duration"`
 
 	// reported at
 	// Required: true
@@ -39,7 +39,7 @@ type MaliciousCalls struct {
 
 	// reseller id
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	ResellerID *float64 `json:"reseller_id"`
 
 	// source
 	// Required: true

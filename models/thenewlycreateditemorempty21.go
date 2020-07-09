@@ -6,197 +6,67 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty21 Thenewlycreateditemorempty21
+//
 // swagger:model Thenewlycreateditemorempty21
 type Thenewlycreateditemorempty21 struct {
 
-	// administrative
+	// attachment name
 	// Required: true
-	Administrative *string `json:"administrative"`
+	AttachmentName *string `json:"attachment_name"`
 
-	// alias numbers
+	// body
 	// Required: true
-	AliasNumbers []*AliasNumber `json:"alias_numbers"`
+	Body *string `json:"body"`
 
-	// display name
+	// from email
 	// Required: true
-	DisplayName *string `json:"display_name"`
+	FromEmail *string `json:"from_email"`
 
-	// domain
+	// name
 	// Required: true
-	Domain *string `json:"domain"`
+	Name *string `json:"name"`
 
-	// domain id
+	// reseller id
 	// Required: true
-	DomainID *string `json:"domain_id"`
+	ResellerID *string `json:"reseller_id"`
 
-	// email
+	// subject
 	// Required: true
-	Email *string `json:"email"`
-
-	// external id
-	// Required: true
-	ExternalID *string `json:"external_id"`
-
-	// is pbx group
-	// Required: true
-	IsPbxGroup *string `json:"is_pbx_group"`
-
-	// is pbx pilot
-	// Required: true
-	IsPbxPilot *string `json:"is_pbx_pilot"`
-
-	// lock
-	// Required: true
-	Lock *string `json:"lock"`
-
-	// password
-	// Required: true
-	Password *string `json:"password"`
-
-	// pbx extension
-	// Required: true
-	PbxExtension *string `json:"pbx_extension"`
-
-	// pbx group ids
-	// Required: true
-	PbxGroupIds []string `json:"pbx_group_ids"`
-
-	// pbx groupmember ids id
-	// Required: true
-	PbxGroupmemberIdsID []string `json:"pbx_groupmember_ids_id"`
-
-	// primary number
-	// Required: true
-	PrimaryNumber *PrimaryNumber `json:"primary_number"`
-
-	// profile id
-	// Required: true
-	ProfileID *string `json:"profile_id"`
-
-	// profile set id
-	// Required: true
-	ProfileSetID *string `json:"profile_set_id"`
-
-	// status
-	// Required: true
-	Status *string `json:"status"`
-
-	// timezone
-	// Required: true
-	Timezone *string `json:"timezone"`
-
-	// username
-	// Required: true
-	Username *string `json:"username"`
-
-	// webpassword
-	// Required: true
-	Webpassword *string `json:"webpassword"`
-
-	// webusername
-	// Required: true
-	Webusername *string `json:"webusername"`
+	Subject *string `json:"subject"`
 }
 
 // Validate validates this thenewlycreateditemorempty21
 func (m *Thenewlycreateditemorempty21) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAdministrative(formats); err != nil {
+	if err := m.validateAttachmentName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateAliasNumbers(formats); err != nil {
+	if err := m.validateBody(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDisplayName(formats); err != nil {
+	if err := m.validateFromEmail(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDomain(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDomainID(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEmail(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateExternalID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIsPbxGroup(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIsPbxPilot(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLock(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePassword(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePbxExtension(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePbxGroupIds(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePbxGroupmemberIdsID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePrimaryNumber(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProfileID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateProfileSetID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStatus(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTimezone(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateUsername(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateWebpassword(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateWebusername(formats); err != nil {
+	if err := m.validateSubject(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -206,223 +76,54 @@ func (m *Thenewlycreateditemorempty21) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty21) validateAdministrative(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty21) validateAttachmentName(formats strfmt.Registry) error {
 
-	if err := validate.Required("administrative", "body", m.Administrative); err != nil {
+	if err := validate.Required("attachment_name", "body", m.AttachmentName); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty21) validateAliasNumbers(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty21) validateBody(formats strfmt.Registry) error {
 
-	if err := validate.Required("alias_numbers", "body", m.AliasNumbers); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.AliasNumbers); i++ {
-		if swag.IsZero(m.AliasNumbers[i]) { // not required
-			continue
-		}
-
-		if m.AliasNumbers[i] != nil {
-			if err := m.AliasNumbers[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("alias_numbers" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateDisplayName(formats strfmt.Registry) error {
-
-	if err := validate.Required("display_name", "body", m.DisplayName); err != nil {
+	if err := validate.Required("body", "body", m.Body); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty21) validateDomain(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty21) validateFromEmail(formats strfmt.Registry) error {
 
-	if err := validate.Required("domain", "body", m.Domain); err != nil {
+	if err := validate.Required("from_email", "body", m.FromEmail); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty21) validateDomainID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty21) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("domain_id", "body", m.DomainID); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty21) validateEmail(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty21) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("email", "body", m.Email); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty21) validateExternalID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty21) validateSubject(formats strfmt.Registry) error {
 
-	if err := validate.Required("external_id", "body", m.ExternalID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateIsPbxGroup(formats strfmt.Registry) error {
-
-	if err := validate.Required("is_pbx_group", "body", m.IsPbxGroup); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateIsPbxPilot(formats strfmt.Registry) error {
-
-	if err := validate.Required("is_pbx_pilot", "body", m.IsPbxPilot); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateLock(formats strfmt.Registry) error {
-
-	if err := validate.Required("lock", "body", m.Lock); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validatePassword(formats strfmt.Registry) error {
-
-	if err := validate.Required("password", "body", m.Password); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validatePbxExtension(formats strfmt.Registry) error {
-
-	if err := validate.Required("pbx_extension", "body", m.PbxExtension); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validatePbxGroupIds(formats strfmt.Registry) error {
-
-	if err := validate.Required("pbx_group_ids", "body", m.PbxGroupIds); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validatePbxGroupmemberIdsID(formats strfmt.Registry) error {
-
-	if err := validate.Required("pbx_groupmember_ids_id", "body", m.PbxGroupmemberIdsID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validatePrimaryNumber(formats strfmt.Registry) error {
-
-	if err := validate.Required("primary_number", "body", m.PrimaryNumber); err != nil {
-		return err
-	}
-
-	if m.PrimaryNumber != nil {
-		if err := m.PrimaryNumber.Validate(formats); err != nil {
-			if ve, ok := err.(*errors.Validation); ok {
-				return ve.ValidateName("primary_number")
-			}
-			return err
-		}
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateProfileID(formats strfmt.Registry) error {
-
-	if err := validate.Required("profile_id", "body", m.ProfileID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateProfileSetID(formats strfmt.Registry) error {
-
-	if err := validate.Required("profile_set_id", "body", m.ProfileSetID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("status", "body", m.Status); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateTimezone(formats strfmt.Registry) error {
-
-	if err := validate.Required("timezone", "body", m.Timezone); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateUsername(formats strfmt.Registry) error {
-
-	if err := validate.Required("username", "body", m.Username); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateWebpassword(formats strfmt.Registry) error {
-
-	if err := validate.Required("webpassword", "body", m.Webpassword); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty21) validateWebusername(formats strfmt.Registry) error {
-
-	if err := validate.Required("webusername", "body", m.Webusername); err != nil {
+	if err := validate.Required("subject", "body", m.Subject); err != nil {
 		return err
 	}
 

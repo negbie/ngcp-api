@@ -6,67 +6,43 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty7 Thenewlycreateditemorempty7
+//
 // swagger:model Thenewlycreateditemorempty7
 type Thenewlycreateditemorempty7 struct {
 
-	// amount
+	// dir
 	// Required: true
-	Amount *string `json:"amount"`
+	Dir *string `json:"dir"`
 
-	// code
+	// greetingfile
 	// Required: true
-	Code *string `json:"code"`
+	Greetingfile *string `json:"greetingfile"`
 
-	// customer id
+	// subscriber id
 	// Required: true
-	CustomerID *string `json:"customer_id"`
-
-	// package id
-	// Required: true
-	PackageID *string `json:"package_id"`
-
-	// reseller id
-	// Required: true
-	ResellerID *string `json:"reseller_id"`
-
-	// valid until
-	// Required: true
-	ValidUntil *string `json:"valid_until"`
+	SubscriberID *string `json:"subscriber_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty7
 func (m *Thenewlycreateditemorempty7) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAmount(formats); err != nil {
+	if err := m.validateDir(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCode(formats); err != nil {
+	if err := m.validateGreetingfile(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCustomerID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePackageID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateResellerID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateValidUntil(formats); err != nil {
+	if err := m.validateSubscriberID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,54 +52,27 @@ func (m *Thenewlycreateditemorempty7) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty7) validateAmount(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty7) validateDir(formats strfmt.Registry) error {
 
-	if err := validate.Required("amount", "body", m.Amount); err != nil {
+	if err := validate.Required("dir", "body", m.Dir); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty7) validateCode(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty7) validateGreetingfile(formats strfmt.Registry) error {
 
-	if err := validate.Required("code", "body", m.Code); err != nil {
+	if err := validate.Required("greetingfile", "body", m.Greetingfile); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty7) validateCustomerID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty7) validateSubscriberID(formats strfmt.Registry) error {
 
-	if err := validate.Required("customer_id", "body", m.CustomerID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty7) validatePackageID(formats strfmt.Registry) error {
-
-	if err := validate.Required("package_id", "body", m.PackageID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty7) validateResellerID(formats strfmt.Registry) error {
-
-	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty7) validateValidUntil(formats strfmt.Registry) error {
-
-	if err := validate.Required("valid_until", "body", m.ValidUntil); err != nil {
+	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
 		return err
 	}
 

@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new customerpreferences API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,39 +25,44 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-CustomerpreferencesGet gets customer preference items
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetCustomerPreferenceitems(params *GetCustomerPreferenceitemsParams) (*GetCustomerPreferenceitemsOK, error)
 
-TODO: Add Description
+	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  GetCustomerPreferenceitems gets customer preference items
 */
-func (a *Client) CustomerpreferencesGet(params *CustomerpreferencesGetParams) (*CustomerpreferencesGetOK, error) {
+func (a *Client) GetCustomerPreferenceitems(params *GetCustomerPreferenceitemsParams) (*GetCustomerPreferenceitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCustomerpreferencesGetParams()
+		params = NewGetCustomerPreferenceitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CustomerpreferencesGet",
+		ID:                 "GetCustomerPreferenceitems",
 		Method:             "GET",
 		PathPattern:        "/customerpreferences",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CustomerpreferencesGetReader{formats: a.formats},
+		Reader:             &GetCustomerPreferenceitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CustomerpreferencesGetOK)
+	success, ok := result.(*GetCustomerPreferenceitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CustomerpreferencesGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCustomerPreferenceitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

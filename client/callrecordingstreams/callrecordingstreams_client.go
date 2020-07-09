@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new callrecordingstreams API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,39 +25,44 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-CallrecordingstreamsGet gets call recording stream items
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetCallRecordingStreamitems(params *GetCallRecordingStreamitemsParams) (*GetCallRecordingStreamitemsOK, error)
 
-TODO: Add Description
+	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  GetCallRecordingStreamitems gets call recording stream items
 */
-func (a *Client) CallrecordingstreamsGet(params *CallrecordingstreamsGetParams) (*CallrecordingstreamsGetOK, error) {
+func (a *Client) GetCallRecordingStreamitems(params *GetCallRecordingStreamitemsParams) (*GetCallRecordingStreamitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCallrecordingstreamsGetParams()
+		params = NewGetCallRecordingStreamitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CallrecordingstreamsGet",
+		ID:                 "GetCallRecordingStreamitems",
 		Method:             "GET",
 		PathPattern:        "/callrecordingstreams",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CallrecordingstreamsGetReader{formats: a.formats},
+		Reader:             &GetCallRecordingStreamitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CallrecordingstreamsGetOK)
+	success, ok := result.(*GetCallRecordingStreamitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CallrecordingstreamsGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCallRecordingStreamitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -6,59 +6,67 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty44 Thenewlycreateditemorempty44
+//
 // swagger:model Thenewlycreateditemorempty44
 type Thenewlycreateditemorempty44 struct {
 
-	// contract id
+	// amount
 	// Required: true
-	ContractID *string `json:"contract_id"`
+	Amount *string `json:"amount"`
 
-	// enable rtc
+	// code
 	// Required: true
-	EnableRtc *string `json:"enable_rtc"`
+	Code *string `json:"code"`
 
-	// name
+	// customer id
 	// Required: true
-	Name *string `json:"name"`
+	CustomerID *string `json:"customer_id"`
 
-	// rtc networks
+	// package id
 	// Required: true
-	RtcNetworks *string `json:"rtc_networks"`
+	PackageID *string `json:"package_id"`
 
-	// status
+	// reseller id
 	// Required: true
-	Status *string `json:"status"`
+	ResellerID *string `json:"reseller_id"`
+
+	// valid until
+	// Required: true
+	ValidUntil *string `json:"valid_until"`
 }
 
 // Validate validates this thenewlycreateditemorempty44
 func (m *Thenewlycreateditemorempty44) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateContractID(formats); err != nil {
+	if err := m.validateAmount(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEnableRtc(formats); err != nil {
+	if err := m.validateCode(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateCustomerID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRtcNetworks(formats); err != nil {
+	if err := m.validatePackageID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateStatus(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateValidUntil(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -68,45 +76,54 @@ func (m *Thenewlycreateditemorempty44) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty44) validateContractID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty44) validateAmount(formats strfmt.Registry) error {
 
-	if err := validate.Required("contract_id", "body", m.ContractID); err != nil {
+	if err := validate.Required("amount", "body", m.Amount); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty44) validateEnableRtc(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty44) validateCode(formats strfmt.Registry) error {
 
-	if err := validate.Required("enable_rtc", "body", m.EnableRtc); err != nil {
+	if err := validate.Required("code", "body", m.Code); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty44) validateName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty44) validateCustomerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("customer_id", "body", m.CustomerID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty44) validateRtcNetworks(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty44) validatePackageID(formats strfmt.Registry) error {
 
-	if err := validate.Required("rtc_networks", "body", m.RtcNetworks); err != nil {
+	if err := validate.Required("package_id", "body", m.PackageID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty44) validateStatus(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty44) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("status", "body", m.Status); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty44) validateValidUntil(formats strfmt.Registry) error {
+
+	if err := validate.Required("valid_until", "body", m.ValidUntil); err != nil {
 		return err
 	}
 

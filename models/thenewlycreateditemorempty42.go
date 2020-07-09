@@ -6,43 +6,53 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty42 Thenewlycreateditemorempty42
+//
 // swagger:model Thenewlycreateditemorempty42
 type Thenewlycreateditemorempty42 struct {
 
-	// code
+	// description
 	// Required: true
-	Code *string `json:"code"`
+	Description *string `json:"description"`
 
-	// emergency container id
+	// name
 	// Required: true
-	EmergencyContainerID *string `json:"emergency_container_id"`
+	Name *string `json:"name"`
 
-	// prefix
+	// reseller id
 	// Required: true
-	Prefix *string `json:"prefix"`
+	ResellerID *string `json:"reseller_id"`
+
+	// rewriterules
+	// Required: true
+	Rewriterules []*Rewriterules3 `json:"rewriterules"`
 }
 
 // Validate validates this thenewlycreateditemorempty42
 func (m *Thenewlycreateditemorempty42) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCode(formats); err != nil {
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEmergencyContainerID(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePrefix(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateRewriterules(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,28 +62,53 @@ func (m *Thenewlycreateditemorempty42) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty42) validateCode(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty42) validateDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("code", "body", m.Code); err != nil {
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty42) validateEmergencyContainerID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty42) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("emergency_container_id", "body", m.EmergencyContainerID); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty42) validatePrefix(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty42) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("prefix", "body", m.Prefix); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty42) validateRewriterules(formats strfmt.Registry) error {
+
+	if err := validate.Required("rewriterules", "body", m.Rewriterules); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Rewriterules); i++ {
+		if swag.IsZero(m.Rewriterules[i]) { // not required
+			continue
+		}
+
+		if m.Rewriterules[i] != nil {
+			if err := m.Rewriterules[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("rewriterules" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil

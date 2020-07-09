@@ -6,75 +6,51 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty15 Thenewlycreateditemorempty15
+//
 // swagger:model Thenewlycreateditemorempty15
 type Thenewlycreateditemorempty15 struct {
 
-	// callee
+	// device id
 	// Required: true
-	Callee *string `json:"callee"`
+	DeviceID *string `json:"device_id"`
 
-	// caller
+	// filename
 	// Required: true
-	Caller *string `json:"caller"`
+	Filename *string `json:"filename"`
 
-	// direction
+	// tag
 	// Required: true
-	Direction *string `json:"direction"`
+	Tag *string `json:"tag"`
 
-	// reason
+	// version
 	// Required: true
-	Reason *string `json:"reason"`
-
-	// status
-	// Required: true
-	Status *string `json:"status"`
-
-	// subscriber id
-	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
-
-	// text
-	// Required: true
-	Text *string `json:"text"`
+	Version *string `json:"version"`
 }
 
 // Validate validates this thenewlycreateditemorempty15
 func (m *Thenewlycreateditemorempty15) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCallee(formats); err != nil {
+	if err := m.validateDeviceID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCaller(formats); err != nil {
+	if err := m.validateFilename(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDirection(formats); err != nil {
+	if err := m.validateTag(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateReason(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStatus(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSubscriberID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateText(formats); err != nil {
+	if err := m.validateVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,63 +60,36 @@ func (m *Thenewlycreateditemorempty15) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty15) validateCallee(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty15) validateDeviceID(formats strfmt.Registry) error {
 
-	if err := validate.Required("callee", "body", m.Callee); err != nil {
+	if err := validate.Required("device_id", "body", m.DeviceID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty15) validateCaller(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty15) validateFilename(formats strfmt.Registry) error {
 
-	if err := validate.Required("caller", "body", m.Caller); err != nil {
+	if err := validate.Required("filename", "body", m.Filename); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty15) validateDirection(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty15) validateTag(formats strfmt.Registry) error {
 
-	if err := validate.Required("direction", "body", m.Direction); err != nil {
+	if err := validate.Required("tag", "body", m.Tag); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty15) validateReason(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty15) validateVersion(formats strfmt.Registry) error {
 
-	if err := validate.Required("reason", "body", m.Reason); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty15) validateStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("status", "body", m.Status); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty15) validateSubscriberID(formats strfmt.Registry) error {
-
-	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty15) validateText(formats strfmt.Registry) error {
-
-	if err := validate.Required("text", "body", m.Text); err != nil {
+	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
 	}
 

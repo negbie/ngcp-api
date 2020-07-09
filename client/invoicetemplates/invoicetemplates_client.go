@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new invoicetemplates API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-InvoicetemplatesByIDGet gets a specific invoice template
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetInvoiceTemplateitems(params *GetInvoiceTemplateitemsParams) (*GetInvoiceTemplateitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) InvoicetemplatesByIDGet(params *InvoicetemplatesByIDGetParams) (*InvoicetemplatesByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewInvoicetemplatesByIDGetParams()
-	}
+	GetaspecificInvoiceTemplate(params *GetaspecificInvoiceTemplateParams) (*GetaspecificInvoiceTemplateOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "InvoicetemplatesByIdGet",
-		Method:             "GET",
-		PathPattern:        "/invoicetemplates/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &InvoicetemplatesByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*InvoicetemplatesByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InvoicetemplatesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-InvoicetemplatesGet gets invoice template items
-
-TODO: Add Description
+  GetInvoiceTemplateitems gets invoice template items
 */
-func (a *Client) InvoicetemplatesGet(params *InvoicetemplatesGetParams) (*InvoicetemplatesGetOK, error) {
+func (a *Client) GetInvoiceTemplateitems(params *GetInvoiceTemplateitemsParams) (*GetInvoiceTemplateitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewInvoicetemplatesGetParams()
+		params = NewGetInvoiceTemplateitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "InvoicetemplatesGet",
+		ID:                 "GetInvoiceTemplateitems",
 		Method:             "GET",
 		PathPattern:        "/invoicetemplates",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &InvoicetemplatesGetReader{formats: a.formats},
+		Reader:             &GetInvoiceTemplateitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*InvoicetemplatesGetOK)
+	success, ok := result.(*GetInvoiceTemplateitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for InvoicetemplatesGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetInvoiceTemplateitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificInvoiceTemplate gets a specific invoice template
+*/
+func (a *Client) GetaspecificInvoiceTemplate(params *GetaspecificInvoiceTemplateParams) (*GetaspecificInvoiceTemplateOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificInvoiceTemplateParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificInvoiceTemplate",
+		Method:             "GET",
+		PathPattern:        "/invoicetemplates/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificInvoiceTemplateReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificInvoiceTemplateOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificInvoiceTemplate: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -6,24 +6,40 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty46 Thenewlycreateditemorempty46
+//
 // swagger:model Thenewlycreateditemorempty46
 type Thenewlycreateditemorempty46 struct {
 
-	// dir
+	// contact
 	// Required: true
-	Dir *string `json:"dir"`
+	Contact *string `json:"contact"`
 
-	// greetingfile
+	// expires
 	// Required: true
-	Greetingfile *string `json:"greetingfile"`
+	Expires *string `json:"expires"`
+
+	// nat
+	// Required: true
+	Nat *string `json:"nat"`
+
+	// path
+	// Required: true
+	Path *string `json:"path"`
+
+	// q
+	// Required: true
+	Q *string `json:"q"`
+
+	// socket
+	// Required: true
+	Socket *string `json:"socket"`
 
 	// subscriber id
 	// Required: true
@@ -34,11 +50,27 @@ type Thenewlycreateditemorempty46 struct {
 func (m *Thenewlycreateditemorempty46) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDir(formats); err != nil {
+	if err := m.validateContact(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateGreetingfile(formats); err != nil {
+	if err := m.validateExpires(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNat(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePath(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateQ(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSocket(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,18 +84,54 @@ func (m *Thenewlycreateditemorempty46) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty46) validateDir(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty46) validateContact(formats strfmt.Registry) error {
 
-	if err := validate.Required("dir", "body", m.Dir); err != nil {
+	if err := validate.Required("contact", "body", m.Contact); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty46) validateGreetingfile(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty46) validateExpires(formats strfmt.Registry) error {
 
-	if err := validate.Required("greetingfile", "body", m.Greetingfile); err != nil {
+	if err := validate.Required("expires", "body", m.Expires); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty46) validateNat(formats strfmt.Registry) error {
+
+	if err := validate.Required("nat", "body", m.Nat); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty46) validatePath(formats strfmt.Registry) error {
+
+	if err := validate.Required("path", "body", m.Path); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty46) validateQ(formats strfmt.Registry) error {
+
+	if err := validate.Required("q", "body", m.Q); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty46) validateSocket(formats strfmt.Registry) error {
+
+	if err := validate.Required("socket", "body", m.Socket); err != nil {
 		return err
 	}
 

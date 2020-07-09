@@ -6,51 +6,51 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty14 Thenewlycreateditemorempty14
+//
 // swagger:model Thenewlycreateditemorempty14
 type Thenewlycreateditemorempty14 struct {
 
-	// device id
+	// id
 	// Required: true
-	DeviceID *string `json:"device_id"`
+	ID *string `json:"id"`
 
-	// filename
+	// name
 	// Required: true
-	Filename *string `json:"filename"`
+	Name *string `json:"name"`
 
-	// tag
+	// number
 	// Required: true
-	Tag *string `json:"tag"`
+	Number *string `json:"number"`
 
-	// version
+	// reseller id
 	// Required: true
-	Version *string `json:"version"`
+	ResellerID *string `json:"reseller_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty14
 func (m *Thenewlycreateditemorempty14) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDeviceID(formats); err != nil {
+	if err := m.validateID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFilename(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateTag(formats); err != nil {
+	if err := m.validateNumber(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateVersion(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,36 +60,36 @@ func (m *Thenewlycreateditemorempty14) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty14) validateDeviceID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty14) validateID(formats strfmt.Registry) error {
 
-	if err := validate.Required("device_id", "body", m.DeviceID); err != nil {
+	if err := validate.Required("id", "body", m.ID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty14) validateFilename(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty14) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("filename", "body", m.Filename); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty14) validateTag(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty14) validateNumber(formats strfmt.Registry) error {
 
-	if err := validate.Required("tag", "body", m.Tag); err != nil {
+	if err := validate.Required("number", "body", m.Number); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty14) validateVersion(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty14) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("version", "body", m.Version); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
 	}
 

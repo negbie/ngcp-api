@@ -6,59 +6,108 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty35 Thenewlycreateditemorempty35
+//
 // swagger:model Thenewlycreateditemorempty35
 type Thenewlycreateditemorempty35 struct {
+
+	// callee pattern
+	// Required: true
+	CalleePattern *string `json:"callee_pattern"`
+
+	// callee prefix
+	// Required: true
+	CalleePrefix *string `json:"callee_prefix"`
+
+	// caller pattern
+	// Required: true
+	CallerPattern *string `json:"caller_pattern"`
 
 	// description
 	// Required: true
 	Description *string `json:"description"`
 
-	// name
+	// enabled
 	// Required: true
-	Name *string `json:"name"`
+	Enabled *string `json:"enabled"`
 
-	// reseller id
+	// group id
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	GroupID *string `json:"group_id"`
 
-	// rewriterules
+	// stopper
 	// Required: true
-	Rewriterules []*Rewriterules2 `json:"rewriterules"`
+	Stopper *string `json:"stopper"`
 }
 
 // Validate validates this thenewlycreateditemorempty35
 func (m *Thenewlycreateditemorempty35) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateCalleePattern(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCalleePrefix(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCallerPattern(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateEnabled(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateResellerID(formats); err != nil {
+	if err := m.validateGroupID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRewriterules(formats); err != nil {
+	if err := m.validateStopper(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty35) validateCalleePattern(formats strfmt.Registry) error {
+
+	if err := validate.Required("callee_pattern", "body", m.CalleePattern); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty35) validateCalleePrefix(formats strfmt.Registry) error {
+
+	if err := validate.Required("callee_prefix", "body", m.CalleePrefix); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty35) validateCallerPattern(formats strfmt.Registry) error {
+
+	if err := validate.Required("caller_pattern", "body", m.CallerPattern); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -71,44 +120,28 @@ func (m *Thenewlycreateditemorempty35) validateDescription(formats strfmt.Regist
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty35) validateName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty35) validateEnabled(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty35) validateResellerID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty35) validateGroupID(formats strfmt.Registry) error {
 
-	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
+	if err := validate.Required("group_id", "body", m.GroupID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty35) validateRewriterules(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty35) validateStopper(formats strfmt.Registry) error {
 
-	if err := validate.Required("rewriterules", "body", m.Rewriterules); err != nil {
+	if err := validate.Required("stopper", "body", m.Stopper); err != nil {
 		return err
-	}
-
-	for i := 0; i < len(m.Rewriterules); i++ {
-		if swag.IsZero(m.Rewriterules[i]) { // not required
-			continue
-		}
-
-		if m.Rewriterules[i] != nil {
-			if err := m.Rewriterules[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("rewriterules" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil

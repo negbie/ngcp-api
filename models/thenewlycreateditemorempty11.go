@@ -6,99 +6,49 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty11 Thenewlycreateditemorempty11
+//
 // swagger:model Thenewlycreateditemorempty11
 type Thenewlycreateditemorempty11 struct {
-
-	// attribute
-	// Required: true
-	Attribute *string `json:"attribute"`
-
-	// data type
-	// Required: true
-	DataType *string `json:"data_type"`
 
 	// description
 	// Required: true
 	Description *string `json:"description"`
 
-	// enum
+	// name
 	// Required: true
-	Enum []string `json:"enum"`
+	Name *string `json:"name"`
 
-	// fielddev pref
+	// reseller id
 	// Required: true
-	FielddevPref *string `json:"fielddev_pref"`
-
-	// label
-	// Required: true
-	Label *string `json:"label"`
-
-	// max occur
-	// Required: true
-	MaxOccur *string `json:"max_occur"`
+	ResellerID *string `json:"reseller_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty11
 func (m *Thenewlycreateditemorempty11) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAttribute(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDataType(formats); err != nil {
-		res = append(res, err)
-	}
-
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEnum(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFielddevPref(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateLabel(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateMaxOccur(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty11) validateAttribute(formats strfmt.Registry) error {
-
-	if err := validate.Required("attribute", "body", m.Attribute); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty11) validateDataType(formats strfmt.Registry) error {
-
-	if err := validate.Required("data_type", "body", m.DataType); err != nil {
-		return err
-	}
-
 	return nil
 }
 
@@ -111,36 +61,18 @@ func (m *Thenewlycreateditemorempty11) validateDescription(formats strfmt.Regist
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty11) validateEnum(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty11) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("enum", "body", m.Enum); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty11) validateFielddevPref(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty11) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("fielddev_pref", "body", m.FielddevPref); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty11) validateLabel(formats strfmt.Registry) error {
-
-	if err := validate.Required("label", "body", m.Label); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty11) validateMaxOccur(formats strfmt.Registry) error {
-
-	if err := validate.Required("max_occur", "body", m.MaxOccur); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
 	}
 

@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new bannedusers API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,39 +25,44 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-BannedusersGet gets banned user items
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetBannedUseritems(params *GetBannedUseritemsParams) (*GetBannedUseritemsOK, error)
 
-TODO: Add Description
+	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  GetBannedUseritems gets banned user items
 */
-func (a *Client) BannedusersGet(params *BannedusersGetParams) (*BannedusersGetOK, error) {
+func (a *Client) GetBannedUseritems(params *GetBannedUseritemsParams) (*GetBannedUseritemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewBannedusersGetParams()
+		params = NewGetBannedUseritemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "BannedusersGet",
+		ID:                 "GetBannedUseritems",
 		Method:             "GET",
 		PathPattern:        "/bannedusers",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &BannedusersGetReader{formats: a.formats},
+		Reader:             &GetBannedUseritemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*BannedusersGetOK)
+	success, ok := result.(*GetBannedUseritemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for BannedusersGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetBannedUseritems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

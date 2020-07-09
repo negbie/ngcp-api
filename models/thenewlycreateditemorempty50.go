@@ -6,67 +6,43 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty50 Thenewlycreateditemorempty50
+//
 // swagger:model Thenewlycreateditemorempty50
 type Thenewlycreateditemorempty50 struct {
 
-	// callee
+	// code
 	// Required: true
-	Callee *string `json:"callee"`
+	Code *string `json:"code"`
 
-	// caller
+	// request token
 	// Required: true
-	Caller *string `json:"caller"`
+	RequestToken *string `json:"request_token"`
 
-	// callid
+	// subscriber id
 	// Required: true
-	Callid *string `json:"callid"`
-
-	// status
-	// Required: true
-	Status *string `json:"status"`
-
-	// token
-	// Required: true
-	Token *string `json:"token"`
-
-	// type
-	// Required: true
-	Type *string `json:"type"`
+	SubscriberID *string `json:"subscriber_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty50
 func (m *Thenewlycreateditemorempty50) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCallee(formats); err != nil {
+	if err := m.validateCode(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCaller(formats); err != nil {
+	if err := m.validateRequestToken(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCallid(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStatus(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateToken(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateType(formats); err != nil {
+	if err := m.validateSubscriberID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,54 +52,27 @@ func (m *Thenewlycreateditemorempty50) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty50) validateCallee(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty50) validateCode(formats strfmt.Registry) error {
 
-	if err := validate.Required("callee", "body", m.Callee); err != nil {
+	if err := validate.Required("code", "body", m.Code); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty50) validateCaller(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty50) validateRequestToken(formats strfmt.Registry) error {
 
-	if err := validate.Required("caller", "body", m.Caller); err != nil {
+	if err := validate.Required("request_token", "body", m.RequestToken); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty50) validateCallid(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty50) validateSubscriberID(formats strfmt.Registry) error {
 
-	if err := validate.Required("callid", "body", m.Callid); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty50) validateStatus(formats strfmt.Registry) error {
-
-	if err := validate.Required("status", "body", m.Status); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty50) validateToken(formats strfmt.Registry) error {
-
-	if err := validate.Required("token", "body", m.Token); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty50) validateType(formats strfmt.Registry) error {
-
-	if err := validate.Required("type", "body", m.Type); err != nil {
+	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
 		return err
 	}
 

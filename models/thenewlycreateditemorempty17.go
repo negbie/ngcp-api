@@ -6,99 +6,193 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty17 Thenewlycreateditemorempty17
+//
 // swagger:model Thenewlycreateditemorempty17
 type Thenewlycreateditemorempty17 struct {
 
-	// billing data
+	// bootstrap config http sync method
 	// Required: true
-	BillingData *string `json:"billing_data"`
+	BootstrapConfigHTTPSyncMethod *string `json:"bootstrap_config_http_sync_method"`
 
-	// call data
+	// bootstrap config http sync params
 	// Required: true
-	CallData *string `json:"call_data"`
+	BootstrapConfigHTTPSyncParams *string `json:"bootstrap_config_http_sync_params"`
 
-	// is active
+	// bootstrap config http sync uri
 	// Required: true
-	IsActive *string `json:"is_active"`
+	BootstrapConfigHTTPSyncURI *string `json:"bootstrap_config_http_sync_uri"`
 
-	// is master
+	// bootstrap config redirect grandstream cid
 	// Required: true
-	IsMaster *string `json:"is_master"`
+	BootstrapConfigRedirectGrandstreamCid *string `json:"bootstrap_config_redirect_grandstream_cid"`
 
-	// is superuser
+	// bootstrap config redirect grandstream key
 	// Required: true
-	IsSuperuser *string `json:"is_superuser"`
+	BootstrapConfigRedirectGrandstreamKey *string `json:"bootstrap_config_redirect_grandstream_key"`
 
-	// lawful intercept
+	// bootstrap config redirect panasonic password
 	// Required: true
-	LawfulIntercept *string `json:"lawful_intercept"`
+	BootstrapConfigRedirectPanasonicPassword *string `json:"bootstrap_config_redirect_panasonic_password"`
 
-	// login
+	// bootstrap config redirect panasonic user
 	// Required: true
-	Login *string `json:"login"`
+	BootstrapConfigRedirectPanasonicUser *string `json:"bootstrap_config_redirect_panasonic_user"`
 
-	// password
+	// bootstrap config redirect polycom password
 	// Required: true
-	Password *string `json:"password"`
+	BootstrapConfigRedirectPolycomPassword *string `json:"bootstrap_config_redirect_polycom_password"`
 
-	// read only
+	// bootstrap config redirect polycom profile
 	// Required: true
-	ReadOnly *string `json:"read_only"`
+	BootstrapConfigRedirectPolycomProfile *string `json:"bootstrap_config_redirect_polycom_profile"`
+
+	// bootstrap config redirect polycom user
+	// Required: true
+	BootstrapConfigRedirectPolycomUser *string `json:"bootstrap_config_redirect_polycom_user"`
+
+	// bootstrap config redirect snom password
+	// Required: true
+	BootstrapConfigRedirectSnomPassword *string `json:"bootstrap_config_redirect_snom_password"`
+
+	// bootstrap config redirect snom user
+	// Required: true
+	BootstrapConfigRedirectSnomUser *string `json:"bootstrap_config_redirect_snom_user"`
+
+	// bootstrap config redirect yealink password
+	// Required: true
+	BootstrapConfigRedirectYealinkPassword *string `json:"bootstrap_config_redirect_yealink_password"`
+
+	// bootstrap config redirect yealink user
+	// Required: true
+	BootstrapConfigRedirectYealinkUser *string `json:"bootstrap_config_redirect_yealink_user"`
+
+	// bootstrap method
+	// Required: true
+	BootstrapMethod *string `json:"bootstrap_method"`
+
+	// bootstrap uri
+	// Required: true
+	BootstrapURI *string `json:"bootstrap_uri"`
+
+	// connectable models id
+	// Required: true
+	ConnectableModelsID *string `json:"connectable_models_id"`
+
+	// extensions num
+	// Required: true
+	ExtensionsNum *string `json:"extensions_num"`
+
+	// linerange
+	// Required: true
+	Linerange []*Linerange `json:"linerange"`
+
+	// model
+	// Required: true
+	Model *string `json:"model"`
 
 	// reseller id
 	// Required: true
 	ResellerID *string `json:"reseller_id"`
 
-	// show passwords
+	// type
 	// Required: true
-	ShowPasswords *string `json:"show_passwords"`
+	Type *string `json:"type"`
+
+	// vendor
+	// Required: true
+	Vendor *string `json:"vendor"`
 }
 
 // Validate validates this thenewlycreateditemorempty17
 func (m *Thenewlycreateditemorempty17) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBillingData(formats); err != nil {
+	if err := m.validateBootstrapConfigHTTPSyncMethod(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCallData(formats); err != nil {
+	if err := m.validateBootstrapConfigHTTPSyncParams(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIsActive(formats); err != nil {
+	if err := m.validateBootstrapConfigHTTPSyncURI(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIsMaster(formats); err != nil {
+	if err := m.validateBootstrapConfigRedirectGrandstreamCid(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIsSuperuser(formats); err != nil {
+	if err := m.validateBootstrapConfigRedirectGrandstreamKey(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateLawfulIntercept(formats); err != nil {
+	if err := m.validateBootstrapConfigRedirectPanasonicPassword(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateLogin(formats); err != nil {
+	if err := m.validateBootstrapConfigRedirectPanasonicUser(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePassword(formats); err != nil {
+	if err := m.validateBootstrapConfigRedirectPolycomPassword(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateReadOnly(formats); err != nil {
+	if err := m.validateBootstrapConfigRedirectPolycomProfile(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBootstrapConfigRedirectPolycomUser(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBootstrapConfigRedirectSnomPassword(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBootstrapConfigRedirectSnomUser(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBootstrapConfigRedirectYealinkPassword(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBootstrapConfigRedirectYealinkUser(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBootstrapMethod(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateBootstrapURI(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateConnectableModelsID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateExtensionsNum(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLinerange(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateModel(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -106,7 +200,11 @@ func (m *Thenewlycreateditemorempty17) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateShowPasswords(formats); err != nil {
+	if err := m.validateType(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVendor(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -116,81 +214,196 @@ func (m *Thenewlycreateditemorempty17) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateBillingData(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigHTTPSyncMethod(formats strfmt.Registry) error {
 
-	if err := validate.Required("billing_data", "body", m.BillingData); err != nil {
+	if err := validate.Required("bootstrap_config_http_sync_method", "body", m.BootstrapConfigHTTPSyncMethod); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateCallData(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigHTTPSyncParams(formats strfmt.Registry) error {
 
-	if err := validate.Required("call_data", "body", m.CallData); err != nil {
+	if err := validate.Required("bootstrap_config_http_sync_params", "body", m.BootstrapConfigHTTPSyncParams); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateIsActive(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigHTTPSyncURI(formats strfmt.Registry) error {
 
-	if err := validate.Required("is_active", "body", m.IsActive); err != nil {
+	if err := validate.Required("bootstrap_config_http_sync_uri", "body", m.BootstrapConfigHTTPSyncURI); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateIsMaster(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectGrandstreamCid(formats strfmt.Registry) error {
 
-	if err := validate.Required("is_master", "body", m.IsMaster); err != nil {
+	if err := validate.Required("bootstrap_config_redirect_grandstream_cid", "body", m.BootstrapConfigRedirectGrandstreamCid); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateIsSuperuser(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectGrandstreamKey(formats strfmt.Registry) error {
 
-	if err := validate.Required("is_superuser", "body", m.IsSuperuser); err != nil {
+	if err := validate.Required("bootstrap_config_redirect_grandstream_key", "body", m.BootstrapConfigRedirectGrandstreamKey); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateLawfulIntercept(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectPanasonicPassword(formats strfmt.Registry) error {
 
-	if err := validate.Required("lawful_intercept", "body", m.LawfulIntercept); err != nil {
+	if err := validate.Required("bootstrap_config_redirect_panasonic_password", "body", m.BootstrapConfigRedirectPanasonicPassword); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateLogin(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectPanasonicUser(formats strfmt.Registry) error {
 
-	if err := validate.Required("login", "body", m.Login); err != nil {
+	if err := validate.Required("bootstrap_config_redirect_panasonic_user", "body", m.BootstrapConfigRedirectPanasonicUser); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validatePassword(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectPolycomPassword(formats strfmt.Registry) error {
 
-	if err := validate.Required("password", "body", m.Password); err != nil {
+	if err := validate.Required("bootstrap_config_redirect_polycom_password", "body", m.BootstrapConfigRedirectPolycomPassword); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateReadOnly(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectPolycomProfile(formats strfmt.Registry) error {
 
-	if err := validate.Required("read_only", "body", m.ReadOnly); err != nil {
+	if err := validate.Required("bootstrap_config_redirect_polycom_profile", "body", m.BootstrapConfigRedirectPolycomProfile); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectPolycomUser(formats strfmt.Registry) error {
+
+	if err := validate.Required("bootstrap_config_redirect_polycom_user", "body", m.BootstrapConfigRedirectPolycomUser); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectSnomPassword(formats strfmt.Registry) error {
+
+	if err := validate.Required("bootstrap_config_redirect_snom_password", "body", m.BootstrapConfigRedirectSnomPassword); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectSnomUser(formats strfmt.Registry) error {
+
+	if err := validate.Required("bootstrap_config_redirect_snom_user", "body", m.BootstrapConfigRedirectSnomUser); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectYealinkPassword(formats strfmt.Registry) error {
+
+	if err := validate.Required("bootstrap_config_redirect_yealink_password", "body", m.BootstrapConfigRedirectYealinkPassword); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateBootstrapConfigRedirectYealinkUser(formats strfmt.Registry) error {
+
+	if err := validate.Required("bootstrap_config_redirect_yealink_user", "body", m.BootstrapConfigRedirectYealinkUser); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateBootstrapMethod(formats strfmt.Registry) error {
+
+	if err := validate.Required("bootstrap_method", "body", m.BootstrapMethod); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateBootstrapURI(formats strfmt.Registry) error {
+
+	if err := validate.Required("bootstrap_uri", "body", m.BootstrapURI); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateConnectableModelsID(formats strfmt.Registry) error {
+
+	if err := validate.Required("connectable_models_id", "body", m.ConnectableModelsID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateExtensionsNum(formats strfmt.Registry) error {
+
+	if err := validate.Required("extensions_num", "body", m.ExtensionsNum); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateLinerange(formats strfmt.Registry) error {
+
+	if err := validate.Required("linerange", "body", m.Linerange); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Linerange); i++ {
+		if swag.IsZero(m.Linerange[i]) { // not required
+			continue
+		}
+
+		if m.Linerange[i] != nil {
+			if err := m.Linerange[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("linerange" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateModel(formats strfmt.Registry) error {
+
+	if err := validate.Required("model", "body", m.Model); err != nil {
 		return err
 	}
 
@@ -206,9 +419,18 @@ func (m *Thenewlycreateditemorempty17) validateResellerID(formats strfmt.Registr
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty17) validateShowPasswords(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty17) validateType(formats strfmt.Registry) error {
 
-	if err := validate.Required("show_passwords", "body", m.ShowPasswords); err != nil {
+	if err := validate.Required("type", "body", m.Type); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty17) validateVendor(formats strfmt.Registry) error {
+
+	if err := validate.Required("vendor", "body", m.Vendor); err != nil {
 		return err
 	}
 

@@ -6,53 +6,51 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty49 Thenewlycreateditemorempty49
+//
 // swagger:model Thenewlycreateditemorempty49
 type Thenewlycreateditemorempty49 struct {
 
-	// bnumbers
+	// contract default
 	// Required: true
-	Bnumbers []*Bnumber `json:"bnumbers"`
+	ContractDefault *string `json:"contract_default"`
 
-	// is regex
+	// contract id
 	// Required: true
-	IsRegex *string `json:"is_regex"`
+	ContractID *string `json:"contract_id"`
 
-	// mode
+	// description
 	// Required: true
-	Mode *string `json:"mode"`
+	Description *string `json:"description"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
 
-	// subscriber id
+	// reseller id
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	ResellerID *string `json:"reseller_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty49
 func (m *Thenewlycreateditemorempty49) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBnumbers(formats); err != nil {
+	if err := m.validateContractDefault(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIsRegex(formats); err != nil {
+	if err := m.validateContractID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateMode(formats); err != nil {
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,7 +58,7 @@ func (m *Thenewlycreateditemorempty49) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateSubscriberID(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -70,43 +68,27 @@ func (m *Thenewlycreateditemorempty49) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty49) validateBnumbers(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty49) validateContractDefault(formats strfmt.Registry) error {
 
-	if err := validate.Required("bnumbers", "body", m.Bnumbers); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Bnumbers); i++ {
-		if swag.IsZero(m.Bnumbers[i]) { // not required
-			continue
-		}
-
-		if m.Bnumbers[i] != nil {
-			if err := m.Bnumbers[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("bnumbers" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty49) validateIsRegex(formats strfmt.Registry) error {
-
-	if err := validate.Required("is_regex", "body", m.IsRegex); err != nil {
+	if err := validate.Required("contract_default", "body", m.ContractDefault); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty49) validateMode(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty49) validateContractID(formats strfmt.Registry) error {
 
-	if err := validate.Required("mode", "body", m.Mode); err != nil {
+	if err := validate.Required("contract_id", "body", m.ContractID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty49) validateDescription(formats strfmt.Registry) error {
+
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 
@@ -122,9 +104,9 @@ func (m *Thenewlycreateditemorempty49) validateName(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty49) validateSubscriberID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty49) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
 	}
 

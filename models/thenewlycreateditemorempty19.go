@@ -6,35 +6,75 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty19 Thenewlycreateditemorempty19
+//
 // swagger:model Thenewlycreateditemorempty19
 type Thenewlycreateditemorempty19 struct {
 
-	// description
+	// enabled
 	// Required: true
-	Description *string `json:"description"`
+	Enabled *string `json:"enabled"`
+
+	// group id
+	// Required: true
+	GroupID *string `json:"group_id"`
+
+	// host
+	// Required: true
+	Host *string `json:"host"`
+
+	// ip
+	// Required: true
+	IP *string `json:"ip"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
 
-	// reseller id
+	// port
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	Port *string `json:"port"`
+
+	// probe
+	// Required: true
+	Probe *string `json:"probe"`
+
+	// transport
+	// Required: true
+	Transport *string `json:"transport"`
+
+	// via route
+	// Required: true
+	ViaRoute *string `json:"via_route"`
+
+	// weight
+	// Required: true
+	Weight *string `json:"weight"`
 }
 
 // Validate validates this thenewlycreateditemorempty19
 func (m *Thenewlycreateditemorempty19) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDescription(formats); err != nil {
+	if err := m.validateEnabled(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGroupID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateHost(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIP(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -42,7 +82,23 @@ func (m *Thenewlycreateditemorempty19) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateResellerID(formats); err != nil {
+	if err := m.validatePort(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProbe(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTransport(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateViaRoute(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateWeight(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,9 +108,36 @@ func (m *Thenewlycreateditemorempty19) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty19) validateDescription(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty19) validateEnabled(formats strfmt.Registry) error {
 
-	if err := validate.Required("description", "body", m.Description); err != nil {
+	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty19) validateGroupID(formats strfmt.Registry) error {
+
+	if err := validate.Required("group_id", "body", m.GroupID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty19) validateHost(formats strfmt.Registry) error {
+
+	if err := validate.Required("host", "body", m.Host); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty19) validateIP(formats strfmt.Registry) error {
+
+	if err := validate.Required("ip", "body", m.IP); err != nil {
 		return err
 	}
 
@@ -70,9 +153,45 @@ func (m *Thenewlycreateditemorempty19) validateName(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty19) validateResellerID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty19) validatePort(formats strfmt.Registry) error {
 
-	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
+	if err := validate.Required("port", "body", m.Port); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty19) validateProbe(formats strfmt.Registry) error {
+
+	if err := validate.Required("probe", "body", m.Probe); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty19) validateTransport(formats strfmt.Registry) error {
+
+	if err := validate.Required("transport", "body", m.Transport); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty19) validateViaRoute(formats strfmt.Registry) error {
+
+	if err := validate.Required("via_route", "body", m.ViaRoute); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty19) validateWeight(formats strfmt.Registry) error {
+
+	if err := validate.Required("weight", "body", m.Weight); err != nil {
 		return err
 	}
 

@@ -8,14 +8,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // FaxserverSettings FaxserverSettings
+//
 // swagger:model FaxserverSettings
 type FaxserverSettings struct {
 
@@ -25,7 +25,7 @@ type FaxserverSettings struct {
 
 	// destinations
 	// Required: true
-	Destinations []*Destination30 `json:"destinations"`
+	Destinations []*Destination36 `json:"destinations"`
 
 	// ecm
 	// Required: true

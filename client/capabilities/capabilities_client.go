@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new capabilities API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-CapabilitiesByIDGet gets a specific capability
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetCapabilityitems(params *GetCapabilityitemsParams) (*GetCapabilityitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) CapabilitiesByIDGet(params *CapabilitiesByIDGetParams) (*CapabilitiesByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCapabilitiesByIDGetParams()
-	}
+	GetaspecificCapability(params *GetaspecificCapabilityParams) (*GetaspecificCapabilityOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CapabilitiesByIdGet",
-		Method:             "GET",
-		PathPattern:        "/capabilities/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CapabilitiesByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CapabilitiesByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CapabilitiesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CapabilitiesGet gets capability items
-
-TODO: Add Description
+  GetCapabilityitems gets capability items
 */
-func (a *Client) CapabilitiesGet(params *CapabilitiesGetParams) (*CapabilitiesGetOK, error) {
+func (a *Client) GetCapabilityitems(params *GetCapabilityitemsParams) (*GetCapabilityitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCapabilitiesGetParams()
+		params = NewGetCapabilityitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CapabilitiesGet",
+		ID:                 "GetCapabilityitems",
 		Method:             "GET",
 		PathPattern:        "/capabilities",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CapabilitiesGetReader{formats: a.formats},
+		Reader:             &GetCapabilityitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CapabilitiesGetOK)
+	success, ok := result.(*GetCapabilityitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CapabilitiesGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCapabilityitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificCapability gets a specific capability
+*/
+func (a *Client) GetaspecificCapability(params *GetaspecificCapabilityParams) (*GetaspecificCapabilityOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificCapabilityParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificCapability",
+		Method:             "GET",
+		PathPattern:        "/capabilities/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificCapabilityReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificCapabilityOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificCapability: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -8,14 +8,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ReplaceChangeaspecificProfilePackageRequest Replace/changeaspecificProfilePackageRequest
+//
 // swagger:model Replace/changeaspecificProfilePackageRequest
 type ReplaceChangeaspecificProfilePackageRequest struct {
 

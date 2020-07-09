@@ -6,67 +6,35 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty20 Thenewlycreateditemorempty20
+//
 // swagger:model Thenewlycreateditemorempty20
 type Thenewlycreateditemorempty20 struct {
 
-	// attachment name
+	// config id
 	// Required: true
-	AttachmentName *string `json:"attachment_name"`
-
-	// body
-	// Required: true
-	Body *string `json:"body"`
-
-	// from email
-	// Required: true
-	FromEmail *string `json:"from_email"`
+	ConfigID *string `json:"config_id"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
-
-	// reseller id
-	// Required: true
-	ResellerID *string `json:"reseller_id"`
-
-	// subject
-	// Required: true
-	Subject *string `json:"subject"`
 }
 
 // Validate validates this thenewlycreateditemorempty20
 func (m *Thenewlycreateditemorempty20) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAttachmentName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateBody(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFromEmail(formats); err != nil {
+	if err := m.validateConfigID(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateResellerID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSubject(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,27 +44,9 @@ func (m *Thenewlycreateditemorempty20) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty20) validateAttachmentName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty20) validateConfigID(formats strfmt.Registry) error {
 
-	if err := validate.Required("attachment_name", "body", m.AttachmentName); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty20) validateBody(formats strfmt.Registry) error {
-
-	if err := validate.Required("body", "body", m.Body); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty20) validateFromEmail(formats strfmt.Registry) error {
-
-	if err := validate.Required("from_email", "body", m.FromEmail); err != nil {
+	if err := validate.Required("config_id", "body", m.ConfigID); err != nil {
 		return err
 	}
 
@@ -106,24 +56,6 @@ func (m *Thenewlycreateditemorempty20) validateFromEmail(formats strfmt.Registry
 func (m *Thenewlycreateditemorempty20) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty20) validateResellerID(formats strfmt.Registry) error {
-
-	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty20) validateSubject(formats strfmt.Registry) error {
-
-	if err := validate.Required("subject", "body", m.Subject); err != nil {
 		return err
 	}
 

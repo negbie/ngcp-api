@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new soundhandles API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-SoundhandlesByIDGet gets a specific sound handle
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetSoundHandleitems(params *GetSoundHandleitemsParams) (*GetSoundHandleitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) SoundhandlesByIDGet(params *SoundhandlesByIDGetParams) (*SoundhandlesByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewSoundhandlesByIDGetParams()
-	}
+	GetaspecificSoundHandle(params *GetaspecificSoundHandleParams) (*GetaspecificSoundHandleOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "SoundhandlesByIdGet",
-		Method:             "GET",
-		PathPattern:        "/soundhandles/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &SoundhandlesByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*SoundhandlesByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SoundhandlesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-SoundhandlesGet gets sound handle items
-
-TODO: Add Description
+  GetSoundHandleitems gets sound handle items
 */
-func (a *Client) SoundhandlesGet(params *SoundhandlesGetParams) (*SoundhandlesGetOK, error) {
+func (a *Client) GetSoundHandleitems(params *GetSoundHandleitemsParams) (*GetSoundHandleitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSoundhandlesGetParams()
+		params = NewGetSoundHandleitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "SoundhandlesGet",
+		ID:                 "GetSoundHandleitems",
 		Method:             "GET",
 		PathPattern:        "/soundhandles",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &SoundhandlesGetReader{formats: a.formats},
+		Reader:             &GetSoundHandleitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SoundhandlesGetOK)
+	success, ok := result.(*GetSoundHandleitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SoundhandlesGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetSoundHandleitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificSoundHandle gets a specific sound handle
+*/
+func (a *Client) GetaspecificSoundHandle(params *GetaspecificSoundHandleParams) (*GetaspecificSoundHandleOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificSoundHandleParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificSoundHandle",
+		Method:             "GET",
+		PathPattern:        "/soundhandles/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificSoundHandleReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificSoundHandleOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificSoundHandle: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

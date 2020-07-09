@@ -6,27 +6,43 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty52 Thenewlycreateditemorempty52
+//
 // swagger:model Thenewlycreateditemorempty52
 type Thenewlycreateditemorempty52 struct {
 
-	// login
+	// direction
 	// Required: true
-	Login *string `json:"login"`
+	Direction *string `json:"direction"`
+
+	// number
+	// Required: true
+	Number *string `json:"number"`
+
+	// subscriber id
+	// Required: true
+	SubscriberID *string `json:"subscriber_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty52
 func (m *Thenewlycreateditemorempty52) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateLogin(formats); err != nil {
+	if err := m.validateDirection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateNumber(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubscriberID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -36,9 +52,27 @@ func (m *Thenewlycreateditemorempty52) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty52) validateLogin(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty52) validateDirection(formats strfmt.Registry) error {
 
-	if err := validate.Required("login", "body", m.Login); err != nil {
+	if err := validate.Required("direction", "body", m.Direction); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty52) validateNumber(formats strfmt.Registry) error {
+
+	if err := validate.Required("number", "body", m.Number); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty52) validateSubscriberID(formats strfmt.Registry) error {
+
+	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
 		return err
 	}
 

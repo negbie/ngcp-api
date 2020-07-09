@@ -6,48 +6,48 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // BalanceIntervals BalanceIntervals
+//
 // swagger:model BalanceIntervals
 type BalanceIntervals struct {
 
 	// billing profile id
 	// Required: true
-	BillingProfileID *string `json:"billing_profile_id"`
+	BillingProfileID *float64 `json:"billing_profile_id"`
 
 	// cash balance
 	// Required: true
-	CashBalance *string `json:"cash_balance"`
+	CashBalance *float64 `json:"cash_balance"`
 
 	// cash debit
 	// Required: true
-	CashDebit *string `json:"cash_debit"`
+	CashDebit *float64 `json:"cash_debit"`
 
 	// free time balance
 	// Required: true
-	FreeTimeBalance *string `json:"free_time_balance"`
+	FreeTimeBalance *float64 `json:"free_time_balance"`
 
 	// free time spent
 	// Required: true
-	FreeTimeSpent *string `json:"free_time_spent"`
+	FreeTimeSpent *float64 `json:"free_time_spent"`
 
 	// initial cash balance
 	// Required: true
-	InitialCashBalance *string `json:"initial_cash_balance"`
+	InitialCashBalance *float64 `json:"initial_cash_balance"`
 
 	// initial free time balance
 	// Required: true
-	InitialFreeTimeBalance *string `json:"initial_free_time_balance"`
+	InitialFreeTimeBalance *float64 `json:"initial_free_time_balance"`
 
 	// is actual
 	// Required: true
-	IsActual *string `json:"is_actual"`
+	IsActual *bool `json:"is_actual"`
 
 	// notopup discard expiry
 	// Required: true
@@ -63,7 +63,7 @@ type BalanceIntervals struct {
 
 	// timely topup count
 	// Required: true
-	TimelyTopupCount *string `json:"timely_topup_count"`
+	TimelyTopupCount *float64 `json:"timely_topup_count"`
 
 	// timely topup start
 	// Required: true
@@ -75,7 +75,7 @@ type BalanceIntervals struct {
 
 	// topup count
 	// Required: true
-	TopupCount *string `json:"topup_count"`
+	TopupCount *float64 `json:"topup_count"`
 
 	// underrun lock
 	// Required: true

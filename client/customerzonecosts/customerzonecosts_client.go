@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new customerzonecosts API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-CustomerzonecostsByIDGet gets a specific customer zone cost
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetCustomerZoneCostitems(params *GetCustomerZoneCostitemsParams) (*GetCustomerZoneCostitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) CustomerzonecostsByIDGet(params *CustomerzonecostsByIDGetParams) (*CustomerzonecostsByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCustomerzonecostsByIDGetParams()
-	}
+	GetaspecificCustomerZoneCost(params *GetaspecificCustomerZoneCostParams) (*GetaspecificCustomerZoneCostOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CustomerzonecostsByIdGet",
-		Method:             "GET",
-		PathPattern:        "/customerzonecosts/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CustomerzonecostsByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CustomerzonecostsByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CustomerzonecostsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CustomerzonecostsGet gets customer zone cost items
-
-TODO: Add Description
+  GetCustomerZoneCostitems gets customer zone cost items
 */
-func (a *Client) CustomerzonecostsGet(params *CustomerzonecostsGetParams) (*CustomerzonecostsGetOK, error) {
+func (a *Client) GetCustomerZoneCostitems(params *GetCustomerZoneCostitemsParams) (*GetCustomerZoneCostitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCustomerzonecostsGetParams()
+		params = NewGetCustomerZoneCostitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CustomerzonecostsGet",
+		ID:                 "GetCustomerZoneCostitems",
 		Method:             "GET",
 		PathPattern:        "/customerzonecosts",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CustomerzonecostsGetReader{formats: a.formats},
+		Reader:             &GetCustomerZoneCostitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CustomerzonecostsGetOK)
+	success, ok := result.(*GetCustomerZoneCostitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CustomerzonecostsGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCustomerZoneCostitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificCustomerZoneCost gets a specific customer zone cost
+*/
+func (a *Client) GetaspecificCustomerZoneCost(params *GetaspecificCustomerZoneCostParams) (*GetaspecificCustomerZoneCostOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificCustomerZoneCostParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificCustomerZoneCost",
+		Method:             "GET",
+		PathPattern:        "/customerzonecosts/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificCustomerZoneCostReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificCustomerZoneCostOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificCustomerZoneCost: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

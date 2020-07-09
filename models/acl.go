@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ACL Acl
+//
 // swagger:model Acl
 type ACL struct {
 
@@ -21,13 +21,17 @@ type ACL struct {
 	// Required: true
 	Destination *string `json:"destination"`
 
+	// from email
+	// Required: true
+	FromEmail *string `json:"from_email"`
+
 	// received from
 	// Required: true
 	ReceivedFrom *string `json:"received_from"`
 
 	// use regex
 	// Required: true
-	UseRegex *string `json:"use_regex"`
+	UseRegex *bool `json:"use_regex"`
 }
 
 // Validate validates this Acl
@@ -35,6 +39,10 @@ func (m *ACL) Validate(formats strfmt.Registry) error {
 	var res []error
 
 	if err := m.validateDestination(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFromEmail(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -55,6 +63,15 @@ func (m *ACL) Validate(formats strfmt.Registry) error {
 func (m *ACL) validateDestination(formats strfmt.Registry) error {
 
 	if err := validate.Required("destination", "body", m.Destination); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ACL) validateFromEmail(formats strfmt.Registry) error {
+
+	if err := validate.Required("from_email", "body", m.FromEmail); err != nil {
 		return err
 	}
 

@@ -6,53 +6,43 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty31 Thenewlycreateditemorempty31
+//
 // swagger:model Thenewlycreateditemorempty31
 type Thenewlycreateditemorempty31 struct {
 
-	// blocks
+	// code
 	// Required: true
-	Blocks []*Block `json:"blocks"`
+	Code *string `json:"code"`
 
-	// contract id
+	// emergency container id
 	// Required: true
-	ContractID *string `json:"contract_id"`
+	EmergencyContainerID *string `json:"emergency_container_id"`
 
-	// description
+	// prefix
 	// Required: true
-	Description *string `json:"description"`
-
-	// name
-	// Required: true
-	Name *string `json:"name"`
+	Prefix *string `json:"prefix"`
 }
 
 // Validate validates this thenewlycreateditemorempty31
 func (m *Thenewlycreateditemorempty31) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBlocks(formats); err != nil {
+	if err := m.validateCode(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateContractID(formats); err != nil {
+	if err := m.validateEmergencyContainerID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateName(formats); err != nil {
+	if err := m.validatePrefix(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -62,52 +52,27 @@ func (m *Thenewlycreateditemorempty31) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty31) validateBlocks(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty31) validateCode(formats strfmt.Registry) error {
 
-	if err := validate.Required("blocks", "body", m.Blocks); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Blocks); i++ {
-		if swag.IsZero(m.Blocks[i]) { // not required
-			continue
-		}
-
-		if m.Blocks[i] != nil {
-			if err := m.Blocks[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("blocks" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty31) validateContractID(formats strfmt.Registry) error {
-
-	if err := validate.Required("contract_id", "body", m.ContractID); err != nil {
+	if err := validate.Required("code", "body", m.Code); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty31) validateDescription(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty31) validateEmergencyContainerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("description", "body", m.Description); err != nil {
+	if err := validate.Required("emergency_container_id", "body", m.EmergencyContainerID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty31) validateName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty31) validatePrefix(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("prefix", "body", m.Prefix); err != nil {
 		return err
 	}
 

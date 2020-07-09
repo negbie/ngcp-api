@@ -6,147 +6,173 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty1 Thenewlycreateditemorempty1
+//
 // swagger:model Thenewlycreateditemorempty1
 type Thenewlycreateditemorempty1 struct {
 
-	// billing profile id
+	// advice of charge
 	// Required: true
-	BillingProfileID *string `json:"billing_profile_id"`
+	AdviceOfCharge *string `json:"advice_of_charge"`
 
-	// billing zone id
+	// currency
 	// Required: true
-	BillingZoneID *string `json:"billing_zone_id"`
+	Currency *string `json:"currency"`
 
-	// destination
+	// fraud daily limit
 	// Required: true
-	Destination *string `json:"destination"`
+	FraudDailyLimit *string `json:"fraud_daily_limit"`
 
-	// direction
+	// fraud daily lock
 	// Required: true
-	Direction *string `json:"direction"`
+	FraudDailyLock *string `json:"fraud_daily_lock"`
 
-	// match mode
+	// fraud daily notify
 	// Required: true
-	MatchMode *string `json:"match_mode"`
+	FraudDailyNotify *string `json:"fraud_daily_notify"`
 
-	// offpeak follow interval
+	// fraud interval limit
 	// Required: true
-	OffpeakFollowInterval *string `json:"offpeak_follow_interval"`
+	FraudIntervalLimit *string `json:"fraud_interval_limit"`
 
-	// offpeak follow rate
+	// fraud interval lock
 	// Required: true
-	OffpeakFollowRate *string `json:"offpeak_follow_rate"`
+	FraudIntervalLock *string `json:"fraud_interval_lock"`
 
-	// offpeak init interval
+	// fraud interval notify
 	// Required: true
-	OffpeakInitInterval *string `json:"offpeak_init_interval"`
+	FraudIntervalNotify *string `json:"fraud_interval_notify"`
 
-	// offpeak init rate
+	// fraud use reseller rates
 	// Required: true
-	OffpeakInitRate *string `json:"offpeak_init_rate"`
+	FraudUseResellerRates *string `json:"fraud_use_reseller_rates"`
 
-	// onpeak follow interval
+	// handle
 	// Required: true
-	OnpeakFollowInterval *string `json:"onpeak_follow_interval"`
+	Handle *string `json:"handle"`
 
-	// onpeak follow rate
+	// interval charge
 	// Required: true
-	OnpeakFollowRate *string `json:"onpeak_follow_rate"`
+	IntervalCharge *string `json:"interval_charge"`
 
-	// onpeak init interval
+	// interval free cash
 	// Required: true
-	OnpeakInitInterval *string `json:"onpeak_init_interval"`
+	IntervalFreeCash *string `json:"interval_free_cash"`
 
-	// onpeak init rate
+	// interval free time
 	// Required: true
-	OnpeakInitRate *string `json:"onpeak_init_rate"`
+	IntervalFreeTime *string `json:"interval_free_time"`
 
-	// purge existing
+	// name
 	// Required: true
-	PurgeExisting *string `json:"purge_existing"`
+	Name *string `json:"name"`
 
-	// source
+	// peaktime special
 	// Required: true
-	Source *string `json:"source"`
+	PeaktimeSpecial []*PeaktimeSpecial `json:"peaktime_special"`
 
-	// use free time
+	// peaktime weekdays
 	// Required: true
-	UseFreeTime *string `json:"use_free_time"`
+	PeaktimeWeekdays []*PeaktimeWeekday `json:"peaktime_weekdays"`
+
+	// prepaid
+	// Required: true
+	Prepaid *string `json:"prepaid"`
+
+	// prepaid library
+	// Required: true
+	PrepaidLibrary *string `json:"prepaid_library"`
+
+	// reseller id
+	// Required: true
+	ResellerID *string `json:"reseller_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty1
 func (m *Thenewlycreateditemorempty1) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBillingProfileID(formats); err != nil {
+	if err := m.validateAdviceOfCharge(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBillingZoneID(formats); err != nil {
+	if err := m.validateCurrency(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDestination(formats); err != nil {
+	if err := m.validateFraudDailyLimit(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDirection(formats); err != nil {
+	if err := m.validateFraudDailyLock(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateMatchMode(formats); err != nil {
+	if err := m.validateFraudDailyNotify(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOffpeakFollowInterval(formats); err != nil {
+	if err := m.validateFraudIntervalLimit(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOffpeakFollowRate(formats); err != nil {
+	if err := m.validateFraudIntervalLock(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOffpeakInitInterval(formats); err != nil {
+	if err := m.validateFraudIntervalNotify(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOffpeakInitRate(formats); err != nil {
+	if err := m.validateFraudUseResellerRates(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOnpeakFollowInterval(formats); err != nil {
+	if err := m.validateHandle(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOnpeakFollowRate(formats); err != nil {
+	if err := m.validateIntervalCharge(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOnpeakInitInterval(formats); err != nil {
+	if err := m.validateIntervalFreeCash(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateOnpeakInitRate(formats); err != nil {
+	if err := m.validateIntervalFreeTime(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePurgeExisting(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSource(formats); err != nil {
+	if err := m.validatePeaktimeSpecial(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateUseFreeTime(formats); err != nil {
+	if err := m.validatePeaktimeWeekdays(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePrepaid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePrepaidLibrary(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -156,144 +182,203 @@ func (m *Thenewlycreateditemorempty1) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateBillingProfileID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateAdviceOfCharge(formats strfmt.Registry) error {
 
-	if err := validate.Required("billing_profile_id", "body", m.BillingProfileID); err != nil {
+	if err := validate.Required("advice_of_charge", "body", m.AdviceOfCharge); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateBillingZoneID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateCurrency(formats strfmt.Registry) error {
 
-	if err := validate.Required("billing_zone_id", "body", m.BillingZoneID); err != nil {
+	if err := validate.Required("currency", "body", m.Currency); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateDestination(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateFraudDailyLimit(formats strfmt.Registry) error {
 
-	if err := validate.Required("destination", "body", m.Destination); err != nil {
+	if err := validate.Required("fraud_daily_limit", "body", m.FraudDailyLimit); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateDirection(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateFraudDailyLock(formats strfmt.Registry) error {
 
-	if err := validate.Required("direction", "body", m.Direction); err != nil {
+	if err := validate.Required("fraud_daily_lock", "body", m.FraudDailyLock); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateMatchMode(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateFraudDailyNotify(formats strfmt.Registry) error {
 
-	if err := validate.Required("match_mode", "body", m.MatchMode); err != nil {
+	if err := validate.Required("fraud_daily_notify", "body", m.FraudDailyNotify); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOffpeakFollowInterval(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateFraudIntervalLimit(formats strfmt.Registry) error {
 
-	if err := validate.Required("offpeak_follow_interval", "body", m.OffpeakFollowInterval); err != nil {
+	if err := validate.Required("fraud_interval_limit", "body", m.FraudIntervalLimit); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOffpeakFollowRate(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateFraudIntervalLock(formats strfmt.Registry) error {
 
-	if err := validate.Required("offpeak_follow_rate", "body", m.OffpeakFollowRate); err != nil {
+	if err := validate.Required("fraud_interval_lock", "body", m.FraudIntervalLock); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOffpeakInitInterval(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateFraudIntervalNotify(formats strfmt.Registry) error {
 
-	if err := validate.Required("offpeak_init_interval", "body", m.OffpeakInitInterval); err != nil {
+	if err := validate.Required("fraud_interval_notify", "body", m.FraudIntervalNotify); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOffpeakInitRate(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateFraudUseResellerRates(formats strfmt.Registry) error {
 
-	if err := validate.Required("offpeak_init_rate", "body", m.OffpeakInitRate); err != nil {
+	if err := validate.Required("fraud_use_reseller_rates", "body", m.FraudUseResellerRates); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOnpeakFollowInterval(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateHandle(formats strfmt.Registry) error {
 
-	if err := validate.Required("onpeak_follow_interval", "body", m.OnpeakFollowInterval); err != nil {
+	if err := validate.Required("handle", "body", m.Handle); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOnpeakFollowRate(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateIntervalCharge(formats strfmt.Registry) error {
 
-	if err := validate.Required("onpeak_follow_rate", "body", m.OnpeakFollowRate); err != nil {
+	if err := validate.Required("interval_charge", "body", m.IntervalCharge); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOnpeakInitInterval(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateIntervalFreeCash(formats strfmt.Registry) error {
 
-	if err := validate.Required("onpeak_init_interval", "body", m.OnpeakInitInterval); err != nil {
+	if err := validate.Required("interval_free_cash", "body", m.IntervalFreeCash); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateOnpeakInitRate(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateIntervalFreeTime(formats strfmt.Registry) error {
 
-	if err := validate.Required("onpeak_init_rate", "body", m.OnpeakInitRate); err != nil {
+	if err := validate.Required("interval_free_time", "body", m.IntervalFreeTime); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validatePurgeExisting(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("purge_existing", "body", m.PurgeExisting); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateSource(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validatePeaktimeSpecial(formats strfmt.Registry) error {
 
-	if err := validate.Required("source", "body", m.Source); err != nil {
+	if err := validate.Required("peaktime_special", "body", m.PeaktimeSpecial); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.PeaktimeSpecial); i++ {
+		if swag.IsZero(m.PeaktimeSpecial[i]) { // not required
+			continue
+		}
+
+		if m.PeaktimeSpecial[i] != nil {
+			if err := m.PeaktimeSpecial[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("peaktime_special" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty1) validatePeaktimeWeekdays(formats strfmt.Registry) error {
+
+	if err := validate.Required("peaktime_weekdays", "body", m.PeaktimeWeekdays); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.PeaktimeWeekdays); i++ {
+		if swag.IsZero(m.PeaktimeWeekdays[i]) { // not required
+			continue
+		}
+
+		if m.PeaktimeWeekdays[i] != nil {
+			if err := m.PeaktimeWeekdays[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("peaktime_weekdays" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty1) validatePrepaid(formats strfmt.Registry) error {
+
+	if err := validate.Required("prepaid", "body", m.Prepaid); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty1) validateUseFreeTime(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty1) validatePrepaidLibrary(formats strfmt.Registry) error {
 
-	if err := validate.Required("use_free_time", "body", m.UseFreeTime); err != nil {
+	if err := validate.Required("prepaid_library", "body", m.PrepaidLibrary); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty1) validateResellerID(formats strfmt.Registry) error {
+
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
 	}
 

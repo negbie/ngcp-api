@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CallQueues CallQueues
+//
 // swagger:model CallQueues
 type CallQueues struct {
 
@@ -23,7 +23,7 @@ type CallQueues struct {
 
 	// queue length
 	// Required: true
-	QueueLength *string `json:"queue_length"`
+	QueueLength *float64 `json:"queue_length"`
 }
 
 // Validate validates this call queues

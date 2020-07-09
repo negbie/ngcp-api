@@ -6,24 +6,24 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Capabilities Capabilities
+//
 // swagger:model Capabilities
 type Capabilities struct {
 
 	// enabled
 	// Required: true
-	Enabled *string `json:"enabled"`
+	Enabled *bool `json:"enabled"`
 
 	// id
 	// Required: true
-	ID *string `json:"id"`
+	ID *float64 `json:"id"`
 
 	// name
 	// Required: true

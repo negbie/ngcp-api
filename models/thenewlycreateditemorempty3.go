@@ -6,35 +6,51 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty3 Thenewlycreateditemorempty3
+//
 // swagger:model Thenewlycreateditemorempty3
 type Thenewlycreateditemorempty3 struct {
 
-	// domain
+	// authoritative
 	// Required: true
-	Domain *string `json:"domain"`
+	Authoritative *string `json:"authoritative"`
 
-	// reseller id
+	// name
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	Name *string `json:"name"`
+
+	// prefix
+	// Required: true
+	Prefix *string `json:"prefix"`
+
+	// skip rewrite
+	// Required: true
+	SkipRewrite *string `json:"skip_rewrite"`
 }
 
 // Validate validates this thenewlycreateditemorempty3
 func (m *Thenewlycreateditemorempty3) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDomain(formats); err != nil {
+	if err := m.validateAuthoritative(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateResellerID(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePrefix(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSkipRewrite(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -44,18 +60,36 @@ func (m *Thenewlycreateditemorempty3) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty3) validateDomain(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty3) validateAuthoritative(formats strfmt.Registry) error {
 
-	if err := validate.Required("domain", "body", m.Domain); err != nil {
+	if err := validate.Required("authoritative", "body", m.Authoritative); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty3) validateResellerID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty3) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty3) validatePrefix(formats strfmt.Registry) error {
+
+	if err := validate.Required("prefix", "body", m.Prefix); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty3) validateSkipRewrite(formats strfmt.Registry) error {
+
+	if err := validate.Required("skip_rewrite", "body", m.SkipRewrite); err != nil {
 		return err
 	}
 

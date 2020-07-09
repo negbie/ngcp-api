@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new topuplogs API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-TopuplogsByIDGet gets a specific topup log
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetTopupLogitems(params *GetTopupLogitemsParams) (*GetTopupLogitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) TopuplogsByIDGet(params *TopuplogsByIDGetParams) (*TopuplogsByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewTopuplogsByIDGetParams()
-	}
+	GetaspecificTopupLog(params *GetaspecificTopupLogParams) (*GetaspecificTopupLogOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "TopuplogsByIdGet",
-		Method:             "GET",
-		PathPattern:        "/topuplogs/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &TopuplogsByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*TopuplogsByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TopuplogsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-TopuplogsGet gets topup log items
-
-TODO: Add Description
+  GetTopupLogitems gets topup log items
 */
-func (a *Client) TopuplogsGet(params *TopuplogsGetParams) (*TopuplogsGetOK, error) {
+func (a *Client) GetTopupLogitems(params *GetTopupLogitemsParams) (*GetTopupLogitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewTopuplogsGetParams()
+		params = NewGetTopupLogitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "TopuplogsGet",
+		ID:                 "GetTopupLogitems",
 		Method:             "GET",
 		PathPattern:        "/topuplogs",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &TopuplogsGetReader{formats: a.formats},
+		Reader:             &GetTopupLogitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*TopuplogsGetOK)
+	success, ok := result.(*GetTopupLogitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TopuplogsGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetTopupLogitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificTopupLog gets a specific topup log
+*/
+func (a *Client) GetaspecificTopupLog(params *GetaspecificTopupLogParams) (*GetaspecificTopupLogOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificTopupLogParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificTopupLog",
+		Method:             "GET",
+		PathPattern:        "/topuplogs/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificTopupLogReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificTopupLogOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificTopupLog: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

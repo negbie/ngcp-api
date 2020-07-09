@@ -6,35 +6,35 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty29 Thenewlycreateditemorempty29
+//
 // swagger:model Thenewlycreateditemorempty29
 type Thenewlycreateditemorempty29 struct {
-
-	// config id
-	// Required: true
-	ConfigID *string `json:"config_id"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
+
+	// reseller id
+	// Required: true
+	ResellerID *string `json:"reseller_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty29
 func (m *Thenewlycreateditemorempty29) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateConfigID(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -44,18 +44,18 @@ func (m *Thenewlycreateditemorempty29) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty29) validateConfigID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty29) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("config_id", "body", m.ConfigID); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty29) validateName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty29) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
 	}
 

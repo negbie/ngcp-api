@@ -6,20 +6,20 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CustomerFraudEvents CustomerFraudEvents
+//
 // swagger:model CustomerFraudEvents
 type CustomerFraudEvents struct {
 
 	// id
 	// Required: true
-	ID *string `json:"id"`
+	ID *float64 `json:"id"`
 
 	// interval
 	// Required: true
@@ -27,15 +27,15 @@ type CustomerFraudEvents struct {
 
 	// interval cost
 	// Required: true
-	IntervalCost *string `json:"interval_cost"`
+	IntervalCost *float64 `json:"interval_cost"`
 
 	// interval limit
 	// Required: true
-	IntervalLimit *string `json:"interval_limit"`
+	IntervalLimit *float64 `json:"interval_limit"`
 
 	// interval lock
 	// Required: true
-	IntervalLock *string `json:"interval_lock"`
+	IntervalLock *float64 `json:"interval_lock"`
 
 	// interval notify
 	// Required: true
@@ -43,7 +43,7 @@ type CustomerFraudEvents struct {
 
 	// reseller id
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	ResellerID *float64 `json:"reseller_id"`
 
 	// type
 	// Required: true
@@ -51,7 +51,7 @@ type CustomerFraudEvents struct {
 
 	// use reseller rates
 	// Required: true
-	UseResellerRates *string `json:"use_reseller_rates"`
+	UseResellerRates *float64 `json:"use_reseller_rates"`
 }
 
 // Validate validates this customer fraud events

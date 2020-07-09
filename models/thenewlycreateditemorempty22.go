@@ -6,91 +6,51 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty22 Thenewlycreateditemorempty22
+//
 // swagger:model Thenewlycreateditemorempty22
 type Thenewlycreateditemorempty22 struct {
 
-	// liid
+	// filename
 	// Required: true
-	Liid *string `json:"liid"`
+	Filename *string `json:"filename"`
 
-	// number
+	// handle
 	// Required: true
-	Number *string `json:"number"`
+	Handle *string `json:"handle"`
 
-	// x2 host
+	// loopplay
 	// Required: true
-	X2Host *string `json:"x2_host"`
+	Loopplay *string `json:"loopplay"`
 
-	// x2 password
+	// set id
 	// Required: true
-	X2Password *string `json:"x2_password"`
-
-	// x2 port
-	// Required: true
-	X2Port *string `json:"x2_port"`
-
-	// x2 user
-	// Required: true
-	X2User *string `json:"x2_user"`
-
-	// x3 host
-	// Required: true
-	X3Host *string `json:"x3_host"`
-
-	// x3 port
-	// Required: true
-	X3Port *string `json:"x3_port"`
-
-	// x3 required
-	// Required: true
-	X3Required *string `json:"x3_required"`
+	SetID *string `json:"set_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty22
 func (m *Thenewlycreateditemorempty22) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateLiid(formats); err != nil {
+	if err := m.validateFilename(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateNumber(formats); err != nil {
+	if err := m.validateHandle(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateX2Host(formats); err != nil {
+	if err := m.validateLoopplay(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateX2Password(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateX2Port(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateX2User(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateX3Host(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateX3Port(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateX3Required(formats); err != nil {
+	if err := m.validateSetID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -100,81 +60,36 @@ func (m *Thenewlycreateditemorempty22) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty22) validateLiid(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty22) validateFilename(formats strfmt.Registry) error {
 
-	if err := validate.Required("liid", "body", m.Liid); err != nil {
+	if err := validate.Required("filename", "body", m.Filename); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty22) validateNumber(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty22) validateHandle(formats strfmt.Registry) error {
 
-	if err := validate.Required("number", "body", m.Number); err != nil {
+	if err := validate.Required("handle", "body", m.Handle); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty22) validateX2Host(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty22) validateLoopplay(formats strfmt.Registry) error {
 
-	if err := validate.Required("x2_host", "body", m.X2Host); err != nil {
+	if err := validate.Required("loopplay", "body", m.Loopplay); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty22) validateX2Password(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty22) validateSetID(formats strfmt.Registry) error {
 
-	if err := validate.Required("x2_password", "body", m.X2Password); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty22) validateX2Port(formats strfmt.Registry) error {
-
-	if err := validate.Required("x2_port", "body", m.X2Port); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty22) validateX2User(formats strfmt.Registry) error {
-
-	if err := validate.Required("x2_user", "body", m.X2User); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty22) validateX3Host(formats strfmt.Registry) error {
-
-	if err := validate.Required("x3_host", "body", m.X3Host); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty22) validateX3Port(formats strfmt.Registry) error {
-
-	if err := validate.Required("x3_port", "body", m.X3Port); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty22) validateX3Required(formats strfmt.Registry) error {
-
-	if err := validate.Required("x3_required", "body", m.X3Required); err != nil {
+	if err := validate.Required("set_id", "body", m.SetID); err != nil {
 		return err
 	}
 

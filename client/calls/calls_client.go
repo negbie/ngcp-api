@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new calls API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-CallsByIDGet gets a specific call
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetCallitems(params *GetCallitemsParams) (*GetCallitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) CallsByIDGet(params *CallsByIDGetParams) (*CallsByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCallsByIDGetParams()
-	}
+	GetaspecificCall(params *GetaspecificCallParams) (*GetaspecificCallOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CallsByIdGet",
-		Method:             "GET",
-		PathPattern:        "/calls/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CallsByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CallsByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CallsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CallsGet gets call items
-
-TODO: Add Description
+  GetCallitems gets call items
 */
-func (a *Client) CallsGet(params *CallsGetParams) (*CallsGetOK, error) {
+func (a *Client) GetCallitems(params *GetCallitemsParams) (*GetCallitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCallsGetParams()
+		params = NewGetCallitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CallsGet",
+		ID:                 "GetCallitems",
 		Method:             "GET",
 		PathPattern:        "/calls",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CallsGetReader{formats: a.formats},
+		Reader:             &GetCallitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CallsGetOK)
+	success, ok := result.(*GetCallitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CallsGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCallitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificCall gets a specific call
+*/
+func (a *Client) GetaspecificCall(params *GetaspecificCallParams) (*GetaspecificCallOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificCallParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificCall",
+		Method:             "GET",
+		PathPattern:        "/calls/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificCallReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificCallOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificCall: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

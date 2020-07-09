@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CallList CallList
+//
 // swagger:model CallList
 type CallList struct {
 
@@ -27,11 +27,11 @@ type CallList struct {
 
 	// customer cost
 	// Required: true
-	CustomerCost *string `json:"customer_cost"`
+	CustomerCost *float64 `json:"customer_cost"`
 
 	// customer free time
 	// Required: true
-	CustomerFreeTime *string `json:"customer_free_time"`
+	CustomerFreeTime *float64 `json:"customer_free_time"`
 
 	// direction
 	// Required: true
@@ -39,7 +39,7 @@ type CallList struct {
 
 	// duration
 	// Required: true
-	Duration *string `json:"duration"`
+	Duration *float64 `json:"duration"`
 
 	// init time
 	// Required: true
@@ -47,7 +47,7 @@ type CallList struct {
 
 	// intra customer
 	// Required: true
-	IntraCustomer *string `json:"intra_customer"`
+	IntraCustomer *bool `json:"intra_customer"`
 
 	// mos average
 	// Required: true
@@ -87,7 +87,7 @@ type CallList struct {
 
 	// total customer cost
 	// Required: true
-	TotalCustomerCost *string `json:"total_customer_cost"`
+	TotalCustomerCost *float64 `json:"total_customer_cost"`
 
 	// type
 	// Required: true

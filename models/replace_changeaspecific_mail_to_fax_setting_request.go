@@ -8,20 +8,20 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ReplaceChangeaspecificMailToFaxSettingRequest Replace/changeaspecificMailToFaxSettingRequest
+//
 // swagger:model Replace/changeaspecificMailToFaxSettingRequest
 type ReplaceChangeaspecificMailToFaxSettingRequest struct {
 
 	// acl
 	// Required: true
-	ACL []*ACL `json:"acl"`
+	ACL []*Acl2 `json:"acl"`
 
 	// active
 	// Required: true

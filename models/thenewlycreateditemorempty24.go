@@ -6,51 +6,43 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty24 Thenewlycreateditemorempty24
+//
 // swagger:model Thenewlycreateditemorempty24
 type Thenewlycreateditemorempty24 struct {
 
-	// active
+	// content type
 	// Required: true
-	Active *string `json:"active"`
+	ContentType *string `json:"content_type"`
 
-	// recur
+	// device id
 	// Required: true
-	Recur *string `json:"recur"`
+	DeviceID *string `json:"device_id"`
 
-	// subscriber id
+	// version
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
-
-	// time
-	// Required: true
-	Time *string `json:"time"`
+	Version *string `json:"version"`
 }
 
 // Validate validates this thenewlycreateditemorempty24
 func (m *Thenewlycreateditemorempty24) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateActive(formats); err != nil {
+	if err := m.validateContentType(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRecur(formats); err != nil {
+	if err := m.validateDeviceID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSubscriberID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTime(formats); err != nil {
+	if err := m.validateVersion(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,36 +52,27 @@ func (m *Thenewlycreateditemorempty24) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty24) validateActive(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty24) validateContentType(formats strfmt.Registry) error {
 
-	if err := validate.Required("active", "body", m.Active); err != nil {
+	if err := validate.Required("content_type", "body", m.ContentType); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty24) validateRecur(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty24) validateDeviceID(formats strfmt.Registry) error {
 
-	if err := validate.Required("recur", "body", m.Recur); err != nil {
+	if err := validate.Required("device_id", "body", m.DeviceID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty24) validateSubscriberID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty24) validateVersion(formats strfmt.Registry) error {
 
-	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty24) validateTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("time", "body", m.Time); err != nil {
+	if err := validate.Required("version", "body", m.Version); err != nil {
 		return err
 	}
 

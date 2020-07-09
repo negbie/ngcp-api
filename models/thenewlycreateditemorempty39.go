@@ -6,75 +6,45 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty39 Thenewlycreateditemorempty39
+//
 // swagger:model Thenewlycreateditemorempty39
 type Thenewlycreateditemorempty39 struct {
 
-	// callee pattern
+	// name
 	// Required: true
-	CalleePattern *string `json:"callee_pattern"`
+	Name *string `json:"name"`
 
-	// callee prefix
+	// subscriber id
 	// Required: true
-	CalleePrefix *string `json:"callee_prefix"`
+	SubscriberID *string `json:"subscriber_id"`
 
-	// caller pattern
+	// times
 	// Required: true
-	CallerPattern *string `json:"caller_pattern"`
-
-	// description
-	// Required: true
-	Description *string `json:"description"`
-
-	// enabled
-	// Required: true
-	Enabled *string `json:"enabled"`
-
-	// group id
-	// Required: true
-	GroupID *string `json:"group_id"`
-
-	// stopper
-	// Required: true
-	Stopper *string `json:"stopper"`
+	Times []*Time `json:"times"`
 }
 
 // Validate validates this thenewlycreateditemorempty39
 func (m *Thenewlycreateditemorempty39) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCalleePattern(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCalleePrefix(formats); err != nil {
+	if err := m.validateSubscriberID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCallerPattern(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateDescription(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateEnabled(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateGroupID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStopper(formats); err != nil {
+	if err := m.validateTimes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -84,64 +54,44 @@ func (m *Thenewlycreateditemorempty39) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty39) validateCalleePattern(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty39) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("callee_pattern", "body", m.CalleePattern); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty39) validateCalleePrefix(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty39) validateSubscriberID(formats strfmt.Registry) error {
 
-	if err := validate.Required("callee_prefix", "body", m.CalleePrefix); err != nil {
+	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty39) validateCallerPattern(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty39) validateTimes(formats strfmt.Registry) error {
 
-	if err := validate.Required("caller_pattern", "body", m.CallerPattern); err != nil {
+	if err := validate.Required("times", "body", m.Times); err != nil {
 		return err
 	}
 
-	return nil
-}
+	for i := 0; i < len(m.Times); i++ {
+		if swag.IsZero(m.Times[i]) { // not required
+			continue
+		}
 
-func (m *Thenewlycreateditemorempty39) validateDescription(formats strfmt.Registry) error {
+		if m.Times[i] != nil {
+			if err := m.Times[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("times" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
 
-	if err := validate.Required("description", "body", m.Description); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty39) validateEnabled(formats strfmt.Registry) error {
-
-	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty39) validateGroupID(formats strfmt.Registry) error {
-
-	if err := validate.Required("group_id", "body", m.GroupID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty39) validateStopper(formats strfmt.Registry) error {
-
-	if err := validate.Required("stopper", "body", m.Stopper); err != nil {
-		return err
 	}
 
 	return nil

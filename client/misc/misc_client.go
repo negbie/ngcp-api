@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new misc API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,471 +25,476 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-AdmincertsPost creates a new admin cert
+// ClientService is the interface for Client methods
+type ClientService interface {
+	CreateanewAdminCert(params *CreateanewAdminCertParams) (*CreateanewAdminCertCreated, error)
 
-TODO: Add Description
+	CreateanewApplyRewrite(params *CreateanewApplyRewriteParams) (*CreateanewApplyRewriteCreated, error)
+
+	CreateanewCallControl(params *CreateanewCallControlParams) (*CreateanewCallControlCreated, error)
+
+	CreateanewPartyCallControl(params *CreateanewPartyCallControlParams) (*CreateanewPartyCallControlCreated, error)
+
+	CreateanewTopupCash(params *CreateanewTopupCashParams) (*CreateanewTopupCashCreated, error)
+
+	CreateanewTopupVoucher(params *CreateanewTopupVoucherParams) (*CreateanewTopupVoucherCreated, error)
+
+	GetaspecificCallRecordingFile(params *GetaspecificCallRecordingFileParams) (*GetaspecificCallRecordingFileOK, error)
+
+	GetaspecificFaxRecording(params *GetaspecificFaxRecordingParams) (*GetaspecificFaxRecordingOK, error)
+
+	GetaspecificPbxDeviceConfigFile(params *GetaspecificPbxDeviceConfigFileParams) (*GetaspecificPbxDeviceConfigFileOK, error)
+
+	GetaspecificPbxDeviceFirmwareBinary(params *GetaspecificPbxDeviceFirmwareBinaryParams) (*GetaspecificPbxDeviceFirmwareBinaryOK, error)
+
+	GetaspecificPbxDeviceModelImage(params *GetaspecificPbxDeviceModelImageParams) (*GetaspecificPbxDeviceModelImageOK, error)
+
+	GetaspecificSoundFileRecording(params *GetaspecificSoundFileRecordingParams) (*GetaspecificSoundFileRecordingOK, error)
+
+	GetaspecificVoicemailRecording(params *GetaspecificVoicemailRecordingParams) (*GetaspecificVoicemailRecordingOK, error)
+
+	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  CreateanewAdminCert creates a new admin cert
 */
-func (a *Client) AdmincertsPost(params *AdmincertsPostParams) (*AdmincertsPostCreated, error) {
+func (a *Client) CreateanewAdminCert(params *CreateanewAdminCertParams) (*CreateanewAdminCertCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewAdmincertsPostParams()
+		params = NewCreateanewAdminCertParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "AdmincertsPost",
+		ID:                 "CreateanewAdminCert",
 		Method:             "POST",
-		PathPattern:        "/admincerts/",
+		PathPattern:        "/admincerts",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &AdmincertsPostReader{formats: a.formats},
+		Reader:             &CreateanewAdminCertReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*AdmincertsPostCreated)
+	success, ok := result.(*CreateanewAdminCertCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for AdmincertsPost: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateanewAdminCert: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-ApplyrewritesPost creates a new apply rewrite
-
-TODO: Add Description
+  CreateanewApplyRewrite creates a new apply rewrite
 */
-func (a *Client) ApplyrewritesPost(params *ApplyrewritesPostParams) (*ApplyrewritesPostCreated, error) {
+func (a *Client) CreateanewApplyRewrite(params *CreateanewApplyRewriteParams) (*CreateanewApplyRewriteCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewApplyrewritesPostParams()
+		params = NewCreateanewApplyRewriteParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "ApplyrewritesPost",
+		ID:                 "CreateanewApplyRewrite",
 		Method:             "POST",
-		PathPattern:        "/applyrewrites/",
+		PathPattern:        "/applyrewrites",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &ApplyrewritesPostReader{formats: a.formats},
+		Reader:             &CreateanewApplyRewriteReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*ApplyrewritesPostCreated)
+	success, ok := result.(*CreateanewApplyRewriteCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for ApplyrewritesPost: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateanewApplyRewrite: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-CallcontrolsPost creates a new call control
-
-TODO: Add Description
+  CreateanewCallControl creates a new call control
 */
-func (a *Client) CallcontrolsPost(params *CallcontrolsPostParams) (*CallcontrolsPostCreated, error) {
+func (a *Client) CreateanewCallControl(params *CreateanewCallControlParams) (*CreateanewCallControlCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCallcontrolsPostParams()
+		params = NewCreateanewCallControlParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CallcontrolsPost",
+		ID:                 "CreateanewCallControl",
 		Method:             "POST",
-		PathPattern:        "/callcontrols/",
+		PathPattern:        "/callcontrols",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CallcontrolsPostReader{formats: a.formats},
+		Reader:             &CreateanewCallControlReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CallcontrolsPostCreated)
+	success, ok := result.(*CreateanewCallControlCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CallcontrolsPost: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateanewCallControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-CallrecordingfilesByIDGet gets a specific call recording file
-
-TODO: Add Description
+  CreateanewPartyCallControl creates a new party call control
 */
-func (a *Client) CallrecordingfilesByIDGet(params *CallrecordingfilesByIDGetParams) (*CallrecordingfilesByIDGetOK, error) {
+func (a *Client) CreateanewPartyCallControl(params *CreateanewPartyCallControlParams) (*CreateanewPartyCallControlCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCallrecordingfilesByIDGetParams()
+		params = NewCreateanewPartyCallControlParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CallrecordingfilesByIdGet",
+		ID:                 "CreateanewPartyCallControl",
+		Method:             "POST",
+		PathPattern:        "/partycallcontrols",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateanewPartyCallControlReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateanewPartyCallControlCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateanewPartyCallControl: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  CreateanewTopupCash creates a new topup cash
+*/
+func (a *Client) CreateanewTopupCash(params *CreateanewTopupCashParams) (*CreateanewTopupCashCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateanewTopupCashParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "CreateanewTopupCash",
+		Method:             "POST",
+		PathPattern:        "/topupcash",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateanewTopupCashReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateanewTopupCashCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateanewTopupCash: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  CreateanewTopupVoucher creates a new topup voucher
+*/
+func (a *Client) CreateanewTopupVoucher(params *CreateanewTopupVoucherParams) (*CreateanewTopupVoucherCreated, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewCreateanewTopupVoucherParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "CreateanewTopupVoucher",
+		Method:             "POST",
+		PathPattern:        "/topupvouchers",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &CreateanewTopupVoucherReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*CreateanewTopupVoucherCreated)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for CreateanewTopupVoucher: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificCallRecordingFile gets a specific call recording file
+*/
+func (a *Client) GetaspecificCallRecordingFile(params *GetaspecificCallRecordingFileParams) (*GetaspecificCallRecordingFileOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificCallRecordingFileParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificCallRecordingFile",
 		Method:             "GET",
 		PathPattern:        "/callrecordingfiles/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CallrecordingfilesByIDGetReader{formats: a.formats},
+		Reader:             &GetaspecificCallRecordingFileReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CallrecordingfilesByIDGetOK)
+	success, ok := result.(*GetaspecificCallRecordingFileOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CallrecordingfilesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetaspecificCallRecordingFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-FaxrecordingsByIDGet gets a specific fax recording
-
-TODO: Add Description
+  GetaspecificFaxRecording gets a specific fax recording
 */
-func (a *Client) FaxrecordingsByIDGet(params *FaxrecordingsByIDGetParams) (*FaxrecordingsByIDGetOK, error) {
+func (a *Client) GetaspecificFaxRecording(params *GetaspecificFaxRecordingParams) (*GetaspecificFaxRecordingOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewFaxrecordingsByIDGetParams()
+		params = NewGetaspecificFaxRecordingParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "FaxrecordingsByIdGet",
+		ID:                 "GetaspecificFaxRecording",
 		Method:             "GET",
 		PathPattern:        "/faxrecordings/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &FaxrecordingsByIDGetReader{formats: a.formats},
+		Reader:             &GetaspecificFaxRecordingReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*FaxrecordingsByIDGetOK)
+	success, ok := result.(*GetaspecificFaxRecordingOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for FaxrecordingsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetaspecificFaxRecording: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PartycallcontrolsPost creates a new party call control
-
-TODO: Add Description
+  GetaspecificPbxDeviceConfigFile gets a specific pbx device config file
 */
-func (a *Client) PartycallcontrolsPost(params *PartycallcontrolsPostParams) (*PartycallcontrolsPostCreated, error) {
+func (a *Client) GetaspecificPbxDeviceConfigFile(params *GetaspecificPbxDeviceConfigFileParams) (*GetaspecificPbxDeviceConfigFileOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPartycallcontrolsPostParams()
+		params = NewGetaspecificPbxDeviceConfigFileParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "PartycallcontrolsPost",
-		Method:             "POST",
-		PathPattern:        "/partycallcontrols/",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &PartycallcontrolsPostReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*PartycallcontrolsPostCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PartycallcontrolsPost: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-PbxdeviceconfigfilesByIDGet gets a specific pbx device config file
-
-TODO: Add Description
-*/
-func (a *Client) PbxdeviceconfigfilesByIDGet(params *PbxdeviceconfigfilesByIDGetParams) (*PbxdeviceconfigfilesByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewPbxdeviceconfigfilesByIDGetParams()
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "PbxdeviceconfigfilesByIdGet",
+		ID:                 "GetaspecificPbxDeviceConfigFile",
 		Method:             "GET",
 		PathPattern:        "/pbxdeviceconfigfiles/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PbxdeviceconfigfilesByIDGetReader{formats: a.formats},
+		Reader:             &GetaspecificPbxDeviceConfigFileReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PbxdeviceconfigfilesByIDGetOK)
+	success, ok := result.(*GetaspecificPbxDeviceConfigFileOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PbxdeviceconfigfilesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetaspecificPbxDeviceConfigFile: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PbxdevicefirmwarebinariesByIDGet gets a specific pbx device firmware binary
-
-TODO: Add Description
+  GetaspecificPbxDeviceFirmwareBinary gets a specific pbx device firmware binary
 */
-func (a *Client) PbxdevicefirmwarebinariesByIDGet(params *PbxdevicefirmwarebinariesByIDGetParams) (*PbxdevicefirmwarebinariesByIDGetOK, error) {
+func (a *Client) GetaspecificPbxDeviceFirmwareBinary(params *GetaspecificPbxDeviceFirmwareBinaryParams) (*GetaspecificPbxDeviceFirmwareBinaryOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPbxdevicefirmwarebinariesByIDGetParams()
+		params = NewGetaspecificPbxDeviceFirmwareBinaryParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "PbxdevicefirmwarebinariesByIdGet",
+		ID:                 "GetaspecificPbxDeviceFirmwareBinary",
 		Method:             "GET",
 		PathPattern:        "/pbxdevicefirmwarebinaries/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PbxdevicefirmwarebinariesByIDGetReader{formats: a.formats},
+		Reader:             &GetaspecificPbxDeviceFirmwareBinaryReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PbxdevicefirmwarebinariesByIDGetOK)
+	success, ok := result.(*GetaspecificPbxDeviceFirmwareBinaryOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PbxdevicefirmwarebinariesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetaspecificPbxDeviceFirmwareBinary: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-PbxdevicemodelimagesByIDGet gets a specific pbx device model image
-
-TODO: Add Description
+  GetaspecificPbxDeviceModelImage gets a specific pbx device model image
 */
-func (a *Client) PbxdevicemodelimagesByIDGet(params *PbxdevicemodelimagesByIDGetParams) (*PbxdevicemodelimagesByIDGetOK, error) {
+func (a *Client) GetaspecificPbxDeviceModelImage(params *GetaspecificPbxDeviceModelImageParams) (*GetaspecificPbxDeviceModelImageOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewPbxdevicemodelimagesByIDGetParams()
+		params = NewGetaspecificPbxDeviceModelImageParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "PbxdevicemodelimagesByIdGet",
+		ID:                 "GetaspecificPbxDeviceModelImage",
 		Method:             "GET",
 		PathPattern:        "/pbxdevicemodelimages/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &PbxdevicemodelimagesByIDGetReader{formats: a.formats},
+		Reader:             &GetaspecificPbxDeviceModelImageReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*PbxdevicemodelimagesByIDGetOK)
+	success, ok := result.(*GetaspecificPbxDeviceModelImageOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for PbxdevicemodelimagesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetaspecificPbxDeviceModelImage: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-SoundfilerecordingsByIDGet gets a specific sound file recording
-
-TODO: Add Description
+  GetaspecificSoundFileRecording gets a specific sound file recording
 */
-func (a *Client) SoundfilerecordingsByIDGet(params *SoundfilerecordingsByIDGetParams) (*SoundfilerecordingsByIDGetOK, error) {
+func (a *Client) GetaspecificSoundFileRecording(params *GetaspecificSoundFileRecordingParams) (*GetaspecificSoundFileRecordingOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewSoundfilerecordingsByIDGetParams()
+		params = NewGetaspecificSoundFileRecordingParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "SoundfilerecordingsByIdGet",
+		ID:                 "GetaspecificSoundFileRecording",
 		Method:             "GET",
 		PathPattern:        "/soundfilerecordings/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &SoundfilerecordingsByIDGetReader{formats: a.formats},
+		Reader:             &GetaspecificSoundFileRecordingReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*SoundfilerecordingsByIDGetOK)
+	success, ok := result.(*GetaspecificSoundFileRecordingOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for SoundfilerecordingsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetaspecificSoundFileRecording: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 
 /*
-TopupcashPost creates a new topup cash
-
-TODO: Add Description
+  GetaspecificVoicemailRecording gets a specific voicemail recording
 */
-func (a *Client) TopupcashPost(params *TopupcashPostParams) (*TopupcashPostCreated, error) {
+func (a *Client) GetaspecificVoicemailRecording(params *GetaspecificVoicemailRecordingParams) (*GetaspecificVoicemailRecordingOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewTopupcashPostParams()
+		params = NewGetaspecificVoicemailRecordingParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "TopupcashPost",
-		Method:             "POST",
-		PathPattern:        "/topupcash/",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &TopupcashPostReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*TopupcashPostCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TopupcashPost: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-TopupvouchersPost creates a new topup voucher
-
-TODO: Add Description
-*/
-func (a *Client) TopupvouchersPost(params *TopupvouchersPostParams) (*TopupvouchersPostCreated, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewTopupvouchersPostParams()
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "TopupvouchersPost",
-		Method:             "POST",
-		PathPattern:        "/topupvouchers/",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &TopupvouchersPostReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*TopupvouchersPostCreated)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for TopupvouchersPost: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
-}
-
-/*
-VoicemailrecordingsByIDGet gets a specific voicemail recording
-
-TODO: Add Description
-*/
-func (a *Client) VoicemailrecordingsByIDGet(params *VoicemailrecordingsByIDGetParams) (*VoicemailrecordingsByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewVoicemailrecordingsByIDGetParams()
-	}
-
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "VoicemailrecordingsByIdGet",
+		ID:                 "GetaspecificVoicemailRecording",
 		Method:             "GET",
 		PathPattern:        "/voicemailrecordings/{id}",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &VoicemailrecordingsByIDGetReader{formats: a.formats},
+		Reader:             &GetaspecificVoicemailRecordingReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*VoicemailrecordingsByIDGetOK)
+	success, ok := result.(*GetaspecificVoicemailRecordingOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for VoicemailrecordingsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetaspecificVoicemailRecording: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

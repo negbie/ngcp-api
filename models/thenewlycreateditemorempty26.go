@@ -6,61 +6,59 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty26 Thenewlycreateditemorempty26
+//
 // swagger:model Thenewlycreateditemorempty26
 type Thenewlycreateditemorempty26 struct {
 
-	// customer id
+	// attribute
 	// Required: true
-	CustomerID *string `json:"customer_id"`
+	Attribute *Attribute `json:"attribute"`
 
-	// identifier
+	// description
 	// Required: true
-	Identifier *string `json:"identifier"`
+	Description *string `json:"description"`
 
-	// lines
+	// name
 	// Required: true
-	Lines []*Line `json:"lines"`
+	Name *string `json:"name"`
 
-	// profile id
+	// profile set id
 	// Required: true
-	ProfileID *string `json:"profile_id"`
+	ProfileSetID *string `json:"profile_set_id"`
 
-	// station name
+	// set default
 	// Required: true
-	StationName *string `json:"station_name"`
+	SetDefault *string `json:"set_default"`
 }
 
 // Validate validates this thenewlycreateditemorempty26
 func (m *Thenewlycreateditemorempty26) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCustomerID(formats); err != nil {
+	if err := m.validateAttribute(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIdentifier(formats); err != nil {
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateLines(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateProfileID(formats); err != nil {
+	if err := m.validateProfileSetID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateStationName(formats); err != nil {
+	if err := m.validateSetDefault(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -70,61 +68,54 @@ func (m *Thenewlycreateditemorempty26) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty26) validateCustomerID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty26) validateAttribute(formats strfmt.Registry) error {
 
-	if err := validate.Required("customer_id", "body", m.CustomerID); err != nil {
+	if err := validate.Required("attribute", "body", m.Attribute); err != nil {
 		return err
 	}
 
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty26) validateIdentifier(formats strfmt.Registry) error {
-
-	if err := validate.Required("identifier", "body", m.Identifier); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty26) validateLines(formats strfmt.Registry) error {
-
-	if err := validate.Required("lines", "body", m.Lines); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Lines); i++ {
-		if swag.IsZero(m.Lines[i]) { // not required
-			continue
-		}
-
-		if m.Lines[i] != nil {
-			if err := m.Lines[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("lines" + "." + strconv.Itoa(i))
-				}
-				return err
+	if m.Attribute != nil {
+		if err := m.Attribute.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("attribute")
 			}
+			return err
 		}
-
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty26) validateProfileID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty26) validateDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("profile_id", "body", m.ProfileID); err != nil {
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty26) validateStationName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty26) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("station_name", "body", m.StationName); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty26) validateProfileSetID(formats strfmt.Registry) error {
+
+	if err := validate.Required("profile_set_id", "body", m.ProfileSetID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty26) validateSetDefault(formats strfmt.Registry) error {
+
+	if err := validate.Required("set_default", "body", m.SetDefault); err != nil {
 		return err
 	}
 

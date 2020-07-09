@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ReplaceChangeaspecificCustomerFraudPreferenceRequest Replace/changeaspecificCustomerFraudPreferenceRequest
+//
 // swagger:model Replace/changeaspecificCustomerFraudPreferenceRequest
 type ReplaceChangeaspecificCustomerFraudPreferenceRequest struct {
 
@@ -25,6 +25,10 @@ type ReplaceChangeaspecificCustomerFraudPreferenceRequest struct {
 	// Required: true
 	FraudDailyLock *string `json:"fraud_daily_lock"`
 
+	// fraud daily notify
+	// Required: true
+	FraudDailyNotify *string `json:"fraud_daily_notify"`
+
 	// fraud interval limit
 	// Required: true
 	FraudIntervalLimit *string `json:"fraud_interval_limit"`
@@ -32,6 +36,10 @@ type ReplaceChangeaspecificCustomerFraudPreferenceRequest struct {
 	// fraud interval lock
 	// Required: true
 	FraudIntervalLock *string `json:"fraud_interval_lock"`
+
+	// fraud interval notify
+	// Required: true
+	FraudIntervalNotify *string `json:"fraud_interval_notify"`
 }
 
 // Validate validates this replace changeaspecific customer fraud preference request
@@ -46,11 +54,19 @@ func (m *ReplaceChangeaspecificCustomerFraudPreferenceRequest) Validate(formats 
 		res = append(res, err)
 	}
 
+	if err := m.validateFraudDailyNotify(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateFraudIntervalLimit(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateFraudIntervalLock(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFraudIntervalNotify(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -78,6 +94,15 @@ func (m *ReplaceChangeaspecificCustomerFraudPreferenceRequest) validateFraudDail
 	return nil
 }
 
+func (m *ReplaceChangeaspecificCustomerFraudPreferenceRequest) validateFraudDailyNotify(formats strfmt.Registry) error {
+
+	if err := validate.Required("fraud_daily_notify", "body", m.FraudDailyNotify); err != nil {
+		return err
+	}
+
+	return nil
+}
+
 func (m *ReplaceChangeaspecificCustomerFraudPreferenceRequest) validateFraudIntervalLimit(formats strfmt.Registry) error {
 
 	if err := validate.Required("fraud_interval_limit", "body", m.FraudIntervalLimit); err != nil {
@@ -90,6 +115,15 @@ func (m *ReplaceChangeaspecificCustomerFraudPreferenceRequest) validateFraudInte
 func (m *ReplaceChangeaspecificCustomerFraudPreferenceRequest) validateFraudIntervalLock(formats strfmt.Registry) error {
 
 	if err := validate.Required("fraud_interval_lock", "body", m.FraudIntervalLock); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *ReplaceChangeaspecificCustomerFraudPreferenceRequest) validateFraudIntervalNotify(formats strfmt.Registry) error {
+
+	if err := validate.Required("fraud_interval_notify", "body", m.FraudIntervalNotify); err != nil {
 		return err
 	}
 

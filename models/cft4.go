@@ -6,83 +6,93 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Cft4 Cft4
+//
 // swagger:model Cft4
 type Cft4 struct {
 
-	// bnumberset
+	// bnumbers
 	// Required: true
-	Bnumberset *string `json:"bnumberset"`
+	Bnumbers []*Bnumber `json:"bnumbers"`
 
-	// bnumberset id
+	// bnumbers is regex
 	// Required: true
-	BnumbersetID *string `json:"bnumberset_id"`
+	BnumbersIsRegex *bool `json:"bnumbers_is_regex"`
 
-	// destinationset
+	// bnumbers mode
 	// Required: true
-	Destinationset *string `json:"destinationset"`
+	BnumbersMode *string `json:"bnumbers_mode"`
 
-	// destinationset id
+	// destinations
 	// Required: true
-	DestinationsetID *string `json:"destinationset_id"`
+	Destinations []*Destination24 `json:"destinations"`
 
-	// sourceset
+	// ringtimeout
 	// Required: true
-	Sourceset *string `json:"sourceset"`
+	Ringtimeout *float64 `json:"ringtimeout"`
 
-	// sourceset id
+	// sources
 	// Required: true
-	SourcesetID *string `json:"sourceset_id"`
+	Sources []*Source `json:"sources"`
 
-	// timeset
+	// sources is regex
 	// Required: true
-	Timeset *string `json:"timeset"`
+	SourcesIsRegex *bool `json:"sources_is_regex"`
 
-	// timeset id
+	// sources mode
 	// Required: true
-	TimesetID *string `json:"timeset_id"`
+	SourcesMode *string `json:"sources_mode"`
+
+	// times
+	// Required: true
+	Times []*Time `json:"times"`
 }
 
 // Validate validates this cft4
 func (m *Cft4) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBnumberset(formats); err != nil {
+	if err := m.validateBnumbers(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBnumbersetID(formats); err != nil {
+	if err := m.validateBnumbersIsRegex(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDestinationset(formats); err != nil {
+	if err := m.validateBnumbersMode(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDestinationsetID(formats); err != nil {
+	if err := m.validateDestinations(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSourceset(formats); err != nil {
+	if err := m.validateRingtimeout(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSourcesetID(formats); err != nil {
+	if err := m.validateSources(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateTimeset(formats); err != nil {
+	if err := m.validateSourcesIsRegex(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateTimesetID(formats); err != nil {
+	if err := m.validateSourcesMode(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTimes(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -92,73 +102,146 @@ func (m *Cft4) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Cft4) validateBnumberset(formats strfmt.Registry) error {
+func (m *Cft4) validateBnumbers(formats strfmt.Registry) error {
 
-	if err := validate.Required("bnumberset", "body", m.Bnumberset); err != nil {
+	if err := validate.Required("bnumbers", "body", m.Bnumbers); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Bnumbers); i++ {
+		if swag.IsZero(m.Bnumbers[i]) { // not required
+			continue
+		}
+
+		if m.Bnumbers[i] != nil {
+			if err := m.Bnumbers[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("bnumbers" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Cft4) validateBnumbersIsRegex(formats strfmt.Registry) error {
+
+	if err := validate.Required("bnumbers_is_regex", "body", m.BnumbersIsRegex); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Cft4) validateBnumbersetID(formats strfmt.Registry) error {
+func (m *Cft4) validateBnumbersMode(formats strfmt.Registry) error {
 
-	if err := validate.Required("bnumberset_id", "body", m.BnumbersetID); err != nil {
+	if err := validate.Required("bnumbers_mode", "body", m.BnumbersMode); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Cft4) validateDestinationset(formats strfmt.Registry) error {
+func (m *Cft4) validateDestinations(formats strfmt.Registry) error {
 
-	if err := validate.Required("destinationset", "body", m.Destinationset); err != nil {
+	if err := validate.Required("destinations", "body", m.Destinations); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Destinations); i++ {
+		if swag.IsZero(m.Destinations[i]) { // not required
+			continue
+		}
+
+		if m.Destinations[i] != nil {
+			if err := m.Destinations[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("destinations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Cft4) validateRingtimeout(formats strfmt.Registry) error {
+
+	if err := validate.Required("ringtimeout", "body", m.Ringtimeout); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Cft4) validateDestinationsetID(formats strfmt.Registry) error {
+func (m *Cft4) validateSources(formats strfmt.Registry) error {
 
-	if err := validate.Required("destinationset_id", "body", m.DestinationsetID); err != nil {
+	if err := validate.Required("sources", "body", m.Sources); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Sources); i++ {
+		if swag.IsZero(m.Sources[i]) { // not required
+			continue
+		}
+
+		if m.Sources[i] != nil {
+			if err := m.Sources[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("sources" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Cft4) validateSourcesIsRegex(formats strfmt.Registry) error {
+
+	if err := validate.Required("sources_is_regex", "body", m.SourcesIsRegex); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Cft4) validateSourceset(formats strfmt.Registry) error {
+func (m *Cft4) validateSourcesMode(formats strfmt.Registry) error {
 
-	if err := validate.Required("sourceset", "body", m.Sourceset); err != nil {
+	if err := validate.Required("sources_mode", "body", m.SourcesMode); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Cft4) validateSourcesetID(formats strfmt.Registry) error {
+func (m *Cft4) validateTimes(formats strfmt.Registry) error {
 
-	if err := validate.Required("sourceset_id", "body", m.SourcesetID); err != nil {
+	if err := validate.Required("times", "body", m.Times); err != nil {
 		return err
 	}
 
-	return nil
-}
+	for i := 0; i < len(m.Times); i++ {
+		if swag.IsZero(m.Times[i]) { // not required
+			continue
+		}
 
-func (m *Cft4) validateTimeset(formats strfmt.Registry) error {
+		if m.Times[i] != nil {
+			if err := m.Times[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("times" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
 
-	if err := validate.Required("timeset", "body", m.Timeset); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Cft4) validateTimesetID(formats strfmt.Registry) error {
-
-	if err := validate.Required("timeset_id", "body", m.TimesetID); err != nil {
-		return err
 	}
 
 	return nil

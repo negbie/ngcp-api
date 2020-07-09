@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new rtcsessions API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,39 +25,116 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-RtcsessionsByIDGet gets a specific rtc session
+// ClientService is the interface for Client methods
+type ClientService interface {
+	CreateanewRtcSession(params *CreateanewRtcSessionParams) (*CreateanewRtcSessionCreated, error)
 
-TODO: Add Description
+	GetRtcSessionitems(params *GetRtcSessionitemsParams) (*GetRtcSessionitemsOK, error)
+
+	GetaspecificRtcSession(params *GetaspecificRtcSessionParams) (*GetaspecificRtcSessionOK, error)
+
+	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  CreateanewRtcSession creates a new rtc session
 */
-func (a *Client) RtcsessionsByIDGet(params *RtcsessionsByIDGetParams) (*RtcsessionsByIDGetOK, error) {
+func (a *Client) CreateanewRtcSession(params *CreateanewRtcSessionParams) (*CreateanewRtcSessionCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewRtcsessionsByIDGetParams()
+		params = NewCreateanewRtcSessionParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "RtcsessionsByIdGet",
-		Method:             "GET",
-		PathPattern:        "/rtcsessions/{id}",
+		ID:                 "CreateanewRtcSession",
+		Method:             "POST",
+		PathPattern:        "/rtcsessions",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &RtcsessionsByIDGetReader{formats: a.formats},
+		Reader:             &CreateanewRtcSessionReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*RtcsessionsByIDGetOK)
+	success, ok := result.(*CreateanewRtcSessionCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for RtcsessionsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateanewRtcSession: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetRtcSessionitems gets rtc session items
+*/
+func (a *Client) GetRtcSessionitems(params *GetRtcSessionitemsParams) (*GetRtcSessionitemsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetRtcSessionitemsParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetRtcSessionitems",
+		Method:             "GET",
+		PathPattern:        "/rtcsessions",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetRtcSessionitemsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetRtcSessionitemsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetRtcSessionitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificRtcSession gets a specific rtc session
+*/
+func (a *Client) GetaspecificRtcSession(params *GetaspecificRtcSessionParams) (*GetaspecificRtcSessionOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificRtcSessionParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificRtcSession",
+		Method:             "GET",
+		PathPattern:        "/rtcsessions/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificRtcSessionReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificRtcSessionOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificRtcSession: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Conversations Conversations
+//
 // swagger:model Conversations
 type Conversations struct {
 
@@ -43,7 +43,7 @@ type Conversations struct {
 
 	// customer cost
 	// Required: true
-	CustomerCost *string `json:"customer_cost"`
+	CustomerCost *float64 `json:"customer_cost"`
 
 	// direction
 	// Required: true
@@ -63,11 +63,11 @@ type Conversations struct {
 
 	// id
 	// Required: true
-	ID *string `json:"id"`
+	ID *float64 `json:"id"`
 
 	// pages
 	// Required: true
-	Pages *string `json:"pages"`
+	Pages *float64 `json:"pages"`
 
 	// rating status
 	// Required: true
@@ -83,11 +83,11 @@ type Conversations struct {
 
 	// subscriber id
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	SubscriberID *float64 `json:"subscriber_id"`
 
 	// total customer cost
 	// Required: true
-	TotalCustomerCost *string `json:"total_customer_cost"`
+	TotalCustomerCost *float64 `json:"total_customer_cost"`
 
 	// type
 	// Required: true
@@ -95,7 +95,7 @@ type Conversations struct {
 
 	// voicemail subscriber id
 	// Required: true
-	VoicemailSubscriberID *string `json:"voicemail_subscriber_id"`
+	VoicemailSubscriberID *float64 `json:"voicemail_subscriber_id"`
 }
 
 // Validate validates this conversations

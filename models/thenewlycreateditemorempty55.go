@@ -6,43 +6,67 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty55 Thenewlycreateditemorempty55
+//
 // swagger:model Thenewlycreateditemorempty55
 type Thenewlycreateditemorempty55 struct {
 
-	// direction
+	// callee
 	// Required: true
-	Direction *string `json:"direction"`
+	Callee *string `json:"callee"`
 
-	// number
+	// caller
 	// Required: true
-	Number *string `json:"number"`
+	Caller *string `json:"caller"`
 
-	// subscriber id
+	// callid
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	Callid *string `json:"callid"`
+
+	// status
+	// Required: true
+	Status *string `json:"status"`
+
+	// token
+	// Required: true
+	Token *string `json:"token"`
+
+	// type
+	// Required: true
+	Type *string `json:"type"`
 }
 
 // Validate validates this thenewlycreateditemorempty55
 func (m *Thenewlycreateditemorempty55) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDirection(formats); err != nil {
+	if err := m.validateCallee(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateNumber(formats); err != nil {
+	if err := m.validateCaller(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSubscriberID(formats); err != nil {
+	if err := m.validateCallid(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateToken(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,27 +76,54 @@ func (m *Thenewlycreateditemorempty55) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty55) validateDirection(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty55) validateCallee(formats strfmt.Registry) error {
 
-	if err := validate.Required("direction", "body", m.Direction); err != nil {
+	if err := validate.Required("callee", "body", m.Callee); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty55) validateNumber(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty55) validateCaller(formats strfmt.Registry) error {
 
-	if err := validate.Required("number", "body", m.Number); err != nil {
+	if err := validate.Required("caller", "body", m.Caller); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty55) validateSubscriberID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty55) validateCallid(formats strfmt.Registry) error {
 
-	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
+	if err := validate.Required("callid", "body", m.Callid); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty55) validateStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty55) validateToken(formats strfmt.Registry) error {
+
+	if err := validate.Required("token", "body", m.Token); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty55) validateType(formats strfmt.Registry) error {
+
+	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
 

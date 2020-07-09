@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new calllists API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,75 +25,80 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-CalllistsByIDGet gets a specific call list
+// ClientService is the interface for Client methods
+type ClientService interface {
+	GetCallListitems(params *GetCallListitemsParams) (*GetCallListitemsOK, error)
 
-TODO: Add Description
-*/
-func (a *Client) CalllistsByIDGet(params *CalllistsByIDGetParams) (*CalllistsByIDGetOK, error) {
-	// TODO: Validate the params before sending
-	if params == nil {
-		params = NewCalllistsByIDGetParams()
-	}
+	GetaspecificCallList(params *GetaspecificCallListParams) (*GetaspecificCallListOK, error)
 
-	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CalllistsByIdGet",
-		Method:             "GET",
-		PathPattern:        "/calllists/{id}",
-		ProducesMediaTypes: []string{"application/json"},
-		ConsumesMediaTypes: []string{"application/json"},
-		Schemes:            []string{"https"},
-		Params:             params,
-		Reader:             &CalllistsByIDGetReader{formats: a.formats},
-		Context:            params.Context,
-		Client:             params.HTTPClient,
-	})
-	if err != nil {
-		return nil, err
-	}
-	success, ok := result.(*CalllistsByIDGetOK)
-	if ok {
-		return success, nil
-	}
-	// unexpected success response
-	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CalllistsByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
-	panic(msg)
+	SetTransport(transport runtime.ClientTransport)
 }
 
 /*
-CalllistsGet gets call list items
-
-TODO: Add Description
+  GetCallListitems gets call list items
 */
-func (a *Client) CalllistsGet(params *CalllistsGetParams) (*CalllistsGetOK, error) {
+func (a *Client) GetCallListitems(params *GetCallListitemsParams) (*GetCallListitemsOK, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewCalllistsGetParams()
+		params = NewGetCallListitemsParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "CalllistsGet",
+		ID:                 "GetCallListitems",
 		Method:             "GET",
 		PathPattern:        "/calllists",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &CalllistsGetReader{formats: a.formats},
+		Reader:             &GetCallListitemsReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*CalllistsGetOK)
+	success, ok := result.(*GetCallListitemsOK)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for CalllistsGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for GetCallListitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificCallList gets a specific call list
+*/
+func (a *Client) GetaspecificCallList(params *GetaspecificCallListParams) (*GetaspecificCallListOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificCallListParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificCallList",
+		Method:             "GET",
+		PathPattern:        "/calllists/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificCallListReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificCallListOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificCallList: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

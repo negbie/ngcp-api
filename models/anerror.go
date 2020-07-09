@@ -6,20 +6,20 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Anerror Anerror
+//
 // swagger:model Anerror
 type Anerror struct {
 
 	// code
 	// Required: true
-	Code *string `json:"code"`
+	Code *int32 `json:"code"`
 
 	// message
 	// Required: true

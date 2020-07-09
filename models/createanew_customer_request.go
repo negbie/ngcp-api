@@ -8,14 +8,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CreateanewCustomerRequest CreateanewCustomerRequest
+//
 // swagger:model CreateanewCustomerRequest
 type CreateanewCustomerRequest struct {
 
@@ -37,7 +37,7 @@ type CreateanewCustomerRequest struct {
 
 	// billing profiles
 	// Required: true
-	BillingProfiles []*BillingProfile `json:"billing_profiles"`
+	BillingProfiles []*BillingProfiles8 `json:"billing_profiles"`
 
 	// contact id
 	// Required: true

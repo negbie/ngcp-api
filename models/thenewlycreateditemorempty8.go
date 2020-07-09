@@ -6,67 +6,67 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty8 Thenewlycreateditemorempty8
+//
 // swagger:model Thenewlycreateditemorempty8
 type Thenewlycreateditemorempty8 struct {
 
-	// description
+	// carrier id
 	// Required: true
-	Description *string `json:"description"`
+	CarrierID *string `json:"carrier_id"`
 
-	// intra pbx
+	// end
 	// Required: true
-	IntraPbx *string `json:"intra_pbx"`
+	End *string `json:"end"`
 
-	// level
+	// number
 	// Required: true
-	Level *string `json:"level"`
+	Number *string `json:"number"`
 
-	// local ac
+	// routing number
 	// Required: true
-	LocalAc *string `json:"local_ac"`
+	RoutingNumber *string `json:"routing_number"`
 
-	// mode
+	// start
 	// Required: true
-	Mode *string `json:"mode"`
+	Start *string `json:"start"`
 
-	// reseller id
+	// type
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	Type *string `json:"type"`
 }
 
 // Validate validates this thenewlycreateditemorempty8
 func (m *Thenewlycreateditemorempty8) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDescription(formats); err != nil {
+	if err := m.validateCarrierID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIntraPbx(formats); err != nil {
+	if err := m.validateEnd(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateLevel(formats); err != nil {
+	if err := m.validateNumber(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateLocalAc(formats); err != nil {
+	if err := m.validateRoutingNumber(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateMode(formats); err != nil {
+	if err := m.validateStart(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateResellerID(formats); err != nil {
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,54 +76,54 @@ func (m *Thenewlycreateditemorempty8) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty8) validateDescription(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty8) validateCarrierID(formats strfmt.Registry) error {
 
-	if err := validate.Required("description", "body", m.Description); err != nil {
+	if err := validate.Required("carrier_id", "body", m.CarrierID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty8) validateIntraPbx(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty8) validateEnd(formats strfmt.Registry) error {
 
-	if err := validate.Required("intra_pbx", "body", m.IntraPbx); err != nil {
+	if err := validate.Required("end", "body", m.End); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty8) validateLevel(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty8) validateNumber(formats strfmt.Registry) error {
 
-	if err := validate.Required("level", "body", m.Level); err != nil {
+	if err := validate.Required("number", "body", m.Number); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty8) validateLocalAc(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty8) validateRoutingNumber(formats strfmt.Registry) error {
 
-	if err := validate.Required("local_ac", "body", m.LocalAc); err != nil {
+	if err := validate.Required("routing_number", "body", m.RoutingNumber); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty8) validateMode(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty8) validateStart(formats strfmt.Registry) error {
 
-	if err := validate.Required("mode", "body", m.Mode); err != nil {
+	if err := validate.Required("start", "body", m.Start); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty8) validateResellerID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty8) validateType(formats strfmt.Registry) error {
 
-	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
+	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
 

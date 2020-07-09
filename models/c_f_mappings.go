@@ -8,44 +8,44 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CFMappings CFMappings
+//
 // swagger:model CFMappings
 type CFMappings struct {
 
 	// cfb
 	// Required: true
-	Cfb []*Cfb4 `json:"cfb"`
+	Cfb []*Cfb5 `json:"cfb"`
 
 	// cfna
 	// Required: true
-	Cfna []*Cfna4 `json:"cfna"`
+	Cfna []*Cfna5 `json:"cfna"`
 
 	// cfr
 	// Required: true
-	Cfr []*Cfr4 `json:"cfr"`
+	Cfr []*Cfr5 `json:"cfr"`
 
 	// cfs
 	// Required: true
-	Cfs []*Cfs4 `json:"cfs"`
+	Cfs []*Cfs5 `json:"cfs"`
 
 	// cft
 	// Required: true
-	Cft []*Cft4 `json:"cft"`
+	Cft []*Cft5 `json:"cft"`
 
 	// cft ringtimeout
 	// Required: true
-	CftRingtimeout *string `json:"cft_ringtimeout"`
+	CftRingtimeout *float64 `json:"cft_ringtimeout"`
 
 	// cfu
 	// Required: true
-	Cfu []*Cfu4 `json:"cfu"`
+	Cfu []*Cfu5 `json:"cfu"`
 }
 
 // Validate validates this c f mappings

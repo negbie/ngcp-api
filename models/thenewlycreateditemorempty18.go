@@ -6,89 +6,99 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty18 Thenewlycreateditemorempty18
+//
 // swagger:model Thenewlycreateditemorempty18
 type Thenewlycreateditemorempty18 struct {
+
+	// attribute
+	// Required: true
+	Attribute *string `json:"attribute"`
+
+	// data type
+	// Required: true
+	DataType *string `json:"data_type"`
 
 	// description
 	// Required: true
 	Description *string `json:"description"`
 
-	// direction
+	// enum
 	// Required: true
-	Direction *string `json:"direction"`
+	Enum []string `json:"enum"`
 
-	// enabled
+	// fielddev pref
 	// Required: true
-	Enabled *string `json:"enabled"`
+	FielddevPref *string `json:"fielddev_pref"`
 
-	// field
+	// label
 	// Required: true
-	Field *string `json:"field"`
+	Label *string `json:"label"`
 
-	// match pattern
+	// max occur
 	// Required: true
-	MatchPattern *string `json:"match_pattern"`
-
-	// priority
-	// Required: true
-	Priority *string `json:"priority"`
-
-	// replace pattern
-	// Required: true
-	ReplacePattern *string `json:"replace_pattern"`
-
-	// set id
-	// Required: true
-	SetID *string `json:"set_id"`
+	MaxOccur *string `json:"max_occur"`
 }
 
 // Validate validates this thenewlycreateditemorempty18
 func (m *Thenewlycreateditemorempty18) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateAttribute(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDataType(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDirection(formats); err != nil {
+	if err := m.validateEnum(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEnabled(formats); err != nil {
+	if err := m.validateFielddevPref(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateField(formats); err != nil {
+	if err := m.validateLabel(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateMatchPattern(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePriority(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateReplacePattern(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSetID(formats); err != nil {
+	if err := m.validateMaxOccur(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty18) validateAttribute(formats strfmt.Registry) error {
+
+	if err := validate.Required("attribute", "body", m.Attribute); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty18) validateDataType(formats strfmt.Registry) error {
+
+	if err := validate.Required("data_type", "body", m.DataType); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -101,63 +111,36 @@ func (m *Thenewlycreateditemorempty18) validateDescription(formats strfmt.Regist
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty18) validateDirection(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty18) validateEnum(formats strfmt.Registry) error {
 
-	if err := validate.Required("direction", "body", m.Direction); err != nil {
+	if err := validate.Required("enum", "body", m.Enum); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty18) validateEnabled(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty18) validateFielddevPref(formats strfmt.Registry) error {
 
-	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
+	if err := validate.Required("fielddev_pref", "body", m.FielddevPref); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty18) validateField(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty18) validateLabel(formats strfmt.Registry) error {
 
-	if err := validate.Required("field", "body", m.Field); err != nil {
+	if err := validate.Required("label", "body", m.Label); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty18) validateMatchPattern(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty18) validateMaxOccur(formats strfmt.Registry) error {
 
-	if err := validate.Required("match_pattern", "body", m.MatchPattern); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty18) validatePriority(formats strfmt.Registry) error {
-
-	if err := validate.Required("priority", "body", m.Priority); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty18) validateReplacePattern(formats strfmt.Registry) error {
-
-	if err := validate.Required("replace_pattern", "body", m.ReplacePattern); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty18) validateSetID(formats strfmt.Registry) error {
-
-	if err := validate.Required("set_id", "body", m.SetID); err != nil {
+	if err := validate.Required("max_occur", "body", m.MaxOccur); err != nil {
 		return err
 	}
 

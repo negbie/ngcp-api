@@ -8,20 +8,20 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ReplaceChangeaspecificSpeedDialRequest Replace/changeaspecificSpeedDialRequest
+//
 // swagger:model Replace/changeaspecificSpeedDialRequest
 type ReplaceChangeaspecificSpeedDialRequest struct {
 
 	// speeddials
 	// Required: true
-	Speeddials []*Speeddials1 `json:"speeddials"`
+	Speeddials []*Speeddial `json:"speeddials"`
 }
 
 // Validate validates this replace changeaspecific speed dial request

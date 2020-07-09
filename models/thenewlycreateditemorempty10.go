@@ -6,67 +6,51 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty10 Thenewlycreateditemorempty10
+//
 // swagger:model Thenewlycreateditemorempty10
 type Thenewlycreateditemorempty10 struct {
 
-	// carrier id
+	// contract id
 	// Required: true
-	CarrierID *string `json:"carrier_id"`
+	ContractID *string `json:"contract_id"`
 
-	// end
+	// description
 	// Required: true
-	End *string `json:"end"`
+	Description *string `json:"description"`
 
-	// number
+	// name
 	// Required: true
-	Number *string `json:"number"`
+	Name *string `json:"name"`
 
-	// routing number
+	// priority
 	// Required: true
-	RoutingNumber *string `json:"routing_number"`
-
-	// start
-	// Required: true
-	Start *string `json:"start"`
-
-	// type
-	// Required: true
-	Type *string `json:"type"`
+	Priority *string `json:"priority"`
 }
 
 // Validate validates this thenewlycreateditemorempty10
 func (m *Thenewlycreateditemorempty10) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCarrierID(formats); err != nil {
+	if err := m.validateContractID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateEnd(formats); err != nil {
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateNumber(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateRoutingNumber(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateStart(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateType(formats); err != nil {
+	if err := m.validatePriority(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,54 +60,36 @@ func (m *Thenewlycreateditemorempty10) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty10) validateCarrierID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty10) validateContractID(formats strfmt.Registry) error {
 
-	if err := validate.Required("carrier_id", "body", m.CarrierID); err != nil {
+	if err := validate.Required("contract_id", "body", m.ContractID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty10) validateEnd(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty10) validateDescription(formats strfmt.Registry) error {
 
-	if err := validate.Required("end", "body", m.End); err != nil {
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty10) validateNumber(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty10) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("number", "body", m.Number); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty10) validateRoutingNumber(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty10) validatePriority(formats strfmt.Registry) error {
 
-	if err := validate.Required("routing_number", "body", m.RoutingNumber); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty10) validateStart(formats strfmt.Registry) error {
-
-	if err := validate.Required("start", "body", m.Start); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty10) validateType(formats strfmt.Registry) error {
-
-	if err := validate.Required("type", "body", m.Type); err != nil {
+	if err := validate.Required("priority", "body", m.Priority); err != nil {
 		return err
 	}
 

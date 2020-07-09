@@ -8,14 +8,14 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ReplaceChangeaspecificRewriteRuleSetRequest Replace/changeaspecificRewriteRuleSetRequest
+//
 // swagger:model Replace/changeaspecificRewriteRuleSetRequest
 type ReplaceChangeaspecificRewriteRuleSetRequest struct {
 
@@ -33,7 +33,7 @@ type ReplaceChangeaspecificRewriteRuleSetRequest struct {
 
 	// rewriterules
 	// Required: true
-	Rewriterules []*Rewriterules2 `json:"rewriterules"`
+	Rewriterules []*Rewriterules3 `json:"rewriterules"`
 }
 
 // Validate validates this replace changeaspecific rewrite rule set request

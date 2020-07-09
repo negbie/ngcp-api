@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Event Event
+//
 // swagger:model Event
 type Event struct {
 
@@ -71,7 +71,7 @@ type Event struct {
 
 	// pilot primary number id
 	// Required: true
-	PilotPrimaryNumberID *string `json:"pilot_primary_number_id"`
+	PilotPrimaryNumberID *float64 `json:"pilot_primary_number_id"`
 
 	// pilot primary number sn
 	// Required: true
@@ -79,11 +79,11 @@ type Event struct {
 
 	// pilot subscriber id
 	// Required: true
-	PilotSubscriberID *string `json:"pilot_subscriber_id"`
+	PilotSubscriberID *float64 `json:"pilot_subscriber_id"`
 
 	// pilot subscriber profile id
 	// Required: true
-	PilotSubscriberProfileID *string `json:"pilot_subscriber_profile_id"`
+	PilotSubscriberProfileID *float64 `json:"pilot_subscriber_profile_id"`
 
 	// pilot subscriber profile name
 	// Required: true
@@ -91,7 +91,7 @@ type Event struct {
 
 	// pilot subscriber profile set id
 	// Required: true
-	PilotSubscriberProfileSetID *string `json:"pilot_subscriber_profile_set_id"`
+	PilotSubscriberProfileSetID *float64 `json:"pilot_subscriber_profile_set_id"`
 
 	// pilot subscriber profile set name
 	// Required: true
@@ -115,7 +115,7 @@ type Event struct {
 
 	// primary number id
 	// Required: true
-	PrimaryNumberID *string `json:"primary_number_id"`
+	PrimaryNumberID *float64 `json:"primary_number_id"`
 
 	// primary number sn
 	// Required: true
@@ -123,15 +123,15 @@ type Event struct {
 
 	// reseller id
 	// Required: true
-	ResellerID *string `json:"reseller_id"`
+	ResellerID *float64 `json:"reseller_id"`
 
 	// subscriber id
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	SubscriberID *float64 `json:"subscriber_id"`
 
 	// subscriber profile id
 	// Required: true
-	SubscriberProfileID *string `json:"subscriber_profile_id"`
+	SubscriberProfileID *float64 `json:"subscriber_profile_id"`
 
 	// subscriber profile name
 	// Required: true
@@ -139,7 +139,7 @@ type Event struct {
 
 	// subscriber profile set id
 	// Required: true
-	SubscriberProfileSetID *string `json:"subscriber_profile_set_id"`
+	SubscriberProfileSetID *float64 `json:"subscriber_profile_set_id"`
 
 	// subscriber profile set name
 	// Required: true

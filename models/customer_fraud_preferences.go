@@ -6,20 +6,20 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CustomerFraudPreferences CustomerFraudPreferences
+//
 // swagger:model CustomerFraudPreferences
 type CustomerFraudPreferences struct {
 
 	// fraud daily limit
 	// Required: true
-	FraudDailyLimit *string `json:"fraud_daily_limit"`
+	FraudDailyLimit *float64 `json:"fraud_daily_limit"`
 
 	// fraud daily lock
 	// Required: true
@@ -31,7 +31,7 @@ type CustomerFraudPreferences struct {
 
 	// fraud interval limit
 	// Required: true
-	FraudIntervalLimit *string `json:"fraud_interval_limit"`
+	FraudIntervalLimit *float64 `json:"fraud_interval_limit"`
 
 	// fraud interval lock
 	// Required: true

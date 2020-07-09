@@ -6,43 +6,27 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty54 Thenewlycreateditemorempty54
+//
 // swagger:model Thenewlycreateditemorempty54
 type Thenewlycreateditemorempty54 struct {
 
-	// code
+	// login
 	// Required: true
-	Code *string `json:"code"`
-
-	// request token
-	// Required: true
-	RequestToken *string `json:"request_token"`
-
-	// subscriber id
-	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	Login *string `json:"login"`
 }
 
 // Validate validates this thenewlycreateditemorempty54
 func (m *Thenewlycreateditemorempty54) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateCode(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateRequestToken(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateSubscriberID(formats); err != nil {
+	if err := m.validateLogin(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,27 +36,9 @@ func (m *Thenewlycreateditemorempty54) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty54) validateCode(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty54) validateLogin(formats strfmt.Registry) error {
 
-	if err := validate.Required("code", "body", m.Code); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty54) validateRequestToken(formats strfmt.Registry) error {
-
-	if err := validate.Required("request_token", "body", m.RequestToken); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty54) validateSubscriberID(formats strfmt.Registry) error {
-
-	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
+	if err := validate.Required("login", "body", m.Login); err != nil {
 		return err
 	}
 

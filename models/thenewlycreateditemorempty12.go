@@ -6,99 +6,77 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty12 Thenewlycreateditemorempty12
+//
 // swagger:model Thenewlycreateditemorempty12
 type Thenewlycreateditemorempty12 struct {
 
-	// enabled
+	// billing profile definition
 	// Required: true
-	Enabled *string `json:"enabled"`
+	BillingProfileDefinition *string `json:"billing_profile_definition"`
 
-	// group id
+	// billing profile id
 	// Required: true
-	GroupID *string `json:"group_id"`
+	BillingProfileID *string `json:"billing_profile_id"`
 
-	// host
+	// billing profiles
 	// Required: true
-	Host *string `json:"host"`
+	BillingProfiles []*BillingProfiles3 `json:"billing_profiles"`
 
-	// ip
+	// contact id
 	// Required: true
-	IP *string `json:"ip"`
+	ContactID *string `json:"contact_id"`
 
-	// name
+	// external id
 	// Required: true
-	Name *string `json:"name"`
+	ExternalID *string `json:"external_id"`
 
-	// port
+	// status
 	// Required: true
-	Port *string `json:"port"`
+	Status *string `json:"status"`
 
-	// probe
+	// type
 	// Required: true
-	Probe *string `json:"probe"`
-
-	// transport
-	// Required: true
-	Transport *string `json:"transport"`
-
-	// via route
-	// Required: true
-	ViaRoute *string `json:"via_route"`
-
-	// weight
-	// Required: true
-	Weight *string `json:"weight"`
+	Type *string `json:"type"`
 }
 
 // Validate validates this thenewlycreateditemorempty12
 func (m *Thenewlycreateditemorempty12) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateEnabled(formats); err != nil {
+	if err := m.validateBillingProfileDefinition(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateGroupID(formats); err != nil {
+	if err := m.validateBillingProfileID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateHost(formats); err != nil {
+	if err := m.validateBillingProfiles(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateIP(formats); err != nil {
+	if err := m.validateContactID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateExternalID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePort(formats); err != nil {
+	if err := m.validateStatus(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateProbe(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTransport(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateViaRoute(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateWeight(formats); err != nil {
+	if err := m.validateType(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -108,90 +86,79 @@ func (m *Thenewlycreateditemorempty12) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty12) validateEnabled(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty12) validateBillingProfileDefinition(formats strfmt.Registry) error {
 
-	if err := validate.Required("enabled", "body", m.Enabled); err != nil {
+	if err := validate.Required("billing_profile_definition", "body", m.BillingProfileDefinition); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty12) validateGroupID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty12) validateBillingProfileID(formats strfmt.Registry) error {
 
-	if err := validate.Required("group_id", "body", m.GroupID); err != nil {
+	if err := validate.Required("billing_profile_id", "body", m.BillingProfileID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty12) validateHost(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty12) validateBillingProfiles(formats strfmt.Registry) error {
 
-	if err := validate.Required("host", "body", m.Host); err != nil {
+	if err := validate.Required("billing_profiles", "body", m.BillingProfiles); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.BillingProfiles); i++ {
+		if swag.IsZero(m.BillingProfiles[i]) { // not required
+			continue
+		}
+
+		if m.BillingProfiles[i] != nil {
+			if err := m.BillingProfiles[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("billing_profiles" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty12) validateContactID(formats strfmt.Registry) error {
+
+	if err := validate.Required("contact_id", "body", m.ContactID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty12) validateIP(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty12) validateExternalID(formats strfmt.Registry) error {
 
-	if err := validate.Required("ip", "body", m.IP); err != nil {
+	if err := validate.Required("external_id", "body", m.ExternalID); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty12) validateName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty12) validateStatus(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("status", "body", m.Status); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty12) validatePort(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty12) validateType(formats strfmt.Registry) error {
 
-	if err := validate.Required("port", "body", m.Port); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty12) validateProbe(formats strfmt.Registry) error {
-
-	if err := validate.Required("probe", "body", m.Probe); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty12) validateTransport(formats strfmt.Registry) error {
-
-	if err := validate.Required("transport", "body", m.Transport); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty12) validateViaRoute(formats strfmt.Registry) error {
-
-	if err := validate.Required("via_route", "body", m.ViaRoute); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty12) validateWeight(formats strfmt.Registry) error {
-
-	if err := validate.Required("weight", "body", m.Weight); err != nil {
+	if err := validate.Required("type", "body", m.Type); err != nil {
 		return err
 	}
 

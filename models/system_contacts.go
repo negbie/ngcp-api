@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // SystemContacts SystemContacts
+//
 // swagger:model SystemContacts
 type SystemContacts struct {
 
@@ -40,6 +40,10 @@ type SystemContacts struct {
 	// country
 	// Required: true
 	Country *string `json:"country"`
+
+	// email
+	// Required: true
+	Email *string `json:"email"`
 
 	// faxnumber
 	// Required: true
@@ -147,6 +151,10 @@ func (m *SystemContacts) Validate(formats strfmt.Registry) error {
 	}
 
 	if err := m.validateCountry(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEmail(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -284,6 +292,15 @@ func (m *SystemContacts) validateComregnum(formats strfmt.Registry) error {
 func (m *SystemContacts) validateCountry(formats strfmt.Registry) error {
 
 	if err := validate.Required("country", "body", m.Country); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *SystemContacts) validateEmail(formats strfmt.Registry) error {
+
+	if err := validate.Required("email", "body", m.Email); err != nil {
 		return err
 	}
 

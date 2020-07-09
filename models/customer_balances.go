@@ -6,36 +6,36 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // CustomerBalances CustomerBalances
+//
 // swagger:model CustomerBalances
 type CustomerBalances struct {
 
 	// cash balance
 	// Required: true
-	CashBalance *string `json:"cash_balance"`
+	CashBalance *float64 `json:"cash_balance"`
 
 	// cash debit
 	// Required: true
-	CashDebit *string `json:"cash_debit"`
+	CashDebit *float64 `json:"cash_debit"`
 
 	// free time balance
 	// Required: true
-	FreeTimeBalance *string `json:"free_time_balance"`
+	FreeTimeBalance *float64 `json:"free_time_balance"`
 
 	// free time spent
 	// Required: true
-	FreeTimeSpent *string `json:"free_time_spent"`
+	FreeTimeSpent *float64 `json:"free_time_spent"`
 
 	// ratio
 	// Required: true
-	Ratio *string `json:"ratio"`
+	Ratio *float64 `json:"ratio"`
 }
 
 // Validate validates this customer balances

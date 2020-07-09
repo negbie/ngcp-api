@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // SM SM
+//
 // swagger:model SM
 type SM struct {
 
@@ -39,7 +39,7 @@ type SM struct {
 
 	// subscriber id
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
+	SubscriberID *float64 `json:"subscriber_id"`
 
 	// text
 	// Required: true

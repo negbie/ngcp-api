@@ -6,36 +6,26 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty28 Thenewlycreateditemorempty28
+//
 // swagger:model Thenewlycreateditemorempty28
 type Thenewlycreateditemorempty28 struct {
 
-	// data
+	// destinations
 	// Required: true
-	Data *string `json:"data"`
+	Destinations []*Destination `json:"destinations"`
 
-	// destination
+	// name
 	// Required: true
-	Destination *string `json:"destination"`
-
-	// faxfile
-	// Required: true
-	Faxfile *string `json:"faxfile"`
-
-	// pageheader
-	// Required: true
-	Pageheader *string `json:"pageheader"`
-
-	// quality
-	// Required: true
-	Quality *string `json:"quality"`
+	Name *string `json:"name"`
 
 	// subscriber id
 	// Required: true
@@ -46,23 +36,11 @@ type Thenewlycreateditemorempty28 struct {
 func (m *Thenewlycreateditemorempty28) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateData(formats); err != nil {
+	if err := m.validateDestinations(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDestination(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateFaxfile(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePageheader(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateQuality(formats); err != nil {
+	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -76,45 +54,34 @@ func (m *Thenewlycreateditemorempty28) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty28) validateData(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty28) validateDestinations(formats strfmt.Registry) error {
 
-	if err := validate.Required("data", "body", m.Data); err != nil {
+	if err := validate.Required("destinations", "body", m.Destinations); err != nil {
 		return err
+	}
+
+	for i := 0; i < len(m.Destinations); i++ {
+		if swag.IsZero(m.Destinations[i]) { // not required
+			continue
+		}
+
+		if m.Destinations[i] != nil {
+			if err := m.Destinations[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("destinations" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty28) validateDestination(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty28) validateName(formats strfmt.Registry) error {
 
-	if err := validate.Required("destination", "body", m.Destination); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty28) validateFaxfile(formats strfmt.Registry) error {
-
-	if err := validate.Required("faxfile", "body", m.Faxfile); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty28) validatePageheader(formats strfmt.Registry) error {
-
-	if err := validate.Required("pageheader", "body", m.Pageheader); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty28) validateQuality(formats strfmt.Registry) error {
-
-	if err := validate.Required("quality", "body", m.Quality); err != nil {
+	if err := validate.Required("name", "body", m.Name); err != nil {
 		return err
 	}
 

@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // SoundFileRecordings SoundFileRecordings
+//
 // swagger:model SoundFileRecordings
 type SoundFileRecordings struct {
 
@@ -27,11 +27,11 @@ type SoundFileRecordings struct {
 
 	// loopplay
 	// Required: true
-	Loopplay *string `json:"loopplay"`
+	Loopplay *bool `json:"loopplay"`
 
 	// set id
 	// Required: true
-	SetID *string `json:"set_id"`
+	SetID *float64 `json:"set_id"`
 }
 
 // Validate validates this sound file recordings

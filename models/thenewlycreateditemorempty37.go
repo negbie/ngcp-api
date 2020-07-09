@@ -6,43 +6,75 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty37 Thenewlycreateditemorempty37
+//
 // swagger:model Thenewlycreateditemorempty37
 type Thenewlycreateditemorempty37 struct {
 
-	// billing profile id
+	// callee
 	// Required: true
-	BillingProfileID *string `json:"billing_profile_id"`
+	Callee *string `json:"callee"`
 
-	// detail
+	// caller
 	// Required: true
-	Detail *string `json:"detail"`
+	Caller *string `json:"caller"`
 
-	// zone
+	// direction
 	// Required: true
-	Zone *string `json:"zone"`
+	Direction *string `json:"direction"`
+
+	// reason
+	// Required: true
+	Reason *string `json:"reason"`
+
+	// status
+	// Required: true
+	Status *string `json:"status"`
+
+	// subscriber id
+	// Required: true
+	SubscriberID *string `json:"subscriber_id"`
+
+	// text
+	// Required: true
+	Text *string `json:"text"`
 }
 
 // Validate validates this thenewlycreateditemorempty37
 func (m *Thenewlycreateditemorempty37) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateBillingProfileID(formats); err != nil {
+	if err := m.validateCallee(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateDetail(formats); err != nil {
+	if err := m.validateCaller(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateZone(formats); err != nil {
+	if err := m.validateDirection(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateReason(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStatus(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubscriberID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateText(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -52,27 +84,63 @@ func (m *Thenewlycreateditemorempty37) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty37) validateBillingProfileID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty37) validateCallee(formats strfmt.Registry) error {
 
-	if err := validate.Required("billing_profile_id", "body", m.BillingProfileID); err != nil {
+	if err := validate.Required("callee", "body", m.Callee); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty37) validateDetail(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty37) validateCaller(formats strfmt.Registry) error {
 
-	if err := validate.Required("detail", "body", m.Detail); err != nil {
+	if err := validate.Required("caller", "body", m.Caller); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty37) validateZone(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty37) validateDirection(formats strfmt.Registry) error {
 
-	if err := validate.Required("zone", "body", m.Zone); err != nil {
+	if err := validate.Required("direction", "body", m.Direction); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty37) validateReason(formats strfmt.Registry) error {
+
+	if err := validate.Required("reason", "body", m.Reason); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty37) validateStatus(formats strfmt.Registry) error {
+
+	if err := validate.Required("status", "body", m.Status); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty37) validateSubscriberID(formats strfmt.Registry) error {
+
+	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty37) validateText(formats strfmt.Registry) error {
+
+	if err := validate.Required("text", "body", m.Text); err != nil {
 		return err
 	}
 

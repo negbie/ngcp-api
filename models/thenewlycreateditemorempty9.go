@@ -6,173 +6,107 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	"strconv"
-
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty9 Thenewlycreateditemorempty9
+//
 // swagger:model Thenewlycreateditemorempty9
 type Thenewlycreateditemorempty9 struct {
 
-	// advice of charge
+	// billing data
 	// Required: true
-	AdviceOfCharge *string `json:"advice_of_charge"`
+	BillingData *string `json:"billing_data"`
 
-	// currency
+	// call data
 	// Required: true
-	Currency *string `json:"currency"`
+	CallData *string `json:"call_data"`
 
-	// fraud daily limit
+	// is active
 	// Required: true
-	FraudDailyLimit *string `json:"fraud_daily_limit"`
+	IsActive *string `json:"is_active"`
 
-	// fraud daily lock
+	// is master
 	// Required: true
-	FraudDailyLock *string `json:"fraud_daily_lock"`
+	IsMaster *string `json:"is_master"`
 
-	// fraud daily notify
+	// is superuser
 	// Required: true
-	FraudDailyNotify *string `json:"fraud_daily_notify"`
+	IsSuperuser *string `json:"is_superuser"`
 
-	// fraud interval limit
+	// lawful intercept
 	// Required: true
-	FraudIntervalLimit *string `json:"fraud_interval_limit"`
+	LawfulIntercept *string `json:"lawful_intercept"`
 
-	// fraud interval lock
+	// login
 	// Required: true
-	FraudIntervalLock *string `json:"fraud_interval_lock"`
+	Login *string `json:"login"`
 
-	// fraud interval notify
+	// password
 	// Required: true
-	FraudIntervalNotify *string `json:"fraud_interval_notify"`
+	Password *string `json:"password"`
 
-	// fraud use reseller rates
+	// read only
 	// Required: true
-	FraudUseResellerRates *string `json:"fraud_use_reseller_rates"`
-
-	// handle
-	// Required: true
-	Handle *string `json:"handle"`
-
-	// interval charge
-	// Required: true
-	IntervalCharge *string `json:"interval_charge"`
-
-	// interval free cash
-	// Required: true
-	IntervalFreeCash *string `json:"interval_free_cash"`
-
-	// interval free time
-	// Required: true
-	IntervalFreeTime *string `json:"interval_free_time"`
-
-	// name
-	// Required: true
-	Name *string `json:"name"`
-
-	// peaktime special
-	// Required: true
-	PeaktimeSpecial []*PeaktimeSpecial `json:"peaktime_special"`
-
-	// peaktime weekdays
-	// Required: true
-	PeaktimeWeekdays []*PeaktimeWeekday `json:"peaktime_weekdays"`
-
-	// prepaid
-	// Required: true
-	Prepaid *string `json:"prepaid"`
-
-	// prepaid library
-	// Required: true
-	PrepaidLibrary *string `json:"prepaid_library"`
+	ReadOnly *string `json:"read_only"`
 
 	// reseller id
 	// Required: true
 	ResellerID *string `json:"reseller_id"`
+
+	// show passwords
+	// Required: true
+	ShowPasswords *string `json:"show_passwords"`
 }
 
 // Validate validates this thenewlycreateditemorempty9
 func (m *Thenewlycreateditemorempty9) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAdviceOfCharge(formats); err != nil {
+	if err := m.validateBillingData(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateCurrency(formats); err != nil {
+	if err := m.validateCallData(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFraudDailyLimit(formats); err != nil {
+	if err := m.validateIsActive(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFraudDailyLock(formats); err != nil {
+	if err := m.validateIsMaster(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFraudDailyNotify(formats); err != nil {
+	if err := m.validateIsSuperuser(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFraudIntervalLimit(formats); err != nil {
+	if err := m.validateLawfulIntercept(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFraudIntervalLock(formats); err != nil {
+	if err := m.validateLogin(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFraudIntervalNotify(formats); err != nil {
+	if err := m.validatePassword(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateFraudUseResellerRates(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateHandle(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIntervalCharge(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIntervalFreeCash(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateIntervalFreeTime(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePeaktimeSpecial(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePeaktimeWeekdays(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePrepaid(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validatePrepaidLibrary(formats); err != nil {
+	if err := m.validateReadOnly(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateResellerID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateShowPasswords(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -182,194 +116,81 @@ func (m *Thenewlycreateditemorempty9) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateAdviceOfCharge(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateBillingData(formats strfmt.Registry) error {
 
-	if err := validate.Required("advice_of_charge", "body", m.AdviceOfCharge); err != nil {
+	if err := validate.Required("billing_data", "body", m.BillingData); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateCurrency(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateCallData(formats strfmt.Registry) error {
 
-	if err := validate.Required("currency", "body", m.Currency); err != nil {
+	if err := validate.Required("call_data", "body", m.CallData); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateFraudDailyLimit(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateIsActive(formats strfmt.Registry) error {
 
-	if err := validate.Required("fraud_daily_limit", "body", m.FraudDailyLimit); err != nil {
+	if err := validate.Required("is_active", "body", m.IsActive); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateFraudDailyLock(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateIsMaster(formats strfmt.Registry) error {
 
-	if err := validate.Required("fraud_daily_lock", "body", m.FraudDailyLock); err != nil {
+	if err := validate.Required("is_master", "body", m.IsMaster); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateFraudDailyNotify(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateIsSuperuser(formats strfmt.Registry) error {
 
-	if err := validate.Required("fraud_daily_notify", "body", m.FraudDailyNotify); err != nil {
+	if err := validate.Required("is_superuser", "body", m.IsSuperuser); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateFraudIntervalLimit(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateLawfulIntercept(formats strfmt.Registry) error {
 
-	if err := validate.Required("fraud_interval_limit", "body", m.FraudIntervalLimit); err != nil {
+	if err := validate.Required("lawful_intercept", "body", m.LawfulIntercept); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateFraudIntervalLock(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateLogin(formats strfmt.Registry) error {
 
-	if err := validate.Required("fraud_interval_lock", "body", m.FraudIntervalLock); err != nil {
+	if err := validate.Required("login", "body", m.Login); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateFraudIntervalNotify(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validatePassword(formats strfmt.Registry) error {
 
-	if err := validate.Required("fraud_interval_notify", "body", m.FraudIntervalNotify); err != nil {
+	if err := validate.Required("password", "body", m.Password); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty9) validateFraudUseResellerRates(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty9) validateReadOnly(formats strfmt.Registry) error {
 
-	if err := validate.Required("fraud_use_reseller_rates", "body", m.FraudUseResellerRates); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validateHandle(formats strfmt.Registry) error {
-
-	if err := validate.Required("handle", "body", m.Handle); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validateIntervalCharge(formats strfmt.Registry) error {
-
-	if err := validate.Required("interval_charge", "body", m.IntervalCharge); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validateIntervalFreeCash(formats strfmt.Registry) error {
-
-	if err := validate.Required("interval_free_cash", "body", m.IntervalFreeCash); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validateIntervalFreeTime(formats strfmt.Registry) error {
-
-	if err := validate.Required("interval_free_time", "body", m.IntervalFreeTime); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validateName(formats strfmt.Registry) error {
-
-	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validatePeaktimeSpecial(formats strfmt.Registry) error {
-
-	if err := validate.Required("peaktime_special", "body", m.PeaktimeSpecial); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.PeaktimeSpecial); i++ {
-		if swag.IsZero(m.PeaktimeSpecial[i]) { // not required
-			continue
-		}
-
-		if m.PeaktimeSpecial[i] != nil {
-			if err := m.PeaktimeSpecial[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("peaktime_special" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validatePeaktimeWeekdays(formats strfmt.Registry) error {
-
-	if err := validate.Required("peaktime_weekdays", "body", m.PeaktimeWeekdays); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.PeaktimeWeekdays); i++ {
-		if swag.IsZero(m.PeaktimeWeekdays[i]) { // not required
-			continue
-		}
-
-		if m.PeaktimeWeekdays[i] != nil {
-			if err := m.PeaktimeWeekdays[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("peaktime_weekdays" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validatePrepaid(formats strfmt.Registry) error {
-
-	if err := validate.Required("prepaid", "body", m.Prepaid); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty9) validatePrepaidLibrary(formats strfmt.Registry) error {
-
-	if err := validate.Required("prepaid_library", "body", m.PrepaidLibrary); err != nil {
+	if err := validate.Required("read_only", "body", m.ReadOnly); err != nil {
 		return err
 	}
 
@@ -379,6 +200,15 @@ func (m *Thenewlycreateditemorempty9) validatePrepaidLibrary(formats strfmt.Regi
 func (m *Thenewlycreateditemorempty9) validateResellerID(formats strfmt.Registry) error {
 
 	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty9) validateShowPasswords(formats strfmt.Registry) error {
+
+	if err := validate.Required("show_passwords", "body", m.ShowPasswords); err != nil {
 		return err
 	}
 

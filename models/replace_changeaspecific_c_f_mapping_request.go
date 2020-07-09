@@ -8,36 +8,36 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // ReplaceChangeaspecificCFMappingRequest Replace/changeaspecificCFMappingRequest
+//
 // swagger:model Replace/changeaspecificCFMappingRequest
 type ReplaceChangeaspecificCFMappingRequest struct {
 
 	// cfb
 	// Required: true
-	Cfb []*Cfb4 `json:"cfb"`
+	Cfb []*Cfb6 `json:"cfb"`
 
 	// cfna
 	// Required: true
-	Cfna []*Cfna4 `json:"cfna"`
+	Cfna []*Cfna6 `json:"cfna"`
 
 	// cfr
 	// Required: true
-	Cfr []*Cfr4 `json:"cfr"`
+	Cfr []*Cfr6 `json:"cfr"`
 
 	// cfs
 	// Required: true
-	Cfs []*Cfs4 `json:"cfs"`
+	Cfs []*Cfs6 `json:"cfs"`
 
 	// cft
 	// Required: true
-	Cft []*Cft4 `json:"cft"`
+	Cft []*Cft6 `json:"cft"`
 
 	// cft ringtimeout
 	// Required: true
@@ -45,7 +45,7 @@ type ReplaceChangeaspecificCFMappingRequest struct {
 
 	// cfu
 	// Required: true
-	Cfu []*Cfu4 `json:"cfu"`
+	Cfu []*Cfu6 `json:"cfu"`
 }
 
 // Validate validates this replace changeaspecific c f mapping request

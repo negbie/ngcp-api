@@ -8,123 +8,131 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty5 Thenewlycreateditemorempty5
+//
 // swagger:model Thenewlycreateditemorempty5
 type Thenewlycreateditemorempty5 struct {
 
-	// activate timestamp
+	// administrative
 	// Required: true
-	ActivateTimestamp *string `json:"activate_timestamp"`
+	Administrative *string `json:"administrative"`
 
-	// add vat
+	// alias numbers
 	// Required: true
-	AddVat *string `json:"add_vat"`
+	AliasNumbers []*AliasNumber `json:"alias_numbers"`
 
-	// billing profile definition
+	// display name
 	// Required: true
-	BillingProfileDefinition *string `json:"billing_profile_definition"`
+	DisplayName *string `json:"display_name"`
 
-	// billing profile id
+	// domain
 	// Required: true
-	BillingProfileID *string `json:"billing_profile_id"`
+	Domain *string `json:"domain"`
 
-	// billing profiles
+	// domain id
 	// Required: true
-	BillingProfiles []*BillingProfile `json:"billing_profiles"`
+	DomainID *string `json:"domain_id"`
 
-	// contact id
+	// email
 	// Required: true
-	ContactID *string `json:"contact_id"`
-
-	// create timestamp
-	// Required: true
-	CreateTimestamp *string `json:"create_timestamp"`
+	Email *string `json:"email"`
 
 	// external id
 	// Required: true
 	ExternalID *string `json:"external_id"`
 
-	// invoice email template id
+	// is pbx group
 	// Required: true
-	InvoiceEmailTemplateID *string `json:"invoice_email_template_id"`
+	IsPbxGroup *string `json:"is_pbx_group"`
 
-	// invoice template id
+	// is pbx pilot
 	// Required: true
-	InvoiceTemplateID *string `json:"invoice_template_id"`
+	IsPbxPilot *string `json:"is_pbx_pilot"`
 
-	// max subscribers
+	// lock
 	// Required: true
-	MaxSubscribers *string `json:"max_subscribers"`
+	Lock *string `json:"lock"`
 
-	// modify timestamp
+	// password
 	// Required: true
-	ModifyTimestamp *string `json:"modify_timestamp"`
+	Password *string `json:"password"`
 
-	// passreset email template id
+	// pbx extension
 	// Required: true
-	PassresetEmailTemplateID *string `json:"passreset_email_template_id"`
+	PbxExtension *string `json:"pbx_extension"`
 
-	// profile package id
+	// pbx group ids
 	// Required: true
-	ProfilePackageID *string `json:"profile_package_id"`
+	PbxGroupIds []string `json:"pbx_group_ids"`
+
+	// pbx groupmember ids id
+	// Required: true
+	PbxGroupmemberIdsID []string `json:"pbx_groupmember_ids_id"`
+
+	// primary number
+	// Required: true
+	PrimaryNumber *PrimaryNumber `json:"primary_number"`
+
+	// profile id
+	// Required: true
+	ProfileID *string `json:"profile_id"`
+
+	// profile set id
+	// Required: true
+	ProfileSetID *string `json:"profile_set_id"`
 
 	// status
 	// Required: true
 	Status *string `json:"status"`
 
-	// subscriber email template id
+	// timezone
 	// Required: true
-	SubscriberEmailTemplateID *string `json:"subscriber_email_template_id"`
+	Timezone *string `json:"timezone"`
 
-	// terminate timestamp
+	// username
 	// Required: true
-	TerminateTimestamp *string `json:"terminate_timestamp"`
+	Username *string `json:"username"`
 
-	// type
+	// webpassword
 	// Required: true
-	Type *string `json:"type"`
+	Webpassword *string `json:"webpassword"`
 
-	// vat rate
+	// webusername
 	// Required: true
-	VatRate *string `json:"vat_rate"`
+	Webusername *string `json:"webusername"`
 }
 
 // Validate validates this thenewlycreateditemorempty5
 func (m *Thenewlycreateditemorempty5) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateActivateTimestamp(formats); err != nil {
+	if err := m.validateAdministrative(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateAddVat(formats); err != nil {
+	if err := m.validateAliasNumbers(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBillingProfileDefinition(formats); err != nil {
+	if err := m.validateDisplayName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBillingProfileID(formats); err != nil {
+	if err := m.validateDomain(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateBillingProfiles(formats); err != nil {
+	if err := m.validateDomainID(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateContactID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateCreateTimestamp(formats); err != nil {
+	if err := m.validateEmail(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -132,27 +140,43 @@ func (m *Thenewlycreateditemorempty5) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateInvoiceEmailTemplateID(formats); err != nil {
+	if err := m.validateIsPbxGroup(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateInvoiceTemplateID(formats); err != nil {
+	if err := m.validateIsPbxPilot(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateMaxSubscribers(formats); err != nil {
+	if err := m.validateLock(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateModifyTimestamp(formats); err != nil {
+	if err := m.validatePassword(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePassresetEmailTemplateID(formats); err != nil {
+	if err := m.validatePbxExtension(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateProfilePackageID(formats); err != nil {
+	if err := m.validatePbxGroupIds(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePbxGroupmemberIdsID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePrimaryNumber(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProfileID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateProfileSetID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -160,19 +184,19 @@ func (m *Thenewlycreateditemorempty5) Validate(formats strfmt.Registry) error {
 		res = append(res, err)
 	}
 
-	if err := m.validateSubscriberEmailTemplateID(formats); err != nil {
+	if err := m.validateTimezone(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateTerminateTimestamp(formats); err != nil {
+	if err := m.validateUsername(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateType(formats); err != nil {
+	if err := m.validateWebpassword(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateVatRate(formats); err != nil {
+	if err := m.validateWebusername(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -182,57 +206,30 @@ func (m *Thenewlycreateditemorempty5) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateActivateTimestamp(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateAdministrative(formats strfmt.Registry) error {
 
-	if err := validate.Required("activate_timestamp", "body", m.ActivateTimestamp); err != nil {
+	if err := validate.Required("administrative", "body", m.Administrative); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateAddVat(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateAliasNumbers(formats strfmt.Registry) error {
 
-	if err := validate.Required("add_vat", "body", m.AddVat); err != nil {
+	if err := validate.Required("alias_numbers", "body", m.AliasNumbers); err != nil {
 		return err
 	}
 
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty5) validateBillingProfileDefinition(formats strfmt.Registry) error {
-
-	if err := validate.Required("billing_profile_definition", "body", m.BillingProfileDefinition); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty5) validateBillingProfileID(formats strfmt.Registry) error {
-
-	if err := validate.Required("billing_profile_id", "body", m.BillingProfileID); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty5) validateBillingProfiles(formats strfmt.Registry) error {
-
-	if err := validate.Required("billing_profiles", "body", m.BillingProfiles); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.BillingProfiles); i++ {
-		if swag.IsZero(m.BillingProfiles[i]) { // not required
+	for i := 0; i < len(m.AliasNumbers); i++ {
+		if swag.IsZero(m.AliasNumbers[i]) { // not required
 			continue
 		}
 
-		if m.BillingProfiles[i] != nil {
-			if err := m.BillingProfiles[i].Validate(formats); err != nil {
+		if m.AliasNumbers[i] != nil {
+			if err := m.AliasNumbers[i].Validate(formats); err != nil {
 				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("billing_profiles" + "." + strconv.Itoa(i))
+					return ve.ValidateName("alias_numbers" + "." + strconv.Itoa(i))
 				}
 				return err
 			}
@@ -243,18 +240,36 @@ func (m *Thenewlycreateditemorempty5) validateBillingProfiles(formats strfmt.Reg
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateContactID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateDisplayName(formats strfmt.Registry) error {
 
-	if err := validate.Required("contact_id", "body", m.ContactID); err != nil {
+	if err := validate.Required("display_name", "body", m.DisplayName); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateCreateTimestamp(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateDomain(formats strfmt.Registry) error {
 
-	if err := validate.Required("create_timestamp", "body", m.CreateTimestamp); err != nil {
+	if err := validate.Required("domain", "body", m.Domain); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty5) validateDomainID(formats strfmt.Registry) error {
+
+	if err := validate.Required("domain_id", "body", m.DomainID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty5) validateEmail(formats strfmt.Registry) error {
+
+	if err := validate.Required("email", "body", m.Email); err != nil {
 		return err
 	}
 
@@ -270,54 +285,99 @@ func (m *Thenewlycreateditemorempty5) validateExternalID(formats strfmt.Registry
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateInvoiceEmailTemplateID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateIsPbxGroup(formats strfmt.Registry) error {
 
-	if err := validate.Required("invoice_email_template_id", "body", m.InvoiceEmailTemplateID); err != nil {
+	if err := validate.Required("is_pbx_group", "body", m.IsPbxGroup); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateInvoiceTemplateID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateIsPbxPilot(formats strfmt.Registry) error {
 
-	if err := validate.Required("invoice_template_id", "body", m.InvoiceTemplateID); err != nil {
+	if err := validate.Required("is_pbx_pilot", "body", m.IsPbxPilot); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateMaxSubscribers(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateLock(formats strfmt.Registry) error {
 
-	if err := validate.Required("max_subscribers", "body", m.MaxSubscribers); err != nil {
+	if err := validate.Required("lock", "body", m.Lock); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateModifyTimestamp(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validatePassword(formats strfmt.Registry) error {
 
-	if err := validate.Required("modify_timestamp", "body", m.ModifyTimestamp); err != nil {
+	if err := validate.Required("password", "body", m.Password); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validatePassresetEmailTemplateID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validatePbxExtension(formats strfmt.Registry) error {
 
-	if err := validate.Required("passreset_email_template_id", "body", m.PassresetEmailTemplateID); err != nil {
+	if err := validate.Required("pbx_extension", "body", m.PbxExtension); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateProfilePackageID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validatePbxGroupIds(formats strfmt.Registry) error {
 
-	if err := validate.Required("profile_package_id", "body", m.ProfilePackageID); err != nil {
+	if err := validate.Required("pbx_group_ids", "body", m.PbxGroupIds); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty5) validatePbxGroupmemberIdsID(formats strfmt.Registry) error {
+
+	if err := validate.Required("pbx_groupmember_ids_id", "body", m.PbxGroupmemberIdsID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty5) validatePrimaryNumber(formats strfmt.Registry) error {
+
+	if err := validate.Required("primary_number", "body", m.PrimaryNumber); err != nil {
+		return err
+	}
+
+	if m.PrimaryNumber != nil {
+		if err := m.PrimaryNumber.Validate(formats); err != nil {
+			if ve, ok := err.(*errors.Validation); ok {
+				return ve.ValidateName("primary_number")
+			}
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty5) validateProfileID(formats strfmt.Registry) error {
+
+	if err := validate.Required("profile_id", "body", m.ProfileID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty5) validateProfileSetID(formats strfmt.Registry) error {
+
+	if err := validate.Required("profile_set_id", "body", m.ProfileSetID); err != nil {
 		return err
 	}
 
@@ -333,36 +393,36 @@ func (m *Thenewlycreateditemorempty5) validateStatus(formats strfmt.Registry) er
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateSubscriberEmailTemplateID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateTimezone(formats strfmt.Registry) error {
 
-	if err := validate.Required("subscriber_email_template_id", "body", m.SubscriberEmailTemplateID); err != nil {
+	if err := validate.Required("timezone", "body", m.Timezone); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateTerminateTimestamp(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateUsername(formats strfmt.Registry) error {
 
-	if err := validate.Required("terminate_timestamp", "body", m.TerminateTimestamp); err != nil {
+	if err := validate.Required("username", "body", m.Username); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateType(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateWebpassword(formats strfmt.Registry) error {
 
-	if err := validate.Required("type", "body", m.Type); err != nil {
+	if err := validate.Required("webpassword", "body", m.Webpassword); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty5) validateVatRate(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty5) validateWebusername(formats strfmt.Registry) error {
 
-	if err := validate.Required("vat_rate", "body", m.VatRate); err != nil {
+	if err := validate.Required("webusername", "body", m.Webusername); err != nil {
 		return err
 	}
 

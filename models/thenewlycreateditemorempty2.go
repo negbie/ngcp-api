@@ -6,35 +6,51 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty2 Thenewlycreateditemorempty2
+//
 // swagger:model Thenewlycreateditemorempty2
 type Thenewlycreateditemorempty2 struct {
 
-	// description
+	// active
 	// Required: true
-	Description *string `json:"description"`
+	Active *string `json:"active"`
 
-	// ncos level id
+	// recur
 	// Required: true
-	NcosLevelID *string `json:"ncos_level_id"`
+	Recur *string `json:"recur"`
+
+	// subscriber id
+	// Required: true
+	SubscriberID *string `json:"subscriber_id"`
+
+	// time
+	// Required: true
+	Time *string `json:"time"`
 }
 
 // Validate validates this thenewlycreateditemorempty2
 func (m *Thenewlycreateditemorempty2) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateDescription(formats); err != nil {
+	if err := m.validateActive(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateNcosLevelID(formats); err != nil {
+	if err := m.validateRecur(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateSubscriberID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTime(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -44,18 +60,36 @@ func (m *Thenewlycreateditemorempty2) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty2) validateDescription(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty2) validateActive(formats strfmt.Registry) error {
 
-	if err := validate.Required("description", "body", m.Description); err != nil {
+	if err := validate.Required("active", "body", m.Active); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty2) validateNcosLevelID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty2) validateRecur(formats strfmt.Registry) error {
 
-	if err := validate.Required("ncos_level_id", "body", m.NcosLevelID); err != nil {
+	if err := validate.Required("recur", "body", m.Recur); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty2) validateSubscriberID(formats strfmt.Registry) error {
+
+	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty2) validateTime(formats strfmt.Registry) error {
+
+	if err := validate.Required("time", "body", m.Time); err != nil {
 		return err
 	}
 

@@ -6,51 +6,235 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty Thenewlycreateditemorempty
+//
 // swagger:model Thenewlycreateditemorempty
 type Thenewlycreateditemorempty struct {
 
-	// authoritative
+	// bankname
 	// Required: true
-	Authoritative *string `json:"authoritative"`
+	Bankname *string `json:"bankname"`
 
-	// name
+	// bic
 	// Required: true
-	Name *string `json:"name"`
+	Bic *string `json:"bic"`
 
-	// prefix
+	// city
 	// Required: true
-	Prefix *string `json:"prefix"`
+	City *string `json:"city"`
 
-	// skip rewrite
+	// company
 	// Required: true
-	SkipRewrite *string `json:"skip_rewrite"`
+	Company *string `json:"company"`
+
+	// comregnum
+	// Required: true
+	Comregnum *string `json:"comregnum"`
+
+	// country
+	// Required: true
+	Country *string `json:"country"`
+
+	// email
+	// Required: true
+	Email *string `json:"email"`
+
+	// faxnumber
+	// Required: true
+	Faxnumber *string `json:"faxnumber"`
+
+	// firstname
+	// Required: true
+	Firstname *string `json:"firstname"`
+
+	// gpp0
+	// Required: true
+	Gpp0 *string `json:"gpp0"`
+
+	// gpp1
+	// Required: true
+	Gpp1 *string `json:"gpp1"`
+
+	// gpp2
+	// Required: true
+	Gpp2 *string `json:"gpp2"`
+
+	// gpp3
+	// Required: true
+	Gpp3 *string `json:"gpp3"`
+
+	// gpp4
+	// Required: true
+	Gpp4 *string `json:"gpp4"`
+
+	// gpp5
+	// Required: true
+	Gpp5 *string `json:"gpp5"`
+
+	// gpp6
+	// Required: true
+	Gpp6 *string `json:"gpp6"`
+
+	// gpp7
+	// Required: true
+	Gpp7 *string `json:"gpp7"`
+
+	// gpp8
+	// Required: true
+	Gpp8 *string `json:"gpp8"`
+
+	// gpp9
+	// Required: true
+	Gpp9 *string `json:"gpp9"`
+
+	// iban
+	// Required: true
+	Iban *string `json:"iban"`
+
+	// lastname
+	// Required: true
+	Lastname *string `json:"lastname"`
+
+	// mobilenumber
+	// Required: true
+	Mobilenumber *string `json:"mobilenumber"`
+
+	// phonenumber
+	// Required: true
+	Phonenumber *string `json:"phonenumber"`
+
+	// postcode
+	// Required: true
+	Postcode *string `json:"postcode"`
+
+	// street
+	// Required: true
+	Street *string `json:"street"`
+
+	// timezone
+	// Required: true
+	Timezone *string `json:"timezone"`
+
+	// vatnum
+	// Required: true
+	Vatnum *string `json:"vatnum"`
 }
 
 // Validate validates this thenewlycreateditemorempty
 func (m *Thenewlycreateditemorempty) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateAuthoritative(formats); err != nil {
+	if err := m.validateBankname(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateName(formats); err != nil {
+	if err := m.validateBic(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validatePrefix(formats); err != nil {
+	if err := m.validateCity(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSkipRewrite(formats); err != nil {
+	if err := m.validateCompany(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateComregnum(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateCountry(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateEmail(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFaxnumber(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateFirstname(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp0(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp1(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp2(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp3(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp4(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp5(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp6(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp7(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp8(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateGpp9(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateIban(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateLastname(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateMobilenumber(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePhonenumber(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validatePostcode(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateStreet(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateTimezone(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateVatnum(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,36 +244,243 @@ func (m *Thenewlycreateditemorempty) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty) validateAuthoritative(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty) validateBankname(formats strfmt.Registry) error {
 
-	if err := validate.Required("authoritative", "body", m.Authoritative); err != nil {
+	if err := validate.Required("bankname", "body", m.Bankname); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty) validateName(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty) validateBic(formats strfmt.Registry) error {
 
-	if err := validate.Required("name", "body", m.Name); err != nil {
+	if err := validate.Required("bic", "body", m.Bic); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty) validatePrefix(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty) validateCity(formats strfmt.Registry) error {
 
-	if err := validate.Required("prefix", "body", m.Prefix); err != nil {
+	if err := validate.Required("city", "body", m.City); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty) validateSkipRewrite(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty) validateCompany(formats strfmt.Registry) error {
 
-	if err := validate.Required("skip_rewrite", "body", m.SkipRewrite); err != nil {
+	if err := validate.Required("company", "body", m.Company); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateComregnum(formats strfmt.Registry) error {
+
+	if err := validate.Required("comregnum", "body", m.Comregnum); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateCountry(formats strfmt.Registry) error {
+
+	if err := validate.Required("country", "body", m.Country); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateEmail(formats strfmt.Registry) error {
+
+	if err := validate.Required("email", "body", m.Email); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateFaxnumber(formats strfmt.Registry) error {
+
+	if err := validate.Required("faxnumber", "body", m.Faxnumber); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateFirstname(formats strfmt.Registry) error {
+
+	if err := validate.Required("firstname", "body", m.Firstname); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp0(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp0", "body", m.Gpp0); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp1(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp1", "body", m.Gpp1); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp2(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp2", "body", m.Gpp2); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp3(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp3", "body", m.Gpp3); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp4(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp4", "body", m.Gpp4); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp5(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp5", "body", m.Gpp5); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp6(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp6", "body", m.Gpp6); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp7(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp7", "body", m.Gpp7); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp8(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp8", "body", m.Gpp8); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateGpp9(formats strfmt.Registry) error {
+
+	if err := validate.Required("gpp9", "body", m.Gpp9); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateIban(formats strfmt.Registry) error {
+
+	if err := validate.Required("iban", "body", m.Iban); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateLastname(formats strfmt.Registry) error {
+
+	if err := validate.Required("lastname", "body", m.Lastname); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateMobilenumber(formats strfmt.Registry) error {
+
+	if err := validate.Required("mobilenumber", "body", m.Mobilenumber); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validatePhonenumber(formats strfmt.Registry) error {
+
+	if err := validate.Required("phonenumber", "body", m.Phonenumber); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validatePostcode(formats strfmt.Registry) error {
+
+	if err := validate.Required("postcode", "body", m.Postcode); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateStreet(formats strfmt.Registry) error {
+
+	if err := validate.Required("street", "body", m.Street); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateTimezone(formats strfmt.Registry) error {
+
+	if err := validate.Required("timezone", "body", m.Timezone); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty) validateVatnum(formats strfmt.Registry) error {
+
+	if err := validate.Required("vatnum", "body", m.Vatnum); err != nil {
 		return err
 	}
 

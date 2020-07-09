@@ -9,12 +9,11 @@ import (
 	"fmt"
 
 	"github.com/go-openapi/runtime"
-
-	strfmt "github.com/go-openapi/strfmt"
+	"github.com/go-openapi/strfmt"
 )
 
 // New creates a new faxes API client.
-func New(transport runtime.ClientTransport, formats strfmt.Registry) *Client {
+func New(transport runtime.ClientTransport, formats strfmt.Registry) ClientService {
 	return &Client{transport: transport, formats: formats}
 }
 
@@ -26,39 +25,116 @@ type Client struct {
 	formats   strfmt.Registry
 }
 
-/*
-FaxesByIDGet gets a specific fax
+// ClientService is the interface for Client methods
+type ClientService interface {
+	CreateanewFax(params *CreateanewFaxParams) (*CreateanewFaxCreated, error)
 
-TODO: Add Description
+	GetFaxitems(params *GetFaxitemsParams) (*GetFaxitemsOK, error)
+
+	GetaspecificFax(params *GetaspecificFaxParams) (*GetaspecificFaxOK, error)
+
+	SetTransport(transport runtime.ClientTransport)
+}
+
+/*
+  CreateanewFax creates a new fax
 */
-func (a *Client) FaxesByIDGet(params *FaxesByIDGetParams) (*FaxesByIDGetOK, error) {
+func (a *Client) CreateanewFax(params *CreateanewFaxParams) (*CreateanewFaxCreated, error) {
 	// TODO: Validate the params before sending
 	if params == nil {
-		params = NewFaxesByIDGetParams()
+		params = NewCreateanewFaxParams()
 	}
 
 	result, err := a.transport.Submit(&runtime.ClientOperation{
-		ID:                 "FaxesByIdGet",
-		Method:             "GET",
-		PathPattern:        "/faxes/{id}",
+		ID:                 "CreateanewFax",
+		Method:             "POST",
+		PathPattern:        "/faxes",
 		ProducesMediaTypes: []string{"application/json"},
 		ConsumesMediaTypes: []string{"application/json"},
 		Schemes:            []string{"https"},
 		Params:             params,
-		Reader:             &FaxesByIDGetReader{formats: a.formats},
+		Reader:             &CreateanewFaxReader{formats: a.formats},
 		Context:            params.Context,
 		Client:             params.HTTPClient,
 	})
 	if err != nil {
 		return nil, err
 	}
-	success, ok := result.(*FaxesByIDGetOK)
+	success, ok := result.(*CreateanewFaxCreated)
 	if ok {
 		return success, nil
 	}
 	// unexpected success response
 	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
-	msg := fmt.Sprintf("unexpected success response for FaxesByIdGet: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	msg := fmt.Sprintf("unexpected success response for CreateanewFax: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetFaxitems gets fax items
+*/
+func (a *Client) GetFaxitems(params *GetFaxitemsParams) (*GetFaxitemsOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetFaxitemsParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetFaxitems",
+		Method:             "GET",
+		PathPattern:        "/faxes",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetFaxitemsReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetFaxitemsOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetFaxitems: API contract not enforced by server. Client expected to get an error, but got: %T", result)
+	panic(msg)
+}
+
+/*
+  GetaspecificFax gets a specific fax
+*/
+func (a *Client) GetaspecificFax(params *GetaspecificFaxParams) (*GetaspecificFaxOK, error) {
+	// TODO: Validate the params before sending
+	if params == nil {
+		params = NewGetaspecificFaxParams()
+	}
+
+	result, err := a.transport.Submit(&runtime.ClientOperation{
+		ID:                 "GetaspecificFax",
+		Method:             "GET",
+		PathPattern:        "/faxes/{id}",
+		ProducesMediaTypes: []string{"application/json"},
+		ConsumesMediaTypes: []string{"application/json"},
+		Schemes:            []string{"https"},
+		Params:             params,
+		Reader:             &GetaspecificFaxReader{formats: a.formats},
+		Context:            params.Context,
+		Client:             params.HTTPClient,
+	})
+	if err != nil {
+		return nil, err
+	}
+	success, ok := result.(*GetaspecificFaxOK)
+	if ok {
+		return success, nil
+	}
+	// unexpected success response
+	// safeguard: normally, absent a default response, unknown success responses return an error above: so this is a codegen issue
+	msg := fmt.Sprintf("unexpected success response for GetaspecificFax: API contract not enforced by server. Client expected to get an error, but got: %T", result)
 	panic(msg)
 }
 

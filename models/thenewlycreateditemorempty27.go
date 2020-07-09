@@ -6,51 +6,53 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
+	"strconv"
 
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty27 Thenewlycreateditemorempty27
+//
 // swagger:model Thenewlycreateditemorempty27
 type Thenewlycreateditemorempty27 struct {
 
-	// id
+	// blocks
 	// Required: true
-	ID *string `json:"id"`
+	Blocks []*Block `json:"blocks"`
+
+	// contract id
+	// Required: true
+	ContractID *string `json:"contract_id"`
+
+	// description
+	// Required: true
+	Description *string `json:"description"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
-
-	// number
-	// Required: true
-	Number *string `json:"number"`
-
-	// reseller id
-	// Required: true
-	ResellerID *string `json:"reseller_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty27
 func (m *Thenewlycreateditemorempty27) Validate(formats strfmt.Registry) error {
 	var res []error
 
-	if err := m.validateID(formats); err != nil {
+	if err := m.validateBlocks(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateContractID(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDescription(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if err := m.validateName(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateNumber(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
@@ -60,9 +62,43 @@ func (m *Thenewlycreateditemorempty27) Validate(formats strfmt.Registry) error {
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty27) validateID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty27) validateBlocks(formats strfmt.Registry) error {
 
-	if err := validate.Required("id", "body", m.ID); err != nil {
+	if err := validate.Required("blocks", "body", m.Blocks); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Blocks); i++ {
+		if swag.IsZero(m.Blocks[i]) { // not required
+			continue
+		}
+
+		if m.Blocks[i] != nil {
+			if err := m.Blocks[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("blocks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty27) validateContractID(formats strfmt.Registry) error {
+
+	if err := validate.Required("contract_id", "body", m.ContractID); err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty27) validateDescription(formats strfmt.Registry) error {
+
+	if err := validate.Required("description", "body", m.Description); err != nil {
 		return err
 	}
 
@@ -72,24 +108,6 @@ func (m *Thenewlycreateditemorempty27) validateID(formats strfmt.Registry) error
 func (m *Thenewlycreateditemorempty27) validateName(formats strfmt.Registry) error {
 
 	if err := validate.Required("name", "body", m.Name); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty27) validateNumber(formats strfmt.Registry) error {
-
-	if err := validate.Required("number", "body", m.Number); err != nil {
-		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty27) validateResellerID(formats strfmt.Registry) error {
-
-	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
 	}
 

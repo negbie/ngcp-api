@@ -6,14 +6,14 @@ package models
 // Editing this file might prove futile when you re-run the swagger generate command
 
 import (
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Calls Calls
+//
 // swagger:model Calls
 type Calls struct {
 
@@ -35,35 +35,35 @@ type Calls struct {
 
 	// destination carrier billing fee id
 	// Required: true
-	DestinationCarrierBillingFeeID *string `json:"destination_carrier_billing_fee_id"`
+	DestinationCarrierBillingFeeID *float64 `json:"destination_carrier_billing_fee_id"`
 
 	// destination carrier billing zone id
 	// Required: true
-	DestinationCarrierBillingZoneID *string `json:"destination_carrier_billing_zone_id"`
+	DestinationCarrierBillingZoneID *float64 `json:"destination_carrier_billing_zone_id"`
 
 	// destination carrier cost
 	// Required: true
-	DestinationCarrierCost *string `json:"destination_carrier_cost"`
+	DestinationCarrierCost *float64 `json:"destination_carrier_cost"`
 
 	// destination carrier free time
 	// Required: true
-	DestinationCarrierFreeTime *string `json:"destination_carrier_free_time"`
+	DestinationCarrierFreeTime *float64 `json:"destination_carrier_free_time"`
 
 	// destination customer billing fee id
 	// Required: true
-	DestinationCustomerBillingFeeID *string `json:"destination_customer_billing_fee_id"`
+	DestinationCustomerBillingFeeID *float64 `json:"destination_customer_billing_fee_id"`
 
 	// destination customer billing zone id
 	// Required: true
-	DestinationCustomerBillingZoneID *string `json:"destination_customer_billing_zone_id"`
+	DestinationCustomerBillingZoneID *float64 `json:"destination_customer_billing_zone_id"`
 
 	// destination customer cost
 	// Required: true
-	DestinationCustomerCost *string `json:"destination_customer_cost"`
+	DestinationCustomerCost *float64 `json:"destination_customer_cost"`
 
 	// destination customer free time
 	// Required: true
-	DestinationCustomerFreeTime *string `json:"destination_customer_free_time"`
+	DestinationCustomerFreeTime *float64 `json:"destination_customer_free_time"`
 
 	// destination customer id
 	// Required: true
@@ -135,19 +135,19 @@ type Calls struct {
 
 	// destination reseller billing fee id
 	// Required: true
-	DestinationResellerBillingFeeID *string `json:"destination_reseller_billing_fee_id"`
+	DestinationResellerBillingFeeID *float64 `json:"destination_reseller_billing_fee_id"`
 
 	// destination reseller billing zone id
 	// Required: true
-	DestinationResellerBillingZoneID *string `json:"destination_reseller_billing_zone_id"`
+	DestinationResellerBillingZoneID *float64 `json:"destination_reseller_billing_zone_id"`
 
 	// destination reseller cost
 	// Required: true
-	DestinationResellerCost *string `json:"destination_reseller_cost"`
+	DestinationResellerCost *float64 `json:"destination_reseller_cost"`
 
 	// destination reseller free time
 	// Required: true
-	DestinationResellerFreeTime *string `json:"destination_reseller_free_time"`
+	DestinationResellerFreeTime *float64 `json:"destination_reseller_free_time"`
 
 	// destination user
 	// Required: true
@@ -171,7 +171,7 @@ type Calls struct {
 
 	// duration
 	// Required: true
-	Duration *string `json:"duration"`
+	Duration *float64 `json:"duration"`
 
 	// export status
 	// Required: true
@@ -203,19 +203,19 @@ type Calls struct {
 
 	// source carrier billing fee id
 	// Required: true
-	SourceCarrierBillingFeeID *string `json:"source_carrier_billing_fee_id"`
+	SourceCarrierBillingFeeID *float64 `json:"source_carrier_billing_fee_id"`
 
 	// source carrier billing zone id
 	// Required: true
-	SourceCarrierBillingZoneID *string `json:"source_carrier_billing_zone_id"`
+	SourceCarrierBillingZoneID *float64 `json:"source_carrier_billing_zone_id"`
 
 	// source carrier cost
 	// Required: true
-	SourceCarrierCost *string `json:"source_carrier_cost"`
+	SourceCarrierCost *float64 `json:"source_carrier_cost"`
 
 	// source carrier free time
 	// Required: true
-	SourceCarrierFreeTime *string `json:"source_carrier_free_time"`
+	SourceCarrierFreeTime *float64 `json:"source_carrier_free_time"`
 
 	// source cli
 	// Required: true
@@ -223,23 +223,23 @@ type Calls struct {
 
 	// source clir
 	// Required: true
-	SourceClir *string `json:"source_clir"`
+	SourceClir *bool `json:"source_clir"`
 
 	// source customer billing fee id
 	// Required: true
-	SourceCustomerBillingFeeID *string `json:"source_customer_billing_fee_id"`
+	SourceCustomerBillingFeeID *float64 `json:"source_customer_billing_fee_id"`
 
 	// source customer billing zone id
 	// Required: true
-	SourceCustomerBillingZoneID *string `json:"source_customer_billing_zone_id"`
+	SourceCustomerBillingZoneID *float64 `json:"source_customer_billing_zone_id"`
 
 	// source customer cost
 	// Required: true
-	SourceCustomerCost *string `json:"source_customer_cost"`
+	SourceCustomerCost *float64 `json:"source_customer_cost"`
 
 	// source customer free time
 	// Required: true
-	SourceCustomerFreeTime *string `json:"source_customer_free_time"`
+	SourceCustomerFreeTime *float64 `json:"source_customer_free_time"`
 
 	// source customer id
 	// Required: true
@@ -311,19 +311,19 @@ type Calls struct {
 
 	// source reseller billing fee id
 	// Required: true
-	SourceResellerBillingFeeID *string `json:"source_reseller_billing_fee_id"`
+	SourceResellerBillingFeeID *float64 `json:"source_reseller_billing_fee_id"`
 
 	// source reseller billing zone id
 	// Required: true
-	SourceResellerBillingZoneID *string `json:"source_reseller_billing_zone_id"`
+	SourceResellerBillingZoneID *float64 `json:"source_reseller_billing_zone_id"`
 
 	// source reseller cost
 	// Required: true
-	SourceResellerCost *string `json:"source_reseller_cost"`
+	SourceResellerCost *float64 `json:"source_reseller_cost"`
 
 	// source reseller free time
 	// Required: true
-	SourceResellerFreeTime *string `json:"source_reseller_free_time"`
+	SourceResellerFreeTime *float64 `json:"source_reseller_free_time"`
 
 	// source user
 	// Required: true

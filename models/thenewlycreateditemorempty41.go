@@ -8,49 +8,91 @@ package models
 import (
 	"strconv"
 
-	strfmt "github.com/go-openapi/strfmt"
-
 	"github.com/go-openapi/errors"
+	"github.com/go-openapi/strfmt"
 	"github.com/go-openapi/swag"
 	"github.com/go-openapi/validate"
 )
 
 // Thenewlycreateditemorempty41 Thenewlycreateditemorempty41
+//
 // swagger:model Thenewlycreateditemorempty41
 type Thenewlycreateditemorempty41 struct {
+
+	// blocks
+	// Required: true
+	Blocks []*Block `json:"blocks"`
+
+	// description
+	// Required: true
+	Description *string `json:"description"`
 
 	// name
 	// Required: true
 	Name *string `json:"name"`
 
-	// subscriber id
+	// reseller id
 	// Required: true
-	SubscriberID *string `json:"subscriber_id"`
-
-	// times
-	// Required: true
-	Times []*Time `json:"times"`
+	ResellerID *string `json:"reseller_id"`
 }
 
 // Validate validates this thenewlycreateditemorempty41
 func (m *Thenewlycreateditemorempty41) Validate(formats strfmt.Registry) error {
 	var res []error
 
+	if err := m.validateBlocks(formats); err != nil {
+		res = append(res, err)
+	}
+
+	if err := m.validateDescription(formats); err != nil {
+		res = append(res, err)
+	}
+
 	if err := m.validateName(formats); err != nil {
 		res = append(res, err)
 	}
 
-	if err := m.validateSubscriberID(formats); err != nil {
-		res = append(res, err)
-	}
-
-	if err := m.validateTimes(formats); err != nil {
+	if err := m.validateResellerID(formats); err != nil {
 		res = append(res, err)
 	}
 
 	if len(res) > 0 {
 		return errors.CompositeValidationError(res...)
 	}
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty41) validateBlocks(formats strfmt.Registry) error {
+
+	if err := validate.Required("blocks", "body", m.Blocks); err != nil {
+		return err
+	}
+
+	for i := 0; i < len(m.Blocks); i++ {
+		if swag.IsZero(m.Blocks[i]) { // not required
+			continue
+		}
+
+		if m.Blocks[i] != nil {
+			if err := m.Blocks[i].Validate(formats); err != nil {
+				if ve, ok := err.(*errors.Validation); ok {
+					return ve.ValidateName("blocks" + "." + strconv.Itoa(i))
+				}
+				return err
+			}
+		}
+
+	}
+
+	return nil
+}
+
+func (m *Thenewlycreateditemorempty41) validateDescription(formats strfmt.Registry) error {
+
+	if err := validate.Required("description", "body", m.Description); err != nil {
+		return err
+	}
+
 	return nil
 }
 
@@ -63,35 +105,10 @@ func (m *Thenewlycreateditemorempty41) validateName(formats strfmt.Registry) err
 	return nil
 }
 
-func (m *Thenewlycreateditemorempty41) validateSubscriberID(formats strfmt.Registry) error {
+func (m *Thenewlycreateditemorempty41) validateResellerID(formats strfmt.Registry) error {
 
-	if err := validate.Required("subscriber_id", "body", m.SubscriberID); err != nil {
+	if err := validate.Required("reseller_id", "body", m.ResellerID); err != nil {
 		return err
-	}
-
-	return nil
-}
-
-func (m *Thenewlycreateditemorempty41) validateTimes(formats strfmt.Registry) error {
-
-	if err := validate.Required("times", "body", m.Times); err != nil {
-		return err
-	}
-
-	for i := 0; i < len(m.Times); i++ {
-		if swag.IsZero(m.Times[i]) { // not required
-			continue
-		}
-
-		if m.Times[i] != nil {
-			if err := m.Times[i].Validate(formats); err != nil {
-				if ve, ok := err.(*errors.Validation); ok {
-					return ve.ValidateName("times" + "." + strconv.Itoa(i))
-				}
-				return err
-			}
-		}
-
 	}
 
 	return nil

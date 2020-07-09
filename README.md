@@ -12,3 +12,4 @@ For this generation to compile you need to have some packages in your GOPATH:
 You can get these now with: go get -u -f ./...
 
 oapi-codegen -generate "types,client,spec" OpenApi3Json.json > clientOpenAPI.go
+java -jar openapi-generator-cli.jar generate -g go -o api3 -i raw_swagger.json
